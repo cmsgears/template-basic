@@ -1,0 +1,1 @@
+The assets directory will be used to store all the dynamically generated assets bundles.

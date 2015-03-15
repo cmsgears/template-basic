@@ -20,7 +20,7 @@
 		"issues": "https://www.amazingdesk.com/cmsgears/issues/",
 		"blog": "http://cmsgears.tutorials24x7.com/"
 	},
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
     "repositories": [
 		{
 			"type": "vcs",

@@ -29,7 +29,8 @@ Template Configuration - New
 1. Run the php script init.php to initialize the application for the predefined environments. We can set the required environment before running the script.
 2. Create a new database and update the db configuration in common/config/main-local.php accordingly.
 3. Apply migrations with console command yii migrate. This will create all the required tables.
-4. Set document roots of your Web server. An example for locahost is as mentioned below:
+4. Update htaccess for both admin and web applications.
+5. Set document roots of your Web server. An example for locahost is as mentioned below:
 
 Frontend - http://localhost/basic/ for path <www path>/basic/frontend/web/
 Admin    - http://localhost/basic/admin for path <www path>/basic/admin/web/
@@ -39,5 +40,17 @@ Template Configuration - Upgrade
 =========================================
 
 TODO: Steps to upgrade from previous release.
+
+=========================================
+Default Pages
+=========================================
+1. Landing
+2. Login
+3. Register
+4. Forgot Password
+5. Reset Password
+6. User Home
+7. User Profile
+8. User Settings
 
 Notes: The detailed description about the basic template can be found at http://www.cmsgears.org/templates/basic

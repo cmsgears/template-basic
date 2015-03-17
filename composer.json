@@ -29,13 +29,23 @@
 		{
 			"type": "vcs",
 			"url": "https://git.vcdevhub.com/cmsgears/module-forms.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/widget-cleditor.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://git.vcdevhub.com/foxslider/cmg-foxslider.git"
 		}
     ],
     "require": {
         "yiisoft/yii2": "2.0.3",
         "yiisoft/yii2-swiftmailer": "2.0.3",
 		"cmsgears/module-core": "dev-dev",
-		"cmsgears/module-forms": "dev-dev"
+		"cmsgears/module-forms": "dev-dev",
+		"cmsgears/widget-cleditor": "dev-dev",
+		"foxslider/cmg-foxslider": "dev-dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

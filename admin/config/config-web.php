@@ -37,7 +37,7 @@ return [
         	'useRbac' => true,
         	'loginRedirectPage' => '/dashboard',
         	'logoutRedirectPage' => '/login',
-        	'editorClass' => 'cleditor\widget\ClEditor',
+        	'editorClass' => 'cmsgears\cleditor\ClEditor',
         ]
     ],
     'params' => $params

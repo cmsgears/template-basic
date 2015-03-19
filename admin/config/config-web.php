@@ -16,7 +16,7 @@ return [
             'class' => 'cmsgears\core\admin\Module'
         ],
         'foxslider' => [
-            'class' => 'foxslider\module\Module'
+            'class' => 'foxslider\Module'
         ]
     ],
     'components' => [

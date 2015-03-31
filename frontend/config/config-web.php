@@ -33,10 +33,11 @@ return [
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
 	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 	        	'apix/<action:(contact)>' => 'cmgforms/apix/site/<action>',
+	        	'apix/<action:(login|register|logout)>' => 'cmgcore/apix/site/<action>',
 				// regular request rules
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
-	        	'<action:(login|register)>' => 'cmgcore/site/<action>',
+	        	'<action:(login|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
 	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>'
 	        ]
 		],

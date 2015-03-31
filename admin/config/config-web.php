@@ -14,9 +14,6 @@ return [
     'modules' => [
         'cmgcore' => [
             'class' => 'cmsgears\core\admin\Module'
-        ],
-        'foxslider' => [
-            'class' => 'foxslider\Module'
         ]
     ],
     'components' => [

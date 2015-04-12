@@ -35,22 +35,22 @@ return [
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core'
         ],
-        'cmgFileManager' => [
-        	'class' => 'cmsgears\core\common\components\FileManager',
-        	'uploadDirectory' => '/office/development/project-files/cdn/cmsgears/',
-        	'uploadUrl' => '/cdn/cmsgears/'
-        ],
-        'cmgCoreMessage' => [
-        	'class' => 'cmsgears\core\common\components\MessageDbCore',
+        'cmgCoreMessageSource' => [
+        	'class' => 'cmsgears\core\common\components\MessageSourceCore',
         ],
         'cmgCoreMailer' => [
         	'class' => 'cmsgears\core\common\components\MailerCore'
         ],
-        'cmgFormsMessage' => [
-        	'class' => 'cmsgears\forms\common\components\MessageDbForms',
+        'cmgFormsMessageSource' => [
+        	'class' => 'cmsgears\forms\common\components\MessageSourceForms',
         ],
         'cmgFormsMailer' => [
         	'class' => 'cmsgears\forms\common\components\MailerForms'
+        ],
+        'fileManager' => [
+        	'class' => 'cmsgears\files\components\FileManager',
+        	'uploadDir' => '/office/development/project-files/cdn/cmsgears/',
+        	'uploadUrl' => '/cdn/cmsgears/'
         ]
     ]
 ];

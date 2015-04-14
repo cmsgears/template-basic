@@ -3,6 +3,7 @@
 Yii::setAlias( 'common', dirname( __DIR__ ) );
 Yii::setAlias( 'themes', dirname( dirname( __DIR__ ) ) . '/themes' );
 Yii::setAlias( 'widgets', dirname( dirname( __DIR__ ) ) . '/widgets' );
+Yii::setAlias( 'uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
 
 // Yii Applications
 Yii::setAlias( 'console', dirname( dirname( __DIR__ ) ) . '/console' );

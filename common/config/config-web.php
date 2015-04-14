@@ -6,7 +6,7 @@ return [
         'user' => [
             'identityClass' => 'cmsgears\core\common\models\entities\User',
             'enableAutoLogin' => true,
-            'loginUrl' => 'login'
+            'loginUrl' => '@web/login'
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache'
@@ -49,8 +49,7 @@ return [
         ],
         'fileManager' => [
         	'class' => 'cmsgears\files\components\FileManager',
-        	'uploadDir' => '/office/development/project-files/cdn/cmsgears/',
-        	'uploadUrl' => '/cdn/cmsgears/'
+        	'uploadUrl' => 'http://localhost/cmgdemobasic/uploads/'
         ]
     ]
 ];

@@ -8,6 +8,7 @@ return [
             'admin/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'uploads'
         ],
         'setExecutable' => [
             'yii',
@@ -25,6 +26,7 @@ return [
             'admin/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'uploads'
         ],
         'setExecutable' => [
             'yii'

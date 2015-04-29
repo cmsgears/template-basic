@@ -6,7 +6,7 @@ return [
         'user' => [
             'identityClass' => 'cmsgears\core\common\models\entities\User',
             'enableAutoLogin' => true,
-            'loginUrl' => 'login'
+            'loginUrl' => '@web/login'
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache'
@@ -35,13 +35,21 @@ return [
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core'
         ],
+        'cmgCoreMessageSource' => [
+        	'class' => 'cmsgears\core\common\components\MessageSourceCore',
+        ],
         'cmgCoreMailer' => [
-        	'class' => 'cmsgears\core\common\components\Mailer'
+        	'class' => 'cmsgears\core\common\components\MailerCore'
+        ],
+        'cmgFormsMessageSource' => [
+        	'class' => 'cmsgears\forms\common\components\MessageSourceForms',
+        ],
+        'cmgFormsMailer' => [
+        	'class' => 'cmsgears\forms\common\components\MailerForms'
         ],
         'fileManager' => [
-        	'class' => 'cmsgears\core\common\components\FileManager',
-        	'uploadDirectory' => '<update directory path>',
-        	'uploadUrl' => '<update upload directory url>'
+        	'class' => 'cmsgears\files\components\FileManager',
+        	'uploadUrl' => 'http://localhost/cmgdemobasic/uploads/'
         ]
     ]
 ];

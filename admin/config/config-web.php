@@ -14,9 +14,6 @@ return [
     'modules' => [
         'cmgcore' => [
             'class' => 'cmsgears\core\admin\Module'
-        ],
-        'foxslider' => [
-            'class' => 'foxslider\module\Module'
         ]
     ],
     'components' => [
@@ -37,7 +34,11 @@ return [
         	'useRbac' => true,
         	'loginRedirectPage' => '/dashboard',
         	'logoutRedirectPage' => '/login',
-        	'editorClass' => 'cleditor\widget\ClEditor',
+        	'editorClass' => 'cmsgears\cleditor\ClEditor',
+        ],
+        'sidebar' => [
+        	'class' => 'cmsgears\core\admin\components\Sidebar',
+        	'modules' => [ 'cmgcore' ]
         ]
     ],
     'params' => $params

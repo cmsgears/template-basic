@@ -14,13 +14,13 @@
 		}
 	],
 	"support": {
-        "source": "http://www.cmsgears.org/downloads/templates/basic",
+        "source": "http://www.cmsgears.com/templates/basic/downloads",
 		"forum": "http://forum.cmsgears.org/",
 		"resources": "http://resources.cmsgears.org/",
 		"issues": "https://www.amazingdesk.com/cmsgears/issues/",
 		"blog": "http://cmsgears.tutorials24x7.com/"
 	},
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
     "repositories": [
 		{
 			"type": "vcs",
@@ -29,13 +29,23 @@
 		{
 			"type": "vcs",
 			"url": "https://git.vcdevhub.com/cmsgears/module-forms.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/widget-cleditor.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/plugin-file-manager.git"
 		}
     ],
     "require": {
         "yiisoft/yii2": "2.0.3",
         "yiisoft/yii2-swiftmailer": "2.0.3",
 		"cmsgears/module-core": "dev-dev",
-		"cmsgears/module-forms": "dev-dev"
+		"cmsgears/module-forms": "dev-dev",
+		"cmsgears/widget-cleditor": "dev-dev",
+		"cmsgears/plugin-file-manager": "dev-dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

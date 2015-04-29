@@ -35,6 +35,10 @@ return [
         	'loginRedirectPage' => '/dashboard',
         	'logoutRedirectPage' => '/login',
         	'editorClass' => 'cmsgears\cleditor\ClEditor',
+        ],
+        'sidebar' => [
+        	'class' => 'cmsgears\core\admin\components\Sidebar',
+        	'modules' => [ 'cmgcore' ]
         ]
     ],
     'params' => $params

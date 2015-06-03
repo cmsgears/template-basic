@@ -13,6 +13,7 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false
 		],
         'request' => [
@@ -29,27 +30,30 @@ return [
                 ],
             ]
         ],
+        'formatter' => [
+        	'dateFormat' => 'yyyy-MM-dd',
+        	'datetimeFormat' => "yyyy-MM-dd HH:mm:ss"
+        ],
         'errorHandler' => [
             'errorAction' => 'cmgcore/site/error',
         ],
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core'
         ],
-        'cmgCoreMessageSource' => [
-        	'class' => 'cmsgears\core\common\components\MessageSourceCore',
+        'cmgCoreMessage' => [
+        	'class' => 'cmsgears\core\common\components\MessageSource',
         ],
         'cmgCoreMailer' => [
-        	'class' => 'cmsgears\core\common\components\MailerCore'
+        	'class' => 'cmsgears\core\common\components\Mailer'
         ],
-        'cmgFormsMessageSource' => [
-        	'class' => 'cmsgears\forms\common\components\MessageSourceForms',
+        'cmgFormsMessage' => [
+        	'class' => 'cmsgears\forms\common\components\MessageSource',
         ],
         'cmgFormsMailer' => [
-        	'class' => 'cmsgears\forms\common\components\MailerForms'
+        	'class' => 'cmsgears\forms\common\components\Mailer'
         ],
         'fileManager' => [
-        	'class' => 'cmsgears\files\components\FileManager',
-        	'uploadUrl' => 'http://localhost/cmgdemobasic/uploads/'
+        	'class' => 'cmsgears\files\components\FileManager'
         ]
     ]
 ];

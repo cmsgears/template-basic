@@ -21,8 +21,8 @@ echo "Yii Application Initialization Tool\n\n";
 
 // Set the required environemnt
 
-//$envName = "Development";
-$envName 	= "Production";
+$envName = "Development";
+//$envName 	= "Production";
 
 $env 		= $envs[$envName];
 

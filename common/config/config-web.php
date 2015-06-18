@@ -32,7 +32,7 @@ return [
         ],
         'formatter' => [
         	'dateFormat' => 'yyyy-MM-dd',
-        	'datetimeFormat' => "yyyy-MM-dd HH:mm:ss"
+        	'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss'
         ],
         'errorHandler' => [
             'errorAction' => 'cmgcore/site/error',
@@ -53,7 +53,8 @@ return [
         	'class' => 'cmsgears\forms\common\components\Mailer'
         ],
         'fileManager' => [
-        	'class' => 'cmsgears\files\components\FileManager'
+        	'class' => 'cmsgears\files\components\FileManager',
+        	'uploadUrl' => 'http://localhost/cmgdemobasic/uploads/'
         ]
     ]
 ];

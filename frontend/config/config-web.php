@@ -20,10 +20,6 @@ return [
         ]
     ],
     'components' => [
-        'user' => [
-            'identityClass' => 'cmsgears\core\common\models\entities\User',
-            'enableAutoLogin' => true
-        ],
         'view' => [
             'theme' => 'themes\basic\Theme'
         ],

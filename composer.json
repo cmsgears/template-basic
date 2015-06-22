@@ -32,6 +32,10 @@
 		},
 		{
 			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/widget-nav.git"
+		},
+		{
+			"type": "vcs",
 			"url": "https://git.vcdevhub.com/cmsgears/widget-login.git"
 		}
     ],
@@ -42,6 +46,7 @@
 		"cmsgears/module-forms": "dev-dev",
 		"cmsgears/plugin-file-manager": "dev-dev",
 		"cmsgears/widget-cleditor": "dev-dev",
+		"cmsgears/widget-nav": "dev-dev",
 		"cmsgears/widget-login": "dev-dev"
     },
     "require-dev": {

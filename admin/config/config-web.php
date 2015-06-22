@@ -37,7 +37,7 @@ return [
         'cmgCore' => [
         	'loginRedirectPage' => '/dashboard',
         	'logoutRedirectPage' => '/login',
-        	'editorClass' => 'cmsgears\cleditor\ClEditor',
+        	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor'
         ],
         'sidebar' => [
         	'class' => 'cmsgears\core\admin\components\Sidebar',

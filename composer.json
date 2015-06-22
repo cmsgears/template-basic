@@ -24,11 +24,15 @@
 		},
 		{
 			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/plugin-file-manager.git"
+		},
+		{
+			"type": "vcs",
 			"url": "https://git.vcdevhub.com/cmsgears/widget-cleditor.git"
 		},
 		{
 			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/plugin-file-manager.git"
+			"url": "https://git.vcdevhub.com/cmsgears/widget-login.git"
 		}
     ],
     "require": {
@@ -36,8 +40,9 @@
         "yiisoft/yii2-swiftmailer": "2.0.4",
 		"cmsgears/module-core": "dev-dev",
 		"cmsgears/module-forms": "dev-dev",
+		"cmsgears/plugin-file-manager": "dev-dev",
 		"cmsgears/widget-cleditor": "dev-dev",
-		"cmsgears/plugin-file-manager": "dev-dev"
+		"cmsgears/widget-login": "dev-dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

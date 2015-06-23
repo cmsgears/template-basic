@@ -37,6 +37,10 @@
 		{
 			"type": "vcs",
 			"url": "https://git.vcdevhub.com/cmsgears/widget-login.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://git.vcdevhub.com/cmsgears/widget-gallery.git"
 		}
     ],
     "require": {
@@ -47,7 +51,8 @@
 		"cmsgears/plugin-file-manager": "dev-dev",
 		"cmsgears/widget-cleditor": "dev-dev",
 		"cmsgears/widget-nav": "dev-dev",
-		"cmsgears/widget-login": "dev-dev"
+		"cmsgears/widget-login": "dev-dev",
+		"cmsgears/widget-gallery": "dev-dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

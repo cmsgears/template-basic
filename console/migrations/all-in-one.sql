@@ -26,13 +26,12 @@ DROP TABLE IF EXISTS `cmg_core_activity`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_activity` (
   `userId` bigint(20) NOT NULL,
-  `typeId` bigint(20) NOT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
+  `templateId` bigint(20) NOT NULL,
   `createdAt` datetime NOT NULL,
   KEY `fk_activity_1` (`userId`),
-  KEY `fk_activity_2` (`typeId`),
+  KEY `fk_activity_2` (`templateId`),
   CONSTRAINT `fk_activity_1` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_activity_2` FOREIGN KEY (`typeId`) REFERENCES `cmg_core_option` (`id`)
+  CONSTRAINT `fk_activity_2` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,7 +100,7 @@ CREATE TABLE `cmg_core_category` (
   PRIMARY KEY (`id`),
   KEY `fk_category_1` (`parentId`),
   CONSTRAINT `fk_category_1` FOREIGN KEY (`parentId`) REFERENCES `cmg_core_category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +109,7 @@ CREATE TABLE `cmg_core_category` (
 
 LOCK TABLES `cmg_core_category` WRITE;
 /*!40000 ALTER TABLE `cmg_core_category` DISABLE KEYS */;
-INSERT INTO `cmg_core_category` VALUES (1,NULL,'role type',NULL,'','combo',NULL),(3,NULL,'gender',NULL,'','combo',NULL),(4,NULL,'notification',NULL,'','combo',NULL),(5,NULL,'reminder',NULL,'','combo',NULL),(6,NULL,'activity',NULL,'','combo',NULL);
+INSERT INTO `cmg_core_category` VALUES (1,NULL,'gender',NULL,'gender','combo',NULL);
 /*!40000 ALTER TABLE `cmg_core_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,18 +473,17 @@ CREATE TABLE `cmg_core_notification` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `notifierId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
-  `typeId` bigint(20) NOT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
+  `templateId` bigint(20) NOT NULL,
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime NOT NULL,
   `flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_notification_1` (`notifierId`),
   KEY `fk_notification_2` (`userId`),
-  KEY `fk_notification_3` (`typeId`),
+  KEY `fk_notification_3` (`templateId`),
   CONSTRAINT `fk_notification_1` FOREIGN KEY (`notifierId`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_notification_2` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_notification_3` FOREIGN KEY (`typeId`) REFERENCES `cmg_core_option` (`id`)
+  CONSTRAINT `fk_notification_3` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -515,7 +513,7 @@ CREATE TABLE `cmg_core_option` (
   PRIMARY KEY (`id`),
   KEY `fk_option_1` (`categoryId`),
   CONSTRAINT `fk_option_1` FOREIGN KEY (`categoryId`) REFERENCES `cmg_core_category` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -524,7 +522,7 @@ CREATE TABLE `cmg_core_option` (
 
 LOCK TABLES `cmg_core_option` WRITE;
 /*!40000 ALTER TABLE `cmg_core_option` DISABLE KEYS */;
-INSERT INTO `cmg_core_option` VALUES (1,1,'system','System Roles',NULL,NULL),(2,3,'Male',NULL,NULL,NULL),(3,3,'Female',NULL,NULL,NULL),(4,3,'Other',NULL,NULL,NULL);
+INSERT INTO `cmg_core_option` VALUES (1,1,'Male',NULL,NULL,NULL),(2,2,'Female',NULL,NULL,NULL),(3,3,'Other',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cmg_core_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,6 +539,7 @@ CREATE TABLE `cmg_core_permission` (
   `modifiedBy` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime DEFAULT NULL,
@@ -558,7 +557,7 @@ CREATE TABLE `cmg_core_permission` (
 
 LOCK TABLES `cmg_core_permission` WRITE;
 /*!40000 ALTER TABLE `cmg_core_permission` DISABLE KEYS */;
-INSERT INTO `cmg_core_permission` VALUES (1,1,1,'admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(2,1,1,'user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(3,1,1,'core','The permission core is to manage settings, drop downs, galleries and newsletters from admin.','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(4,1,1,'identity','The permission identity is to manage users from admin.','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(5,1,1,'identity-rbac','The permission identity-rbac is to manage roles and permissions from admin.','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL);
+INSERT INTO `cmg_core_permission` VALUES (1,1,1,'admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'core','The permission core is to manage settings, drop downs, galleries and newsletters from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'identity','The permission identity is to manage users from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'identity-rbac','The permission identity-rbac is to manage roles and permissions from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -600,17 +599,16 @@ DROP TABLE IF EXISTS `cmg_core_reminder`;
 CREATE TABLE `cmg_core_reminder` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `userId` bigint(20) NOT NULL,
-  `typeId` bigint(20) NOT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
+  `templateId` bigint(20) NOT NULL,
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime NOT NULL,
   `time` datetime DEFAULT NULL,
   `flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_reminder_1` (`userId`),
-  KEY `fk_reminder_2` (`typeId`),
+  KEY `fk_reminder_2` (`templateId`),
   CONSTRAINT `fk_reminder_1` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_reminder_2` FOREIGN KEY (`typeId`) REFERENCES `cmg_core_option` (`id`)
+  CONSTRAINT `fk_reminder_2` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -655,7 +653,7 @@ CREATE TABLE `cmg_core_role` (
 
 LOCK TABLES `cmg_core_role` WRITE;
 /*!40000 ALTER TABLE `cmg_core_role` DISABLE KEYS */;
-INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','/dashboard','0','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(2,1,1,'Admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','/dashboard','0','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(3,1,1,'User','The role User is limited to website users.','/home','0','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL),(4,1,1,'User Manager','The role User Manager is limited to manage site users from admin.','/dashboard','0','2014-10-11 14:22:54','2014-10-11 14:22:54',NULL);
+INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'Admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'User','The role User is limited to website users.','/home','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'User Manager','The role User Manager is limited to manage site users from admin.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -766,6 +764,34 @@ CREATE TABLE `cmg_core_tag` (
 LOCK TABLES `cmg_core_tag` WRITE;
 /*!40000 ALTER TABLE `cmg_core_tag` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cmg_core_tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_core_template`
+--
+
+DROP TABLE IF EXISTS `cmg_core_template`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_core_template` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `layout` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `view` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` mediumtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_core_template`
+--
+
+LOCK TABLES `cmg_core_template` WRITE;
+/*!40000 ALTER TABLE `cmg_core_template` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_core_template` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -943,4 +969,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-22  9:49:20
+-- Dump completed on 2015-06-26  8:47:26

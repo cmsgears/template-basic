@@ -35,8 +35,7 @@ return [
 	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
 	        	'<action:(home)>' => 'cmgcore/user/<action>',
 	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
-	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>',
-	        	'/' => 'cmgcore/site/index'
+	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>'
 	        ]
 		],
         'cmgCore' => [

@@ -13,7 +13,6 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'enableStrictParsing' => true,
             'showScriptName' => false
 		],
         'request' => [

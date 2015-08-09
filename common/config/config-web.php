@@ -37,7 +37,8 @@ return [
             'errorAction' => 'cmgcore/site/error',
         ],
         'cmgCore' => [
-        	'class' => 'cmsgears\core\common\components\Core'
+        	'class' => 'cmsgears\core\common\components\Core',
+        	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor'
         ],
         'cmgCoreMessage' => [
         	'class' => 'cmsgears\core\common\components\MessageSource',

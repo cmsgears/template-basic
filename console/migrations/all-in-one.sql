@@ -190,7 +190,8 @@ CREATE TABLE `cmg_core_gallery` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `createdBy` bigint(20) NOT NULL,
   `modifiedBy` bigint(20) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` mediumtext COLLATE utf8_unicode_ci,
   `createdAt` datetime NOT NULL,
@@ -366,7 +367,7 @@ CREATE TABLE `cmg_core_model_meta` (
   `fieldType` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fieldMeta` mediumtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,7 +376,7 @@ CREATE TABLE `cmg_core_model_meta` (
 
 LOCK TABLES `cmg_core_model_meta` WRITE;
 /*!40000 ALTER TABLE `cmg_core_model_meta` DISABLE KEYS */;
-INSERT INTO `cmg_core_model_meta` VALUES (1,1,'site','locale message','false','core','text',NULL),(2,1,'site','language','en-US','core','text',NULL),(3,1,'site','charset','UTF-8','core','text',NULL),(4,1,'site','site title','CMG Demo','core','text',NULL),(5,1,'site','site name','CMSGears','core','text',NULL),(6,1,'site','site url','http://demo.cmsgears.com/templates/basic/','core','text',NULL),(7,1,'site','admin url','http://demo.cmsgears.com/templates/basic/admin/','core','text',NULL),(8,1,'site','smtp','false','email','text',NULL),(9,1,'site','smtp username','','email','text',NULL),(10,1,'site','smtp password','','email','password',NULL),(11,1,'site','smtp host','','email','text',NULL),(12,1,'site','smtp port','587','email','text',NULL),(13,1,'site','debug','true','email','text',NULL),(14,1,'site','sender name','Admin','email','text',NULL),(15,1,'site','sender email','demoadmin@cmsgears.com','email','text',NULL),(16,1,'site','contact name','Contact Us','email','text',NULL),(17,1,'site','contact email','democontact@cmsgears.com','email','text',NULL),(18,1,'site','info name','Info','email','text',NULL),(19,1,'site','info email','demoinfo@cmsgears.com','email','text',NULL),(20,1,'site','theme','basic','frontend','text',NULL),(21,1,'site','theme version','1','frontend','text',NULL),(22,1,'site','theme','basic','admin','text',NULL),(23,1,'site','theme version','1','admin','text',NULL);
+INSERT INTO `cmg_core_model_meta` VALUES (1,1,'site','locale message','0','core','text',NULL),(2,1,'site','language','en-US','core','text',NULL),(3,1,'site','charset','UTF-8','core','text',NULL),(4,1,'site','site title','CMG Demo','core','text',NULL),(5,1,'site','site name','CMSGears','core','text',NULL),(6,1,'site','site url','http://demo.cmsgears.com/templates/basic/','core','text',NULL),(7,1,'site','admin url','http://demo.cmsgears.com/templates/basic/admin/','core','text',NULL),(8,1,'site','smtp','0','email','text',NULL),(9,1,'site','smtp username','','email','text',NULL),(10,1,'site','smtp password','','email','password',NULL),(11,1,'site','smtp host','','email','text',NULL),(12,1,'site','smtp port','587','email','text',NULL),(13,1,'site','smtp encryption','tls','email','text',NULL),(14,1,'site','debug','1','email','text',NULL),(15,1,'site','sender name','Admin','email','text',NULL),(16,1,'site','sender email','demoadmin@cmsgears.com','email','text',NULL),(17,1,'site','contact name','Contact Us','email','text',NULL),(18,1,'site','contact email','democontact@cmsgears.com','email','text',NULL),(19,1,'site','info name','Info','email','text',NULL),(20,1,'site','info email','demoinfo@cmsgears.com','email','text',NULL),(21,1,'site','theme','basic','frontend','text',NULL),(22,1,'site','theme version','1','frontend','text',NULL),(23,1,'site','theme','basic','admin','text',NULL),(24,1,'site','theme version','1','admin','text',NULL);
 /*!40000 ALTER TABLE `cmg_core_model_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -567,6 +568,7 @@ CREATE TABLE `cmg_core_permission` (
   `createdBy` bigint(20) NOT NULL,
   `modifiedBy` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -586,7 +588,7 @@ CREATE TABLE `cmg_core_permission` (
 
 LOCK TABLES `cmg_core_permission` WRITE;
 /*!40000 ALTER TABLE `cmg_core_permission` DISABLE KEYS */;
-INSERT INTO `cmg_core_permission` VALUES (1,1,1,'admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'core','The permission core is to manage settings, drop downs, galleries and newsletters from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'identity','The permission identity is to manage users from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'identity-rbac','The permission identity-rbac is to manage roles and permissions from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
+INSERT INTO `cmg_core_permission` VALUES (1,1,1,'Admin','admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'User','user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'Core','core','The permission core is to manage settings, drop downs, galleries and newsletters from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'Identity','identity','The permission identity is to manage users from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'Identity RBAC','identity-rbac','The permission identity-rbac is to manage roles and permissions from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -662,6 +664,7 @@ CREATE TABLE `cmg_core_role` (
   `createdBy` bigint(20) NOT NULL,
   `modifiedBy` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `homeUrl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -682,7 +685,7 @@ CREATE TABLE `cmg_core_role` (
 
 LOCK TABLES `cmg_core_role` WRITE;
 /*!40000 ALTER TABLE `cmg_core_role` DISABLE KEYS */;
-INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'Admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'User','The role User is limited to website users.',NULL,'system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'User Manager','The role User Manager is limited to manage site users from admin.','/dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
+INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','super-admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'Admin','admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'User','user','The role User is limited to website users.',NULL,'system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'User Manager','user-manager','The role User Manager is limited to manage site users from admin.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -868,7 +871,7 @@ CREATE TABLE `cmg_core_user` (
 
 LOCK TABLES `cmg_core_user` WRITE;
 /*!40000 ALTER TABLE `cmg_core_user` DISABLE KEYS */;
-INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2015-07-11 02:33:48',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
+INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cmg_core_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -998,4 +1001,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-11  8:04:20
+-- Dump completed on 2015-08-10  9:45:55

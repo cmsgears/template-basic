@@ -27,6 +27,7 @@ return [
 	        'rules' => [
 	        	// apix request rules
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 	        	'apix/<action:(login|register)>' => 'cmgcore/apix/site/<action>',
 	        	'apix/<action:(contact)>' => 'cmgforms/apix/site/<action>',
 				// regular request rules
@@ -37,7 +38,7 @@ return [
 	        ]
 		],
         'cmgCore' => [
-        	'loginRedirectPage' => '/user/home'
+        	'loginRedirectPage' => '/cmgcore/user/home'
         ]
     ],
     'params' => $params

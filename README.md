@@ -4,12 +4,16 @@ Template  	- Basic
 
 License 	- GPLv3 (http://www.gnu.org/licenses/gpl-3.0.html)
 
-Description - The basic template requires below listed modules, themes and widgets freely provided by CMSGears.
+Description - The basic template requires below listed modules, plugins, themes and widgets freely provided by CMSGears.
 
 Modules
 ------------------------------------------
 1. Core Module to manage site users, galleries, newsletters, roles and permissions.
 2. Forms Module to accept forms in both Ajax and regular way.
+
+Plugins
+------------------------------------------
+1. File Manager Plugin provide default component to accept uploaded files and File Uploader Widget to uploads files.
 
 Widgets
 ------------------------------------------

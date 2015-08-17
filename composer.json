@@ -1,51 +1,25 @@
 {
 	"name": "cmsgears/template-basic",
-	"description": "The basic template for core module having default theme set to basic.",
+	"description": "The basic template uses core and dynamic form modules from CMSGears. It needs basic theme for website and admin theme for admin.",
 	"homepage": "http://www.cmsgears.org", 
 	"type": "project",
 	"keywords": [ "yii2", "cmsgears", "template", "basic" ],
 	"license": "GPLv3",
-	"authors": [
-		{
-			"name": "Bhagwat Singh Chouhan",
-			"email": "bhagwat.chouhan@vulpinecode.com",
-			"homepage": "http://www.cmsgears.org/",
-			"role": "Founder and project lead."
-		}
-	],
 	"support": {
-        "source": "http://www.cmsgears.com/templates/basic/downloads",
-		"forum": "http://forum.cmsgears.org/",
-		"resources": "http://resources.cmsgears.org/",
-		"issues": "https://www.amazingdesk.com/cmsgears/issues/",
-		"blog": "http://cmsgears.tutorials24x7.com/"
+		"resources": "http://www.cmsgears.org"
 	},
 	"minimum-stability": "stable",
-    "repositories": [
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/module-core.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/module-forms.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-cleditor.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/plugin-file-manager.git"
-		}
-    ],
     "require": {
-        "yiisoft/yii2": "2.0.3",
-        "yiisoft/yii2-swiftmailer": "2.0.3",
-		"cmsgears/module-core": "dev-dev",
-		"cmsgears/module-forms": "dev-dev",
-		"cmsgears/widget-cleditor": "dev-dev",
-		"cmsgears/plugin-file-manager": "dev-dev"
+        "yiisoft/yii2": "2.0.6",
+        "yiisoft/yii2-swiftmailer": "2.0.*",
+		"cmsgears/module-core": "*",
+		"cmsgears/module-forms": "*",
+		"cmsgears/plugin-file-manager": "*",
+		"cmsgears/widget-cleditor": "*",
+		"cmsgears/widget-nav": "*",
+		"cmsgears/widget-login": "*",
+		"cmsgears/widget-gallery": "*",
+		"cmsgears/widget-newsletter": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

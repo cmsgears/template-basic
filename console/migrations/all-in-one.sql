@@ -167,7 +167,7 @@ CREATE TABLE `cmg_core_file` (
   KEY `fk_file_2` (`modifiedBy`),
   CONSTRAINT `fk_file_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_file_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +176,7 @@ CREATE TABLE `cmg_core_file` (
 
 LOCK TABLES `cmg_core_file` WRITE;
 /*!40000 ALTER TABLE `cmg_core_file` DISABLE KEYS */;
+INSERT INTO `cmg_core_file` VALUES (1,1,NULL,'Item 1','Item 1','4f9dd9e0a7471181b4b7a4729407d96a','jpg','gallery',0,NULL,'2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a.jpg','2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a-thumb.jpg','Item 1','','2015-08-16 16:50:28','2015-08-16 16:50:28'),(2,1,NULL,'Item 2','Item 2','925e82814e15d5e9832c74f75e594418','JPG','gallery',0,NULL,'2015-08-16/gallery/925e82814e15d5e9832c74f75e594418.JPG','2015-08-16/gallery/925e82814e15d5e9832c74f75e594418-thumb.JPG','Item 2','','2015-08-16 16:50:50','2015-08-16 16:50:50'),(3,1,NULL,'Item 3','Item 3','ec7435a559fff465d91e1e959f025942','JPG','gallery',0,NULL,'2015-08-16/gallery/ec7435a559fff465d91e1e959f025942.JPG','2015-08-16/gallery/ec7435a559fff465d91e1e959f025942-thumb.JPG','Item 3','','2015-08-16 16:51:04','2015-08-16 16:51:04'),(4,1,NULL,'Item 4','Item 4','d998309764ae3d095760bb152098b0f5','jpg','gallery',0,NULL,'2015-08-16/gallery/d998309764ae3d095760bb152098b0f5.jpg','2015-08-16/gallery/d998309764ae3d095760bb152098b0f5-thumb.jpg','Item 4','','2015-08-16 16:51:22','2015-08-16 16:51:22'),(5,1,1,'Item 5','Item 5','ea69dce0c8624a6b4b761243ef5975d7','JPG','gallery',0,NULL,'2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7.JPG','2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7-thumb.JPG','Item 5','','2015-08-16 16:51:44','2015-08-16 16:52:12'),(6,1,NULL,'Item 6','Item 6','d2935c354804cd46b07c03f0f06db069','jpg','gallery',0,NULL,'2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069.jpg','2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069-thumb.jpg','Item 6','','2015-08-16 16:52:40','2015-08-16 16:52:40');
 /*!40000 ALTER TABLE `cmg_core_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +202,7 @@ CREATE TABLE `cmg_core_gallery` (
   KEY `fk_gallery_2` (`modifiedBy`),
   CONSTRAINT `fk_gallery_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_gallery_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,6 +211,7 @@ CREATE TABLE `cmg_core_gallery` (
 
 LOCK TABLES `cmg_core_gallery` WRITE;
 /*!40000 ALTER TABLE `cmg_core_gallery` DISABLE KEYS */;
+INSERT INTO `cmg_core_gallery` VALUES (1,1,NULL,'main','main','About Us','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','2015-08-16 16:48:32','2015-08-16 16:48:32');
 /*!40000 ALTER TABLE `cmg_core_gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +311,7 @@ CREATE TABLE `cmg_core_model_file` (
   PRIMARY KEY (`id`),
   KEY `fk_model_file_1` (`fileId`),
   CONSTRAINT `fk_model_file_1` FOREIGN KEY (`fileId`) REFERENCES `cmg_core_file` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,6 +320,7 @@ CREATE TABLE `cmg_core_model_file` (
 
 LOCK TABLES `cmg_core_model_file` WRITE;
 /*!40000 ALTER TABLE `cmg_core_model_file` DISABLE KEYS */;
+INSERT INTO `cmg_core_model_file` VALUES (1,1,1,'gallery',0),(2,2,1,'gallery',0),(3,3,1,'gallery',0),(4,4,1,'gallery',0),(5,5,1,'gallery',0),(6,6,1,'gallery',0);
 /*!40000 ALTER TABLE `cmg_core_model_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -871,7 +874,7 @@ CREATE TABLE `cmg_core_user` (
 
 LOCK TABLES `cmg_core_user` WRITE;
 /*!40000 ALTER TABLE `cmg_core_user` DISABLE KEYS */;
-INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
+INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2015-08-16 11:15:11',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cmg_core_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1001,4 +1004,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-10  9:45:55
+-- Dump completed on 2015-08-16 16:54:32

@@ -19,10 +19,33 @@ $envNames 	= array_keys( $envs );
 
 echo "Yii Application Initialization Tool\n\n";
 
-// Set the required environemnt
+echo "Enter your development environment among dev or prod:";
 
-$envName = "Development";
-//$envName 	= "Production";
+// Set the required environemnt
+$choice 	= trim( fgets(STDIN) );
+$envName	= null;
+
+switch( $choice ) {
+	
+	case 'dev': {
+		
+		$envName = "Development";
+		
+		break;
+	}
+	case 'prod': {
+		
+		$envName 	= "Production";
+		
+		break;
+	}
+	default: {
+		
+		echo "Wrong environemnt choosen.";
+		
+		die();
+	}
+}
 
 $env 		= $envs[$envName];
 

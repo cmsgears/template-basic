@@ -6,58 +6,20 @@
 	"keywords": [ "yii2", "cmsgears", "template", "basic" ],
 	"license": "GPLv3",
 	"support": {
-        "source": "http://www.cmsgears.com/templates/basic/downloads",
-		"forum": "http://forum.cmsgears.org",
-		"resources": "http://www.cmsgears.org",
-		"issues": "https://www.amazingdesk.com/cmsgears/issues",
-		"blog": "http://cmsgears.tutorials24x7.com/"
+		"resources": "http://www.cmsgears.org"
 	},
 	"minimum-stability": "stable",
-    "repositories": [
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/module-core.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/module-forms.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/plugin-file-manager.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-cleditor.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-nav.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-login.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-gallery.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://git.vcdevhub.com/cmsgears/widget-newsletter.git"
-		}
-    ],
     "require": {
         "yiisoft/yii2": "2.0.6",
         "yiisoft/yii2-swiftmailer": "2.0.*",
-		"cmsgears/module-core": "dev-dev",
-		"cmsgears/module-forms": "dev-dev",
-		"cmsgears/plugin-file-manager": "dev-dev",
-		"cmsgears/widget-cleditor": "dev-dev",
-		"cmsgears/widget-nav": "dev-dev",
-		"cmsgears/widget-login": "dev-dev",
-		"cmsgears/widget-gallery": "dev-dev",
-		"cmsgears/widget-newsletter": "dev-dev"
+		"cmsgears/module-core": "*",
+		"cmsgears/module-forms": "*",
+		"cmsgears/plugin-file-manager": "*",
+		"cmsgears/widget-cleditor": "*",
+		"cmsgears/widget-nav": "*",
+		"cmsgears/widget-login": "*",
+		"cmsgears/widget-gallery": "*",
+		"cmsgears/widget-newsletter": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

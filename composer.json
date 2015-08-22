@@ -12,20 +12,20 @@
     "require": {
         "yiisoft/yii2": "2.0.6",
         "yiisoft/yii2-swiftmailer": "2.0.*",
-		"cmsgears/module-core": "*",
-		"cmsgears/module-forms": "*",
-		"cmsgears/plugin-file-manager": "*",
-		"cmsgears/widget-cleditor": "*",
-		"cmsgears/widget-nav": "*",
-		"cmsgears/widget-login": "*",
-		"cmsgears/widget-gallery": "*",
-		"cmsgears/widget-newsletter": "*"
+		"cmsgears/module-core": "1.0.*alpha",
+		"cmsgears/module-forms": "1.0.*alpha",
+		"cmsgears/plugin-file-manager": "1.0.*alpha",
+		"cmsgears/widget-cleditor": "1.0.*alpha",
+		"cmsgears/widget-nav": "1.0.*alpha",
+		"cmsgears/widget-login": "1.0.*alpha",
+		"cmsgears/widget-gallery": "1.0.*alpha",
+		"cmsgears/widget-newsletter": "1.0.*alpha"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "*",
-        "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-faker": "*"
+        "yiisoft/yii2-codeception": "2.0.*",
+        "yiisoft/yii2-debug": "2.0.*",
+        "yiisoft/yii2-gii": "2.0.*",
+        "yiisoft/yii2-faker": "2.0.*"
     },
     "extra": {
         "asset-installer-paths": {

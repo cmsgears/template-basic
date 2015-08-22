@@ -50,6 +50,14 @@ php composer.phar create-project --prefer-dist --stability=stable cmsgears/templ
 or
 
 composer create-project --prefer-dist --stability=stable cmsgears/template-basic cmgdemobasic
+
+We can also use below mentioned commands to access the pre release code
+
+php composer.phar create-project --prefer-dist --stability=<alpha,beta,RC> cmsgears/template-basic cmgdemobasic
+
+or
+
+composer create-project --prefer-dist --stability=<alpha,beta,RC> cmsgears/template-basic cmgdemobasic
 ```
 
 If we are using Apache web server, we need to run either of the above mentioned command under Apache web root directory. More details can be found at http://www.cmsgears.org.

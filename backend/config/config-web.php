@@ -27,7 +27,7 @@ return [
 	        'rules' => [
 	        	// apix request rules
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+	        	'apix/<controller>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 				// regular request rules
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>'

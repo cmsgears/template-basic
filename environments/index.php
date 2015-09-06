@@ -4,8 +4,8 @@ return [
     'Development' => [
         'path' => 'dev',
         'setWritable' => [
-            'admin/runtime',
-            'admin/web/assets',
+            'backend/runtime',
+            'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
             'uploads'
@@ -15,15 +15,15 @@ return [
             'tests/codeception/bin/yii'
         ],
         'setCookieValidationKey' => [
-            'admin/config/config-env.php',
+            'backend/config/config-env.php',
             'frontend/config/config-env.php',
         ],
     ],
     'Production' => [
         'path' => 'prod',
         'setWritable' => [
-            'admin/runtime',
-            'admin/web/assets',
+            'backend/runtime',
+            'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
             'uploads'
@@ -32,7 +32,7 @@ return [
             'yii'
         ],        
         'setCookieValidationKey' => [
-            'admin/config/config-env.php',
+            'backend/config/config-env.php',
             'frontend/config/config-env.php',
         ],
     ],

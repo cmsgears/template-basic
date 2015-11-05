@@ -1,2 +1,5 @@
-# Ignore vendor directory
 /vendor
+frontend/web/.sass-cache
+backend/web/.sass-cache
+themes/basic/resources/.sass-cache/
+composer.lock

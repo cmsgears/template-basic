@@ -29,16 +29,15 @@ return [
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
 	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 	        	'apix/<action:(login|register)>' => 'cmgcore/apix/site/<action>',
-	        	'apix/<action:(contact)>' => 'cmgforms/apix/site/<action>',
 				// regular request rules
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	'<action:(home)>' => 'cmgcore/user/<action>',
+	        	'<action:(home|profile)>' => 'cmgcore/user/<action>',
 	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
-	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>'
+	        	'<form:(contact-us|feedback)>' => 'cmgforms/site/index'
 	        ]
 		],
         'cmgCore' => [
-        	'loginRedirectPage' => '/cmgcore/user/home'
+        	'loginRedirectPage' => '/home'
         ]
     ],
     'params' => $params

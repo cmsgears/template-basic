@@ -30,7 +30,7 @@ return [
 	        	'apix/<controller>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 				// regular request rules
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>'
+	        	'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'cmgcore/site/<action>'
 	        ]
 		],
         'cmgCore' => [

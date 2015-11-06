@@ -1,5 +1,6 @@
-/vendor
-frontend/web/.sass-cache
-backend/web/.sass-cache
-themes/basic/resources/.sass-cache/
 composer.lock
+vendor
+themes/admin/resources/.sass-cache
+themes/admin/resources/styles/scss/.sass-cache
+themes/basic/resources/.sass-cache
+themes/basic/resources/styles/scss/.sass-cache

@@ -1,6 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS `cmgdemobasic` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `cmgdemobasic`;
-
 -- MySQL dump 10.13  Distrib 5.6.24, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: cmgdemobasic
@@ -30,12 +29,12 @@ CREATE TABLE `cmg_core_activity` (
   `userId` bigint(20) NOT NULL,
   `notifierId` bigint(20) DEFAULT NULL,
   `templateId` bigint(20) DEFAULT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `consumed` tinyint(1) DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime NOT NULL,
   `scheduledAt` datetime DEFAULT NULL,
+  `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_activity_1` (`userId`),
   KEY `fk_activity_2` (`notifierId`),
@@ -73,9 +72,11 @@ CREATE TABLE `cmg_core_address` (
   `zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `firstName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `lastName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fax` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `longitude` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latitude` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_address_1` (`countryId`),
   KEY `fk_address_2` (`provinceId`),
@@ -104,11 +105,13 @@ CREATE TABLE `cmg_core_category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `avatarId` bigint(20) DEFAULT NULL,
   `parentId` bigint(20) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `featured` tinyint(1) NOT NULL DEFAULT '0',
+  `options` mediumtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_category_1` (`avatarId`),
   KEY `fk_category_2` (`parentId`),
@@ -123,7 +126,7 @@ CREATE TABLE `cmg_core_category` (
 
 LOCK TABLES `cmg_core_category` WRITE;
 /*!40000 ALTER TABLE `cmg_core_category` DISABLE KEYS */;
-INSERT INTO `cmg_core_category` VALUES (1,NULL,NULL,'gender',NULL,'gender','combo',NULL);
+INSERT INTO `cmg_core_category` VALUES (1,NULL,NULL,'gender','gender',NULL,'combo',NULL,0,NULL);
 /*!40000 ALTER TABLE `cmg_core_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,9 +168,9 @@ CREATE TABLE `cmg_core_file` (
   `modifiedBy` bigint(20) DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `extension` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `directory` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `directory` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `visibility` smallint(6) NOT NULL DEFAULT '0',
   `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -190,14 +193,92 @@ CREATE TABLE `cmg_core_file` (
 
 LOCK TABLES `cmg_core_file` WRITE;
 /*!40000 ALTER TABLE `cmg_core_file` DISABLE KEYS */;
-INSERT INTO `cmg_core_file` VALUES 
-	(1,1,NULL,'Item 1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','4f9dd9e0a7471181b4b7a4729407d96a','jpg','gallery',0,NULL,'2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a.jpg','2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a-thumb.jpg','Item 1','','2015-08-16 16:50:28','2015-08-16 16:50:28'),
-	(2,1,NULL,'Item 2','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','925e82814e15d5e9832c74f75e594418','JPG','gallery',0,NULL,'2015-08-16/gallery/925e82814e15d5e9832c74f75e594418.JPG','2015-08-16/gallery/925e82814e15d5e9832c74f75e594418-thumb.JPG','Item 2','','2015-08-16 16:50:50','2015-08-16 16:50:50'),
-	(3,1,NULL,'Item 3','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','ec7435a559fff465d91e1e959f025942','JPG','gallery',0,NULL,'2015-08-16/gallery/ec7435a559fff465d91e1e959f025942.JPG','2015-08-16/gallery/ec7435a559fff465d91e1e959f025942-thumb.JPG','Item 3','','2015-08-16 16:51:04','2015-08-16 16:51:04'),
-	(4,1,NULL,'Item 4','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','d998309764ae3d095760bb152098b0f5','jpg','gallery',0,NULL,'2015-08-16/gallery/d998309764ae3d095760bb152098b0f5.jpg','2015-08-16/gallery/d998309764ae3d095760bb152098b0f5-thumb.jpg','Item 4','','2015-08-16 16:51:22','2015-08-16 16:51:22'),
-	(5,1,NULL,'Item 5','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','ea69dce0c8624a6b4b761243ef5975d7','JPG','gallery',0,NULL,'2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7.JPG','2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7-thumb.JPG','Item 5','','2015-08-16 16:51:44','2015-08-16 16:52:12'),
-	(6,1,NULL,'Item 6','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','d2935c354804cd46b07c03f0f06db069','jpg','gallery',0,NULL,'2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069.jpg','2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069-thumb.jpg','Item 6','','2015-08-16 16:52:40','2015-08-16 16:52:40');
+INSERT INTO `cmg_core_file` VALUES (1,1,NULL,'Item 1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','4f9dd9e0a7471181b4b7a4729407d96a','jpg','gallery',0,NULL,'2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a.jpg','2015-08-16/gallery/4f9dd9e0a7471181b4b7a4729407d96a-thumb.jpg','Item 1','','2015-08-16 16:50:28','2015-08-16 16:50:28'),(2,1,NULL,'Item 2','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','925e82814e15d5e9832c74f75e594418','JPG','gallery',0,NULL,'2015-08-16/gallery/925e82814e15d5e9832c74f75e594418.JPG','2015-08-16/gallery/925e82814e15d5e9832c74f75e594418-thumb.JPG','Item 2','','2015-08-16 16:50:50','2015-08-16 16:50:50'),(3,1,NULL,'Item 3','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','ec7435a559fff465d91e1e959f025942','JPG','gallery',0,NULL,'2015-08-16/gallery/ec7435a559fff465d91e1e959f025942.JPG','2015-08-16/gallery/ec7435a559fff465d91e1e959f025942-thumb.JPG','Item 3','','2015-08-16 16:51:04','2015-08-16 16:51:04'),(4,1,NULL,'Item 4','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','d998309764ae3d095760bb152098b0f5','jpg','gallery',0,NULL,'2015-08-16/gallery/d998309764ae3d095760bb152098b0f5.jpg','2015-08-16/gallery/d998309764ae3d095760bb152098b0f5-thumb.jpg','Item 4','','2015-08-16 16:51:22','2015-08-16 16:51:22'),(5,1,NULL,'Item 5','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','ea69dce0c8624a6b4b761243ef5975d7','JPG','gallery',0,NULL,'2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7.JPG','2015-08-16/gallery/ea69dce0c8624a6b4b761243ef5975d7-thumb.JPG','Item 5','','2015-08-16 16:51:44','2015-08-16 16:52:12'),(6,1,NULL,'Item 6','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....','d2935c354804cd46b07c03f0f06db069','jpg','gallery',0,NULL,'2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069.jpg','2015-08-16/gallery/d2935c354804cd46b07c03f0f06db069-thumb.jpg','Item 6','','2015-08-16 16:52:40','2015-08-16 16:52:40');
 /*!40000 ALTER TABLE `cmg_core_file` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_core_form`
+--
+
+DROP TABLE IF EXISTS `cmg_core_form`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_core_form` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `siteId` bigint(20) DEFAULT NULL,
+  `templateId` bigint(20) DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `successMessage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `captcha` tinyint(1) DEFAULT '0',
+  `visibility` tinyint(1) DEFAULT '0',
+  `active` tinyint(1) DEFAULT '0',
+  `userMail` tinyint(1) DEFAULT '0',
+  `adminMail` tinyint(1) DEFAULT '0',
+  `createdAt` datetime NOT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  `options` mediumtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_form_1` (`siteId`),
+  KEY `fk_form_2` (`templateId`),
+  KEY `fk_form_3` (`createdBy`),
+  KEY `fk_form_4` (`modifiedBy`),
+  CONSTRAINT `fk_form_1` FOREIGN KEY (`siteId`) REFERENCES `cmg_core_site` (`id`),
+  CONSTRAINT `fk_form_2` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`),
+  CONSTRAINT `fk_form_3` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
+  CONSTRAINT `fk_form_4` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_core_form`
+--
+
+LOCK TABLES `cmg_core_form` WRITE;
+/*!40000 ALTER TABLE `cmg_core_form` DISABLE KEYS */;
+INSERT INTO `cmg_core_form` VALUES (1,1,NULL,1,1,'Config Core','config-core','Core configuration form.','system','All configurations saved successfully.',0,10,1,0,0,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(2,1,NULL,1,1,'Config Mail','config-mail','Mail configuration form.','system','All configurations saved successfully.',0,10,1,0,0,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(3,1,NULL,1,1,'Config Backend','config-backend','Backend site configuration form.','system','All configurations saved successfully.',0,10,1,0,0,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(4,1,NULL,1,1,'Config Site','config-frontend','Frontend site configuration form.','system','All configurations saved successfully.',0,10,1,0,0,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(5,1,NULL,1,1,'Config File','config-file','Facebook configuration form.','system','All configurations saved successfully.',0,10,1,0,0,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(6,1,1,1,1,'Contact Us','contact-us','contact form','form','Contrary to popular belief, Lorem Ipsum is not simply random text.',1,0,1,0,1,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL),(7,1,2,1,1,'Feedback','feedback','feedback form','form','Thanks for providing your valuable feedback.',1,10,1,0,1,'2014-10-11 14:22:54','2014-10-11 14:22:54',NULL,NULL);
+/*!40000 ALTER TABLE `cmg_core_form` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_core_form_field`
+--
+
+DROP TABLE IF EXISTS `cmg_core_form_field`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_core_form_field` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `formId` bigint(20) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` smallint(6) DEFAULT '0',
+  `compress` tinyint(1) DEFAULT '0',
+  `validators` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` smallint(6) DEFAULT '0',
+  `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `options` mediumtext COLLATE utf8_unicode_ci,
+  `data` mediumtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_form_field_1` (`formId`),
+  CONSTRAINT `fk_form_field_1` FOREIGN KEY (`formId`) REFERENCES `cmg_core_form` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_core_form_field`
+--
+
+LOCK TABLES `cmg_core_form_field` WRITE;
+/*!40000 ALTER TABLE `cmg_core_form_field` DISABLE KEYS */;
+INSERT INTO `cmg_core_form_field` VALUES (1,1,'locale_message','Locale Message',20,0,'required',0,'{\"title\":\"Check for i18n support.\"}',NULL),(2,1,'language','Language',0,0,'required',0,'{\"title\":\"Language used on html tag.\",\"placeholder\":\"Language\"}',NULL),(3,1,'locale','Locale',0,0,'required',0,'{\"title\":\"Site default locale.\",\"placeholder\":\"Locale\"}',NULL),(4,1,'charset','Charset',0,0,'required',0,'{\"title\":\"Charset used on html head meta.\",\"placeholder\":\"Charset\"}',NULL),(5,1,'site_title','Site Title',0,0,'required',0,'{\"title\":\"Site title used in forming page title.\",\"placeholder\":\"Site Title\"}',NULL),(6,1,'site_name','Site Name',0,0,'required',0,'{\"title\":\"Site name used on footers etc.\",\"placeholder\":\"Site Name\"}',NULL),(7,1,'site_url','Frontend URL',0,0,'required',0,'{\"title\":\"Frontend URL\",\"placeholder\":\"Frontend URL\"}',NULL),(8,1,'admin_url','Backend URL',0,0,'required',0,'{\"title\":\"Backend URL\",\"placeholder\":\"Backend URL\"}',NULL),(9,1,'registration','Registration',20,0,'required',0,'{\"title\":\"Check whether site registration is allowed.\"}',NULL),(10,1,'change_email','Change Email',20,0,'required',0,'{\"title\":\"Check whether email change is allowed for user profile.\"}',NULL),(11,1,'change_username','Change Username',20,0,'required',0,'{\"title\":\"Check whether username change is allowed for user profile.\"}',NULL),(12,2,'smtp','SMTP',20,0,'required',0,'{\"title\":\"Check whether SMTP is required.\"}',NULL),(13,2,'smtp_username','SMTP Username',0,0,NULL,0,'{\"title\":\"SMTP username.\",\"placeholder\":\"SMTP Username\"}',NULL),(14,2,'smtp_password','SMTP Password',5,0,NULL,0,'{\"title\":\"SMTP password.\",\"placeholder\":\"SMTP Password\"}',NULL),(15,2,'smtp_host','SMTP Host',0,0,NULL,0,'{\"title\":\"SMTP host.\",\"placeholder\":\"SMTP Host\"}',NULL),(16,2,'smtp_port','SMTP Port',0,0,NULL,0,'{\"title\":\"SMTP port.\",\"placeholder\":\"SMTP Port\"}',NULL),(17,2,'smtp_encryption','SMTP Encryption',0,0,NULL,0,'{\"title\":\"SMTP encryption.\",\"placeholder\":\"SMTP Encryption\"}',NULL),(18,2,'debug','SMTP Debug',20,0,'required',0,'{\"title\":\"Check whether SMTP debug is required.\"}',NULL),(19,2,'sender_name','Sender Name',0,0,'required',0,'{\"title\":\"Sender name.\",\"placeholder\":\"Sender Name\"}',NULL),(20,2,'sender_email','Sender Email',0,0,'required',0,'{\"title\":\"Sender email.\",\"placeholder\":\"Sender Email\"}',NULL),(21,2,'contact_name','Contact Name',0,0,'required',0,'{\"title\":\"Contact name.\",\"placeholder\":\"Contact Name\"}',NULL),(22,2,'contact_email','Contact Email',0,0,'required',0,'{\"title\":\"Contact email.\",\"placeholder\":\"Contact Email\"}',NULL),(23,2,'info_name','Info Name',0,0,'required',0,'{\"title\":\"Info name.\",\"placeholder\":\"Info Name\"}',NULL),(24,2,'info_email','Info Email',0,0,'required',0,'{\"title\":\"Info email.\",\"placeholder\":\"Info Email\"}',NULL),(25,3,'theme','Theme',0,0,'required',0,'{\"title\":\"Current theme.\",\"placeholder\":\"Theme\"}',NULL),(26,3,'theme_version','Theme Version',0,0,'required',0,'{\"title\":\"Theme version.\",\"placeholder\":\"Theme Version\"}',NULL),(27,4,'theme','Theme',0,0,'required',0,'{\"title\":\"Current theme.\",\"placeholder\":\"Theme\"}',NULL),(28,4,'theme_version','Theme Version',0,0,'required',0,'{\"title\":\"Theme version.\",\"placeholder\":\"Theme Version\"}',NULL),(29,5,'image_extensions','Image Extensions',0,0,'required',0,'{\"title\":\"Image Extensions.\",\"placeholder\":\"Image Extensions\"}',NULL),(30,5,'video_extensions','Video Extensions',0,0,'required',0,'{\"title\":\"Video Extensions.\",\"placeholder\":\"Video Extensions\"}',NULL),(31,5,'doc_extensions','Doc Extensions',0,0,'required',0,'{\"title\":\"Doc Extensions.\",\"placeholder\":\"Doc Extensions\"}',NULL),(32,5,'zip_extensions','Zip Extensions',0,0,'required',0,'{\"title\":\"Zip Extensions.\",\"placeholder\":\"Zip Extensions\"}',NULL),(33,5,'generate_name','Generate Name',20,0,'required',0,'{\"title\":\"Generate Name.\"}',NULL),(34,5,'pretty_name','Pretty Name',20,0,'required',0,'{\"title\":\"Pretty Name.\"}',NULL),(35,5,'max_size','Max Size',0,0,'required',0,'{\"title\":\"Max Size.\",\"placeholder\":\"Max Size\"}',NULL),(36,5,'generate_thumb','Generate Thumb',20,0,'required',0,'{\"title\":\"Generate Thumb.\"}',NULL),(37,5,'thumb_width','Thumb Width',0,0,'required',0,'{\"title\":\"Thumb Width.\",\"placeholder\":\"Thumb Width\"}',NULL),(38,5,'thumb_height','Thumb Height',0,0,'required',0,'{\"title\":\"Thumb Height.\",\"placeholder\":\"Thumb Height\"}',NULL),(39,5,'uploads_directory','Uploads Directory',0,0,NULL,0,'{\"title\":\"Uploads Directory.\",\"placeholder\":\"Uploads Directory\"}',NULL),(40,5,'uploads_url','Uploads URL',0,0,'required',0,'{\"title\":\"Uploads URL.\",\"placeholder\":\"Uploads URL\"}',NULL),(41,6,'name','Name',0,0,'required',0,'{\"placeholder\":\"Name\"}',NULL),(42,6,'email','Email',0,0,'required,email',0,'{\"placeholder\":\"Email\"}',NULL),(43,6,'subject','Subject',0,0,'required',0,'{\"placeholder\":\"Subject\"}',NULL),(44,6,'message','Message',10,0,NULL,0,'{\"placeholder\":\"Message\"}',NULL),(45,7,'name','Name',0,0,'required',0,'{\"placeholder\":\"Name\"}',NULL),(46,7,'email','Email',0,0,'required,email',0,'{\"placeholder\":\"Email\"}',NULL),(47,7,'rating','Rating',0,0,'required',0,'{\"placeholder\":\"Rating\"}',NULL),(48,7,'message','Message',10,0,NULL,0,'{\"placeholder\":\"Message\"}',NULL);
+/*!40000 ALTER TABLE `cmg_core_form_field` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -213,8 +294,10 @@ CREATE TABLE `cmg_core_gallery` (
   `modifiedBy` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slug` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` mediumtext COLLATE utf8_unicode_ci,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -231,7 +314,7 @@ CREATE TABLE `cmg_core_gallery` (
 
 LOCK TABLES `cmg_core_gallery` WRITE;
 /*!40000 ALTER TABLE `cmg_core_gallery` DISABLE KEYS */;
-INSERT INTO `cmg_core_gallery` VALUES (1,1,NULL,'main','main','About Us','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','2015-08-16 16:48:32','2015-08-16 16:48:32');
+INSERT INTO `cmg_core_gallery` VALUES (1,1,1,'main','main','system','About Us','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',1,'2015-08-16 16:48:32','2015-08-16 16:48:32');
 /*!40000 ALTER TABLE `cmg_core_gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,6 +356,7 @@ CREATE TABLE `cmg_core_model_address` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` smallint(6) NOT NULL DEFAULT '0',
+  `order` smallint(6) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_model_address_1` (`addressId`),
   CONSTRAINT `fk_model_address_1` FOREIGN KEY (`addressId`) REFERENCES `cmg_core_address` (`id`) ON DELETE CASCADE
@@ -289,6 +373,34 @@ LOCK TABLES `cmg_core_model_address` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cmg_core_model_attribute`
+--
+
+DROP TABLE IF EXISTS `cmg_core_model_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_core_model_attribute` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parentId` bigint(20) NOT NULL,
+  `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8_unicode_ci,
+  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'default',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_core_model_attribute`
+--
+
+LOCK TABLES `cmg_core_model_attribute` WRITE;
+/*!40000 ALTER TABLE `cmg_core_model_attribute` DISABLE KEYS */;
+INSERT INTO `cmg_core_model_attribute` VALUES (1,1,'site','locale_message','0','core'),(2,1,'site','language','en-US','core'),(3,1,'site','locale','en_US','core'),(4,1,'site','charset','UTF-8','core'),(5,1,'site','site_title','CMG Demo','core'),(6,1,'site','site_name','CMSGears','core'),(7,1,'site','site_url','http://demo.cmsgears.com/templates/basic/','core'),(8,1,'site','admin_url','http://demo.cmsgears.com/templates/basic/admin/','core'),(9,1,'site','registration','1','core'),(10,1,'site','change_email','1','core'),(11,1,'site','change_username','1','core'),(12,1,'site','smtp','0','mail'),(13,1,'site','smtp_username','','mail'),(14,1,'site','smtp_password','','mail'),(15,1,'site','smtp_host','','mail'),(16,1,'site','smtp_port','587','mail'),(17,1,'site','smtp_encryption','tls','mail'),(18,1,'site','debug','1','mail'),(19,1,'site','sender_name','Admin','mail'),(20,1,'site','sender_email','demoadmin@cmsgears.com','mail'),(21,1,'site','contact_name','Contact Us','mail'),(22,1,'site','contact_email','democontact@cmsgears.com','mail'),(23,1,'site','info_name','Info','mail'),(24,1,'site','info_email','demoinfo@cmsgears.com','mail'),(25,1,'site','theme','basic','frontend'),(26,1,'site','theme_version','1','frontend'),(27,1,'site','theme','admin','backend'),(28,1,'site','theme_version','1','backend'),(29,1,'site','image_extensions','png,jpg,jpeg,gif','file'),(30,1,'site','video_extensions','mp4,flv,ogv,avi','file'),(31,1,'site','doc_extensions','pdf','file'),(32,1,'site','zip_extensions','rar,zip','file'),(33,1,'site','generate_name','1','file'),(34,1,'site','pretty_name','0','file'),(35,1,'site','max_size','5','file'),(36,1,'site','generate_thumb','1','file'),(37,1,'site','thumb_width','120','file'),(38,1,'site','thumb_height','120','file'),(39,1,'site','uploads_directory',NULL,'file'),(40,1,'site','uploads_url','http://localhost/cmgdemobasic/uploads/','file');
+/*!40000 ALTER TABLE `cmg_core_model_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cmg_core_model_category`
 --
 
@@ -300,6 +412,7 @@ CREATE TABLE `cmg_core_model_category` (
   `categoryId` bigint(20) NOT NULL,
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` smallint(6) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_model_category_1` (`categoryId`),
   CONSTRAINT `fk_model_category_1` FOREIGN KEY (`categoryId`) REFERENCES `cmg_core_category` (`id`) ON DELETE CASCADE
@@ -324,24 +437,28 @@ DROP TABLE IF EXISTS `cmg_core_model_comment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_model_comment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `baseId` bigint(20) DEFAULT NULL,
+  `parentId` bigint(20) NOT NULL,
   `createdBy` bigint(20) DEFAULT NULL,
   `modifiedBy` bigint(20) DEFAULT NULL,
-  `replyParentId` bigint(20) DEFAULT NULL,
-  `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ip` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ip` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '0',
+  `rating` smallint(6) NOT NULL DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime DEFAULT NULL,
+  `approvedAt` datetime DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_model_comment_1` (`createdBy`),
   KEY `fk_model_comment_2` (`modifiedBy`),
-  KEY `fk_model_comment_3` (`replyParentId`),
+  KEY `fk_model_comment_3` (`baseId`),
   CONSTRAINT `fk_model_comment_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_model_comment_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`),
-  CONSTRAINT `fk_model_comment_3` FOREIGN KEY (`replyParentId`) REFERENCES `cmg_core_model_comment` (`id`)
+  CONSTRAINT `fk_model_comment_3` FOREIGN KEY (`baseId`) REFERENCES `cmg_core_model_comment` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -384,6 +501,34 @@ INSERT INTO `cmg_core_model_file` VALUES (1,1,1,'gallery',0),(2,2,1,'gallery',0)
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cmg_core_model_form`
+--
+
+DROP TABLE IF EXISTS `cmg_core_model_form`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_core_model_form` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `formId` bigint(20) NOT NULL,
+  `parentId` bigint(20) NOT NULL,
+  `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` smallint(6) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `fk_model_form_1` (`formId`),
+  CONSTRAINT `fk_model_form_1` FOREIGN KEY (`formId`) REFERENCES `cmg_core_form` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_core_model_form`
+--
+
+LOCK TABLES `cmg_core_model_form` WRITE;
+/*!40000 ALTER TABLE `cmg_core_model_form` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_core_model_form` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cmg_core_model_message`
 --
 
@@ -392,7 +537,7 @@ DROP TABLE IF EXISTS `cmg_core_model_message`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_model_message` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `localeId` bigint(20) DEFAULT NULL,
+  `localeId` bigint(20) NOT NULL,
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -413,37 +558,6 @@ LOCK TABLES `cmg_core_model_message` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `cmg_core_model_meta`
---
-
-DROP TABLE IF EXISTS `cmg_core_model_meta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cmg_core_model_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `parentId` bigint(20) NOT NULL,
-  `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `value` text COLLATE utf8_unicode_ci,
-  `data` mediumtext COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'default',
-  `fieldType` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fieldMeta` mediumtext COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cmg_core_model_meta`
---
-
-LOCK TABLES `cmg_core_model_meta` WRITE;
-/*!40000 ALTER TABLE `cmg_core_model_meta` DISABLE KEYS */;
-INSERT INTO `cmg_core_model_meta` VALUES (1,1,'site','locale message','0','','core','text',NULL),(2,1,'site','language','en-US','','core','text',NULL),(3,1,'site','charset','UTF-8','','core','text',NULL),(4,1,'site','site title','CMG Demo','','core','text',NULL),(5,1,'site','site name','CMSGears','','core','text',NULL),(6,1,'site','site url','http://demo.cmsgears.com/templates/basic/','','core','text',NULL),(7,1,'site','admin url','http://demo.cmsgears.com/templates/basic/admin/','','core','text',NULL),(8,1,'site','smtp','0','','email','text',NULL),(9,1,'site','smtp username','','','email','text',NULL),(10,1,'site','smtp password','','','email','password',NULL),(11,1,'site','smtp host','','','email','text',NULL),(12,1,'site','smtp port','587','','email','text',NULL),(13,1,'site','smtp encryption','tls','','email','text',NULL),(14,1,'site','debug','1','','email','text',NULL),(15,1,'site','sender name','Admin','','email','text',NULL),(16,1,'site','sender email','demoadmin@cmsgears.com','','email','text',NULL),(17,1,'site','contact name','Contact Us','','email','text',NULL),(18,1,'site','contact email','democontact@cmsgears.com','','email','text',NULL),(19,1,'site','info name','Info','','email','text',NULL),(20,1,'site','info email','demoinfo@cmsgears.com','','email','text',NULL),(21,1,'site','theme','basic','','frontend','text',NULL),(22,1,'site','theme version','1','','frontend','text',NULL),(23,1,'site','theme','basic','','admin','text',NULL),(24,1,'site','theme version','1','','admin','text',NULL);
-/*!40000 ALTER TABLE `cmg_core_model_meta` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `cmg_core_model_tag`
 --
 
@@ -455,6 +569,7 @@ CREATE TABLE `cmg_core_model_tag` (
   `tagId` bigint(20) NOT NULL,
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` smallint(6) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_model_tag_1` (`tagId`),
   CONSTRAINT `fk_model_tag_1` FOREIGN KEY (`tagId`) REFERENCES `cmg_core_tag` (`id`) ON DELETE CASCADE
@@ -483,10 +598,10 @@ CREATE TABLE `cmg_core_newsletter` (
   `modifiedBy` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8_unicode_ci,
   `createdAt` datetime DEFAULT NULL,
   `modifiedAt` datetime DEFAULT NULL,
   `lastSentAt` datetime DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_newsletter_1` (`createdBy`),
   KEY `fk_newsletter_2` (`modifiedBy`),
@@ -545,8 +660,9 @@ DROP TABLE IF EXISTS `cmg_core_newsletter_member`;
 CREATE TABLE `cmg_core_newsletter_member` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `active` tinyint(4) DEFAULT NULL,
+  `global` tinyint(4) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `modifiedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -571,22 +687,28 @@ DROP TABLE IF EXISTS `cmg_core_object`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_object` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `siteId` bigint(20) NOT NULL,
+  `templateId` bigint(20) DEFAULT NULL,
   `createdBy` bigint(20) NOT NULL,
   `modifiedBy` bigint(20) DEFAULT NULL,
-  `templateId` bigint(20) DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `data` mediumtext COLLATE utf8_unicode_ci,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime DEFAULT NULL,
+  `options` mediumtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `fk_object_1` (`createdBy`),
-  KEY `fk_object_2` (`modifiedBy`),
-  KEY `fk_object_3` (`templateId`),
-  CONSTRAINT `fk_object_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
-  CONSTRAINT `fk_object_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`),
-  CONSTRAINT `fk_object_3` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`)
+  KEY `fk_object_1` (`siteId`),
+  KEY `fk_object_2` (`createdBy`),
+  KEY `fk_object_3` (`modifiedBy`),
+  KEY `fk_object_4` (`templateId`),
+  CONSTRAINT `fk_object_1` FOREIGN KEY (`siteId`) REFERENCES `cmg_core_site` (`id`),
+  CONSTRAINT `fk_object_2` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
+  CONSTRAINT `fk_object_3` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`),
+  CONSTRAINT `fk_object_4` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -611,8 +733,9 @@ CREATE TABLE `cmg_core_option` (
   `categoryId` bigint(20) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `message` mediumtext COLLATE utf8_unicode_ci,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `options` mediumtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_option_1` (`categoryId`),
   CONSTRAINT `fk_option_1` FOREIGN KEY (`categoryId`) REFERENCES `cmg_core_category` (`id`) ON DELETE CASCADE
@@ -625,7 +748,7 @@ CREATE TABLE `cmg_core_option` (
 
 LOCK TABLES `cmg_core_option` WRITE;
 /*!40000 ALTER TABLE `cmg_core_option` DISABLE KEYS */;
-INSERT INTO `cmg_core_option` VALUES (1,1,'Male','Male',NULL,NULL),(2,1,'Female','Female',NULL,NULL),(3,1,'Other','Other',NULL,NULL);
+INSERT INTO `cmg_core_option` VALUES (1,1,'Male','Male',NULL,NULL,NULL),(2,1,'Female','Female',NULL,NULL,NULL),(3,1,'Other','Other',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cmg_core_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -652,7 +775,7 @@ CREATE TABLE `cmg_core_permission` (
   KEY `fk_permission_2` (`modifiedBy`),
   CONSTRAINT `fk_permission_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_permission_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1552 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -661,7 +784,7 @@ CREATE TABLE `cmg_core_permission` (
 
 LOCK TABLES `cmg_core_permission` WRITE;
 /*!40000 ALTER TABLE `cmg_core_permission` DISABLE KEYS */;
-INSERT INTO `cmg_core_permission` VALUES (1,1,1,'Admin','admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'User','user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'Core','core','The permission core is to manage settings, drop downs, galleries and newsletters from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'Identity','identity','The permission identity is to manage users from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'Identity RBAC','identity-rbac','The permission identity-rbac is to manage roles and permissions from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(1551,1,1,'Form','form','The permission form is to manage forms from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
+INSERT INTO `cmg_core_permission` VALUES (1,1,1,'Admin','admin','The permission admin is to distinguish between admin and site user. It is a must have permission for admins.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'User','user','The permission user is to distinguish between admin and site user. It is a must have permission for users.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'Core','core','The permission core is to manage settings, drop downs, world countries, galleries and newsletters from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'Identity','identity','The permission identity is to manage users from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'RBAC','rbac','The permission rbac is to manage roles and permissions from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(6,1,1,'Form','form','The permission form is to manage forms from admin.','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -717,7 +840,7 @@ CREATE TABLE `cmg_core_role` (
   KEY `fk_role_2` (`modifiedBy`),
   CONSTRAINT `fk_role_1` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
   CONSTRAINT `fk_role_2` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1552 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -726,7 +849,7 @@ CREATE TABLE `cmg_core_role` (
 
 LOCK TABLES `cmg_core_role` WRITE;
 /*!40000 ALTER TABLE `cmg_core_role` DISABLE KEYS */;
-INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','super-admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'Admin','admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'User','user','The role User is limited to website users.',NULL,'system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'User Manager','user-manager','The role User Manager is limited to manage site users from admin.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(1551,1,1,'Form Manager','form-manager','The role Form Manager is limited to manage forms from admin.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
+INSERT INTO `cmg_core_role` VALUES (1,1,1,'Super Admin','super-admin','The Super Admin have all the permisisons to perform operations on the admin site and website.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,'Admin','admin','The Admin have all the permisisons to perform operations on the admin site and website except RBAC module.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(3,1,1,'User','user','The role User is limited to website users.',NULL,'system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(4,1,1,'User Manager','user-manager','The role User Manager is limited to manage site users from admin.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(5,1,1,'Form Manager','form-manager','The role Form Manager is limited to manage forms from admin.','dashboard','system',NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 /*!40000 ALTER TABLE `cmg_core_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -754,7 +877,7 @@ CREATE TABLE `cmg_core_role_permission` (
 
 LOCK TABLES `cmg_core_role_permission` WRITE;
 /*!40000 ALTER TABLE `cmg_core_role_permission` DISABLE KEYS */;
-INSERT INTO `cmg_core_role_permission` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,1551),(2,1),(2,2),(2,3),(2,1551),(3,2),(4,1),(4,2),(4,4),(1551,1551);
+INSERT INTO `cmg_core_role_permission` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),(2,6),(3,2),(4,1),(4,2),(4,4),(5,6);
 /*!40000 ALTER TABLE `cmg_core_role_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -767,8 +890,17 @@ DROP TABLE IF EXISTS `cmg_core_site`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_site` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `avatarId` bigint(20) DEFAULT NULL,
+  `bannerId` bigint(20) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `order` smallint(6) DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `fk_site_1` (`avatarId`),
+  KEY `fk_site_2` (`bannerId`),
+  CONSTRAINT `fk_site_1` FOREIGN KEY (`avatarId`) REFERENCES `cmg_core_file` (`id`),
+  CONSTRAINT `fk_site_2` FOREIGN KEY (`bannerId`) REFERENCES `cmg_core_file` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -778,7 +910,7 @@ CREATE TABLE `cmg_core_site` (
 
 LOCK TABLES `cmg_core_site` WRITE;
 /*!40000 ALTER TABLE `cmg_core_site` DISABLE KEYS */;
-INSERT INTO `cmg_core_site` VALUES (1,'main');
+INSERT INTO `cmg_core_site` VALUES (1,NULL,NULL,'main','main',0,1);
 /*!40000 ALTER TABLE `cmg_core_site` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -826,6 +958,7 @@ CREATE TABLE `cmg_core_tag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -848,16 +981,21 @@ DROP TABLE IF EXISTS `cmg_core_template`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_core_template` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `layout` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `viewPath` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adminView` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `frontendView` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
   `content` mediumtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -866,7 +1004,7 @@ CREATE TABLE `cmg_core_template` (
 
 LOCK TABLES `cmg_core_template` WRITE;
 /*!40000 ALTER TABLE `cmg_core_template` DISABLE KEYS */;
-INSERT INTO `cmg_core_template` VALUES (1,'form','It can be used to display form.','form','form','@themes/basic/views/templates/form',NULL,'form',NULL);
+INSERT INTO `cmg_core_template` VALUES (1,1,1,'Form Public','form-public','It can be used to display public forms.','form','form/public','@themes/basic/views/templates/form',NULL,'public','2015-08-16 16:48:32','2015-08-16 16:48:32',NULL),(2,1,1,'Form Private','form-private','It can be used to display private forms.','form','form/private','@themes/basic/views/templates/form',NULL,'private','2015-08-16 16:48:32','2015-08-16 16:48:32',NULL);
 /*!40000 ALTER TABLE `cmg_core_template` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -882,6 +1020,7 @@ CREATE TABLE `cmg_core_user` (
   `localeId` bigint(20) DEFAULT NULL,
   `genderId` bigint(20) DEFAULT NULL,
   `avatarId` bigint(20) DEFAULT NULL,
+  `bannerId` bigint(20) DEFAULT NULL,
   `status` smallint(6) DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -903,9 +1042,11 @@ CREATE TABLE `cmg_core_user` (
   KEY `fk_user_1` (`localeId`),
   KEY `fk_user_2` (`genderId`),
   KEY `fk_user_3` (`avatarId`),
+  KEY `fk_user_4` (`bannerId`),
   CONSTRAINT `fk_user_1` FOREIGN KEY (`localeId`) REFERENCES `cmg_core_locale` (`id`),
   CONSTRAINT `fk_user_2` FOREIGN KEY (`genderId`) REFERENCES `cmg_core_option` (`id`),
-  CONSTRAINT `fk_user_3` FOREIGN KEY (`avatarId`) REFERENCES `cmg_core_file` (`id`)
+  CONSTRAINT `fk_user_3` FOREIGN KEY (`avatarId`) REFERENCES `cmg_core_file` (`id`),
+  CONSTRAINT `fk_user_4` FOREIGN KEY (`bannerId`) REFERENCES `cmg_core_file` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -915,84 +1056,8 @@ CREATE TABLE `cmg_core_user` (
 
 LOCK TABLES `cmg_core_user` WRITE;
 /*!40000 ALTER TABLE `cmg_core_user` DISABLE KEYS */;
-INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
+INSERT INTO `cmg_core_user` VALUES (1,NULL,NULL,NULL,NULL,500,'demomaster@cmsgears.com','demomaster','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','master',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'JuL37UBqGpjnA7kaPiRnlsiWRwbRvXx7',NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,500,'demoadmin@cmsgears.com','demoadmin','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','admin',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E',NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,500,'demouser@cmsgears.com','demouser','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','demo','user',NULL,NULL,NULL,NULL,'2014-10-11 14:22:54','2014-10-10 08:03:19',NULL,'-jG5ExHS0Y39ucSxHhl3PZ4xmPsfvQFC',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cmg_core_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cmg_form`
---
-
-DROP TABLE IF EXISTS `cmg_form`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cmg_form` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `templateId` bigint(20) DEFAULT NULL,
-  `createdBy` bigint(20) NOT NULL,
-  `modifiedBy` bigint(20) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `successMessage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `jsonStorage` tinyint(1) DEFAULT '0',
-  `captcha` tinyint(1) DEFAULT '0',
-  `visibility` tinyint(1) DEFAULT '0',
-  `userMail` tinyint(1) DEFAULT '0',
-  `adminMail` tinyint(1) DEFAULT '0',
-  `options` mediumtext COLLATE utf8_unicode_ci,
-  `createdAt` datetime NOT NULL,
-  `modifiedAt` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_form_1` (`templateId`),
-  KEY `fk_form_2` (`createdBy`),
-  KEY `fk_form_3` (`modifiedBy`),
-  CONSTRAINT `fk_form_1` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`),
-  CONSTRAINT `fk_form_2` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
-  CONSTRAINT `fk_form_3` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cmg_form`
---
-
-LOCK TABLES `cmg_form` WRITE;
-/*!40000 ALTER TABLE `cmg_form` DISABLE KEYS */;
-INSERT INTO `cmg_form` VALUES (1,1,1,1,'Contact Us','contact-us','contact form','Thanks for contacting us. We will contact you within next 48 hrs.',1,1,0,0,1,NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54'),(2,1,1,1,'Feedback','feedback','feedback form','Thanks for providing your valuable feedback.',0,1,1,0,1,NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
-/*!40000 ALTER TABLE `cmg_form` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cmg_form_field`
---
-
-DROP TABLE IF EXISTS `cmg_form_field`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cmg_form_field` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `formId` bigint(20) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` smallint(6) DEFAULT NULL,
-  `validators` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8_unicode_ci,
-  `meta` mediumtext COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`id`),
-  KEY `fk_form_field_1` (`formId`),
-  CONSTRAINT `fk_form_field_1` FOREIGN KEY (`formId`) REFERENCES `cmg_form` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cmg_form_field`
---
-
-LOCK TABLES `cmg_form_field` WRITE;
-/*!40000 ALTER TABLE `cmg_form_field` DISABLE KEYS */;
-INSERT INTO `cmg_form_field` VALUES (1,1,'name',NULL,1,'required','{\"placeholder\":\"Name\"}',NULL),(2,1,'email',NULL,1,'required,email','{\"placeholder\":\"Email\"}',NULL),(3,1,'subject',NULL,1,'required','{\"placeholder\":\"Subject\"}',NULL),(4,1,'message',NULL,5,NULL,'{\"placeholder\":\"Message\"}',NULL),(5,2,'name',NULL,1,'required','{\"placeholder\":\"Name\"}',NULL),(6,2,'email',NULL,1,'required,email','{\"placeholder\":\"Email\"}',NULL),(7,2,'rating',NULL,25,'required','{\"placeholder\":\"Subject\"}',NULL),(8,2,'message',NULL,5,NULL,'{\"placeholder\":\"Message\"}',NULL);
-/*!40000 ALTER TABLE `cmg_form_field` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1005,14 +1070,13 @@ DROP TABLE IF EXISTS `cmg_form_submit`;
 CREATE TABLE `cmg_form_submit` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `formId` bigint(20) NOT NULL,
-  `jsonStorage` tinyint(1) DEFAULT '0',
   `submittedBy` bigint(20) DEFAULT NULL,
   `submittedAt` datetime DEFAULT NULL,
   `data` mediumtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_form_submit_1` (`formId`),
   KEY `fk_form_submit_2` (`submittedBy`),
-  CONSTRAINT `fk_form_submit_1` FOREIGN KEY (`formId`) REFERENCES `cmg_form` (`id`),
+  CONSTRAINT `fk_form_submit_1` FOREIGN KEY (`formId`) REFERENCES `cmg_core_form` (`id`),
   CONSTRAINT `fk_form_submit_2` FOREIGN KEY (`submittedBy`) REFERENCES `cmg_core_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1034,9 +1098,11 @@ DROP TABLE IF EXISTS `cmg_form_submit_field`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmg_form_submit_field` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `formSubmitId` bigint(20) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_form_submit_field_1` (`formSubmitId`),
   CONSTRAINT `fk_form_submit_field_1` FOREIGN KEY (`formSubmitId`) REFERENCES `cmg_form_submit` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1060,4 +1126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-05  9:39:32
+-- Dump completed on 2015-12-15 17:49:46

@@ -18,15 +18,18 @@ Plugins
 Widgets
 ------------------------------------------
 1. CLEditor Widget can be used to edit content using CLEditor WYSIWYG editor.
-2. Gallery Widget can be used to show Image Galleries.
+2. Block Widget can be used to form pages using Blocks.
+3. Nav Widget can be used to form navigation menus.
 3. Login Widget can be used to login or register on site using Ajax.
-4. Nav Widget can be used to form navigation menus.
-5. Newsletter Widget can be used to allow site users to register for news and updates from site.
+4. Gallery Widget can be used to show Image Galleries.
+6. Newsletter Widget can be used to allow site users to register for news and updates from site.
+7. Form Widget can be used to display forms stored in database using yii way.
+8. Ajax Form Widget can be used to display forms stored in database. These can be submitted using Ajax.
 
 Themes
 ------------------------------------------
 1. Basic Theme for frontend. It provide layouts and views for both Core and Forms modules.
-2. Admin Theme provide layouts to manage both Core and Forms modules.
+2. Admin Theme provide layouts to manage both Core and Forms modules. It also provide options to configure plugins.
 
 Template Details
 =========================================
@@ -67,11 +70,12 @@ Template Configuration - New
 
 1. Create the database, database user and update both the environments config - environments/dev/common/config/config-env.php, environments/prod/common/config/config-env.php. The default database and database user are cmgdemobasic.
 2. To trigger real-time mails in production environment, remove the config param 'useFileTransport' from the environments/prod/common/config/config-env.php.
-3. Install the DB using all-in-one.sql provided within the console/migrations directory. We might need to change database name if it's different than cmgdemobasic.
+3. Install the DB using all-in-one-d.sql provided within the console/migrations directory. We might need to change database name if it's different than cmgdemobasic.
 4. Run the php script init.php to initialize the application for the predefined environments. The script will ask to choose environemnt among prod or dev.
 5. Update htaccess located under template root based on your web server needs. More details about live application settings can be found at http://www.cmsgears.org.
 6. Download the Admin and Basic Themes and place them under <template root>/themes/admin and <template root>/themes/basic directories respectively. 
 7. Now we can run the template using our preferred browser. Example links are as mentioned below.
+8. Login to admin and update file upload url in case project name is different.
 
 ```
 Frontend - http://localhost/cmgdemobasic/frontend/web
@@ -88,11 +92,18 @@ Default Pages
 
 The Basic Theme installed for Basic Template provide views for default system pages as listed below.
 
-1. Landing
-2. Login
-3. Register
-4. Forgot Password
-5. Reset Password
-6. User Home
-7. User Profile
-8. User Settings
+Public Pages
+----------------------------
+1. Landing - Site index page.
+2. Login - Login page allows users to login.
+3. Register - Register page allows users to sign up.
+4. Confirm Account - Users can confirm account by following the link sent to their email while submitting Register form.
+5. Forgot Password - It can be used to generate password reset link.
+6. Reset Password - Users can reset password by following the link sent to their email while submitting Forgot Password form.
+7. Activate Account - User accounts added by site admin can be activated using this page.
+
+Private Pages
+----------------------------
+1. User Home - Page displayed on login.
+2. User Profile - User profile page allows users to configure their profile details.
+3. User Settings - Settings page allows users to configure settings icluding account, notifications, reminders.

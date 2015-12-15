@@ -52,9 +52,11 @@ return [
         'cmgFormsMailer' => [
         	'class' => 'cmsgears\forms\common\components\Mailer'
         ],
+         'formDesigner' => [
+        	'class' => 'cmsgears\core\common\components\FormDesigner'
+        ],
         'fileManager' => [
-        	'class' => 'cmsgears\files\components\FileManager',
-        	'uploadUrl' => 'http://localhost/cmgdemobasic/uploads/'
+        	'class' => 'cmsgears\files\components\FileManager'
         ]
     ]
 ];

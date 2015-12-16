@@ -28,12 +28,12 @@ Widgets
 
 Themes
 ------------------------------------------
-1. Basic Theme for frontend. It provide layouts and views for both Core and Forms modules.
-2. Admin Theme provide layouts to manage both Core and Forms modules. It also provide options to configure plugins.
+1. Admin Theme provide layouts to manage both Core and Forms modules. It also provide options to configure modules and plugins.
+2. Basic Theme for frontend. It provide layouts and views for both Core and Forms modules.
 
 Template Details
 =========================================
-The Basic Template is a group of directories and configuration files used to manage the backend and frontend applications. 
+The Basic Template is a group of directories and configuration files used to manage the backend and frontend applications.
 
 It also provide DB configuration having required test data. The uploads directory is uploaded by default gallery used on landing page.
 
@@ -42,19 +42,27 @@ Template Demo
 1. Frontend - http://demo.cmsgears.com/templates/basic (demouser@cmsgears.com, test#123)
 2. Admin - http://demo.cmsgears.com/templates/basic/admin (demomaster@cmsgears.com, test#123)
 
+Real time emails are disabled on demo sites and the database reset is done every hour.
+
 Template Installation
 =========================================
 
 The Basic Template can be installed via composer using the below mentioned command. To install composer, please refer to their official site https://getcomposer.org.
 
+We can install release and pre-release i.e. alpha, beta versions using composer as mentioned below. 
+
 ```
+// Release Versions
+
 php composer.phar create-project --prefer-dist --stability=stable cmsgears/template-basic cmgdemobasic
 
 or
 
 composer create-project --prefer-dist --stability=stable cmsgears/template-basic cmgdemobasic
-
+```
 We can also use below mentioned commands to access the pre release code
+```
+// Pre-release Versions
 
 php composer.phar create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-basic cmgdemobasic
 
@@ -64,6 +72,8 @@ composer create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears
 ```
 
 If we are using Apache web server, we need to run either of the above mentioned command under Apache web root directory. More details can be found at http://www.cmsgears.org.
+
+We can also install the template for latest code by cloning Basic Template for the pre-release branch i.e. alpha, beta. In this case, we need to install composer.json file to initialise vendor directory.
 
 Template Configuration - New
 =========================================
@@ -76,6 +86,7 @@ Template Configuration - New
 6. Download the Admin and Basic Themes and place them under <template root>/themes/admin and <template root>/themes/basic directories respectively. 
 7. Now we can run the template using our preferred browser. Example links are as mentioned below.
 8. Login to admin and update file upload url in case project name is different.
+9. By default all the files uploaded by users will be stored in uploads directory.
 
 ```
 Frontend - http://localhost/cmgdemobasic/frontend/web

@@ -25,20 +25,27 @@ return [
         ],
         'urlManager' => [
 	        'rules' => [
-	        	// apix request rules
+	        	// apix request rules --------------------------
+	        	// Forms
+	        	'apix/form/<slug:[\w\-]+>' => 'cmgforms/apix/site/index',
+	        	// Module Actions
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
-	        	'apix/<action:(login|register)>' => 'cmgcore/apix/site/<action>',
-	        	'apix/<action:(contact)>' => 'cmgforms/apix/site/<action>',
-				// regular request rules
+	        	// Core Module Actions
+	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+				// regular request rules -----------------------
+	        	// Forms
+	        	'form/<slug:[\w\-]+>' => 'cmgforms/site/index',
+	        	// Module Pages
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	'<action:(home)>' => 'cmgcore/user/<action>',
+	        	// Core Module Pages
+	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
+	        	// Standard Pages
+	        	'<action:(home|profile)>' => 'cmgcore/user/<action>',
 	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
-	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>'
 	        ]
 		],
         'cmgCore' => [
-        	'loginRedirectPage' => '/cmgcore/user/home'
+        	'loginRedirectPage' => '/home'
         ]
     ],
     'params' => $params

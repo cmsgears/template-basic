@@ -10,12 +10,12 @@ SELECT @site := `id` FROM cmg_core_site WHERE slug = 'main';
 -- Contact Form
 --
 
-INSERT INTO `cmg_core_form` (`siteId`,`templateId`,`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`description`,`successMessage`,`captcha`,`visibility`,`active`,`userMail`,`adminMail`,`options`,`createdAt`,`modifiedAt`) VALUES
+INSERT INTO `cmg_core_form` (`siteId`,`templateId`,`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`description`,`successMessage`,`captcha`,`visibility`,`active`,`userMail`,`adminMail`,`htmlOptions`,`createdAt`,`modifiedAt`) VALUES
 	(@site,1,1,1,'Contact Us','contact-us','form','contact form','Contrary to popular belief, Lorem Ipsum is not simply random text.',1,0,1,0,1,NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 
 SELECT @form := `id` FROM cmg_core_form WHERE slug = 'contact-us';
 
-INSERT INTO `cmg_core_form_field` (`formId`,`name`,`label`,`type`,`compress`,`validators`,`options`,`data`,`order`) VALUES 
+INSERT INTO `cmg_core_form_field` (`formId`,`name`,`label`,`type`,`compress`,`validators`,`htmlOptions`,`data`,`order`) VALUES 
 	(@form,'name','Name',0,0,'required','{\"placeholder\":\"Name\"}',NULL,0),
 	(@form,'email','Email',0,0,'required,email','{\"placeholder\":\"Email\"}',NULL,0),
 	(@form,'subject','Subject',0,0,'required','{\"placeholder\":\"Subject\"}',NULL,0),
@@ -25,12 +25,12 @@ INSERT INTO `cmg_core_form_field` (`formId`,`name`,`label`,`type`,`compress`,`va
 -- Feedback Form
 --
 
-INSERT INTO `cmg_core_form` (`siteId`,`templateId`,`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`description`,`successMessage`,`captcha`,`visibility`,`active`,`userMail`,`adminMail`,`options`,`createdAt`,`modifiedAt`) VALUES
+INSERT INTO `cmg_core_form` (`siteId`,`templateId`,`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`description`,`successMessage`,`captcha`,`visibility`,`active`,`userMail`,`adminMail`,`htmlOptions`,`createdAt`,`modifiedAt`) VALUES
 	(@site,2,1,1,'Feedback','feedback','form','feedback form','Thanks for providing your valuable feedback.',1,10,1,0,1,NULL,'2014-10-11 14:22:54','2014-10-11 14:22:54');
 
 SELECT @form := `id` FROM cmg_core_form WHERE slug = 'feedback';
 
-INSERT INTO `cmg_core_form_field` (`formId`,`name`,`label`,`type`,`compress`,`validators`,`options`,`data`,`order`) VALUES 
+INSERT INTO `cmg_core_form_field` (`formId`,`name`,`label`,`type`,`compress`,`validators`,`htmlOptions`,`data`,`order`) VALUES 
 	(@form,'name','Name',0,0,'required','{\"placeholder\":\"Name\"}',NULL,0),
 	(@form,'email','Email',0,0,'required,email','{\"placeholder\":\"Email\"}',NULL,0),
 	(@form,'rating','Rating',0,0,'required','{\"placeholder\":\"Rating\"}',NULL,0),
@@ -51,6 +51,12 @@ INSERT INTO `cmg_core_file` VALUES
 INSERT INTO `cmg_core_gallery` (`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`title`,`description`,`active`,`createdAt`,`modifiedAt`) VALUES 
 	(1,1,'main','main','system','About Us','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',1,'2015-08-16 16:48:32','2015-08-16 16:48:32');
 
-INSERT INTO `cmg_core_model_file` VALUES (1,1,1,'gallery',0),(2,2,1,'gallery',0),(3,3,1,'gallery',0),(4,4,1,'gallery',0),(5,5,1,'gallery',0),(6,6,1,'gallery',0);
+INSERT INTO `cmg_core_model_file` VALUES 
+	(1,1,1,'gallery',0,1),
+	(2,2,1,'gallery',0,1),
+	(3,3,1,'gallery',0,1),
+	(4,4,1,'gallery',0,1),
+	(5,5,1,'gallery',0,1),
+	(6,6,1,'gallery',0,1);
 
 SET FOREIGN_KEY_CHECKS=1;

@@ -111,7 +111,7 @@ CREATE TABLE `cmg_core_category` (
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `featured` tinyint(1) NOT NULL DEFAULT '0',
-  `options` mediumtext COLLATE utf8_unicode_ci,
+  `htmlOptions` mediumtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_category_1` (`avatarId`),
   KEY `fk_category_2` (`parentId`),
@@ -221,7 +221,7 @@ CREATE TABLE `cmg_core_form` (
   `adminMail` tinyint(1) DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime DEFAULT NULL,
-  `options` mediumtext COLLATE utf8_unicode_ci,
+  `htmlOptions` mediumtext COLLATE utf8_unicode_ci,
   `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_form_1` (`siteId`),
@@ -262,8 +262,8 @@ CREATE TABLE `cmg_core_form_field` (
   `validators` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` smallint(6) DEFAULT '0',
   `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8_unicode_ci,
-  `data` mediumtext COLLATE utf8_unicode_ci,
+  `htmlOptions` mediumtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_form_field_1` (`formId`),
   CONSTRAINT `fk_form_field_1` FOREIGN KEY (`formId`) REFERENCES `cmg_core_form` (`id`)
@@ -355,6 +355,7 @@ CREATE TABLE `cmg_core_model_address` (
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` smallint(6) NOT NULL DEFAULT '0',
   `order` smallint(6) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_model_address_1` (`addressId`),
   CONSTRAINT `fk_model_address_1` FOREIGN KEY (`addressId`) REFERENCES `cmg_core_address` (`id`) ON DELETE CASCADE
@@ -382,8 +383,9 @@ CREATE TABLE `cmg_core_model_attribute` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
+  `valueType` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
   `value` longtext COLLATE utf8_unicode_ci,
-  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'default',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -394,7 +396,7 @@ CREATE TABLE `cmg_core_model_attribute` (
 
 LOCK TABLES `cmg_core_model_attribute` WRITE;
 /*!40000 ALTER TABLE `cmg_core_model_attribute` DISABLE KEYS */;
-INSERT INTO `cmg_core_model_attribute` VALUES (1,1,'site','locale_message','0','core'),(2,1,'site','language','en-US','core'),(3,1,'site','locale','en_US','core'),(4,1,'site','charset','UTF-8','core'),(5,1,'site','site_title','CMG Demo','core'),(6,1,'site','site_name','CMSGears','core'),(7,1,'site','site_url','http://demo.cmsgears.com/templates/basic/','core'),(8,1,'site','admin_url','http://demo.cmsgears.com/templates/basic/admin/','core'),(9,1,'site','registration','1','core'),(10,1,'site','change_email','1','core'),(11,1,'site','change_username','1','core'),(12,1,'site','smtp','0','mail'),(13,1,'site','smtp_username','','mail'),(14,1,'site','smtp_password','','mail'),(15,1,'site','smtp_host','','mail'),(16,1,'site','smtp_port','587','mail'),(17,1,'site','smtp_encryption','tls','mail'),(18,1,'site','debug','1','mail'),(19,1,'site','sender_name','Admin','mail'),(20,1,'site','sender_email','demoadmin@cmsgears.com','mail'),(21,1,'site','contact_name','Contact Us','mail'),(22,1,'site','contact_email','democontact@cmsgears.com','mail'),(23,1,'site','info_name','Info','mail'),(24,1,'site','info_email','demoinfo@cmsgears.com','mail'),(25,1,'site','theme','basic','frontend'),(26,1,'site','theme_version','1','frontend'),(27,1,'site','theme','admin','backend'),(28,1,'site','theme_version','1','backend'),(29,1,'site','image_extensions','png,jpg,jpeg,gif','file'),(30,1,'site','video_extensions','mp4,flv,ogv,avi','file'),(31,1,'site','doc_extensions','pdf','file'),(32,1,'site','zip_extensions','rar,zip','file'),(33,1,'site','generate_name','1','file'),(34,1,'site','pretty_name','0','file'),(35,1,'site','max_size','5','file'),(36,1,'site','generate_thumb','1','file'),(37,1,'site','thumb_width','120','file'),(38,1,'site','thumb_height','120','file'),(39,1,'site','uploads_directory',NULL,'file'),(40,1,'site','uploads_url','http://localhost/cmgdemobasic/uploads/','file');
+INSERT INTO `cmg_core_model_attribute` VALUES (1,1,'site','locale_message','core','flag','0'),(2,1,'site','language','core','text','en-US'),(3,1,'site','locale','core','text','en_US'),(4,1,'site','charset','core','text','UTF-8'),(5,1,'site','site_title','core','text','CMG Demo'),(6,1,'site','site_name','core','text','CMSGears'),(7,1,'site','site_url','core','text','http://demo.cmsgears.com/templates/basic/'),(8,1,'site','admin_url','core','text','http://demo.cmsgears.com/templates/basic/admin/'),(9,1,'site','registration','core','flag','1'),(10,1,'site','change_email','core','flag','1'),(11,1,'site','change_username','core','flag','1'),(12,1,'site','smtp','mail','flag','0'),(13,1,'site','smtp_username','mail','text',''),(14,1,'site','smtp_password','mail','text',''),(15,1,'site','smtp_host','mail','text',''),(16,1,'site','smtp_port','mail','text','587'),(17,1,'site','smtp_encryption','mail','text','tls'),(18,1,'site','debug','mail','flag','1'),(19,1,'site','sender_name','mail','text','Admin'),(20,1,'site','sender_email','mail','text','demoadmin@cmsgears.com'),(21,1,'site','contact_name','mail','text','Contact Us'),(22,1,'site','contact_email','mail','text','democontact@cmsgears.com'),(23,1,'site','info_name','mail','text','Info'),(24,1,'site','info_email','mail','text','demoinfo@cmsgears.com'),(25,1,'site','theme','frontend','text','basic'),(26,1,'site','theme_version','text','frontend','1'),(27,1,'site','theme','backend','text','admin'),(28,1,'site','theme_version','text','backend','1'),(29,1,'site','image_extensions','file','text','png,jpg,jpeg,gif'),(30,1,'site','video_extensions','file','text','mp4,flv,ogv,avi'),(31,1,'site','doc_extensions','file','text','pdf'),(32,1,'site','zip_extensions','file','text','rar,zip'),(33,1,'site','generate_name','file','flag','1'),(34,1,'site','pretty_name','file','flag','0'),(35,1,'site','max_size','file','text','5'),(36,1,'site','generate_thumb','file','flag','1'),(37,1,'site','thumb_width','file','text','120'),(38,1,'site','thumb_height','file','text','120'),(39,1,'site','uploads_directory','file','text',NULL),(40,1,'site','uploads_url','file','text','http://localhost/cmgdemobasic/uploads/');
 /*!40000 ALTER TABLE `cmg_core_model_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,6 +413,7 @@ CREATE TABLE `cmg_core_model_category` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` smallint(6) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_model_category_1` (`categoryId`),
   CONSTRAINT `fk_model_category_1` FOREIGN KEY (`categoryId`) REFERENCES `cmg_core_category` (`id`) ON DELETE CASCADE
@@ -482,6 +485,7 @@ CREATE TABLE `cmg_core_model_file` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` smallint(6) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_model_file_1` (`fileId`),
   CONSTRAINT `fk_model_file_1` FOREIGN KEY (`fileId`) REFERENCES `cmg_core_file` (`id`) ON DELETE CASCADE
@@ -510,6 +514,7 @@ CREATE TABLE `cmg_core_model_form` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` smallint(6) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_model_form_1` (`formId`),
   CONSTRAINT `fk_model_form_1` FOREIGN KEY (`formId`) REFERENCES `cmg_core_form` (`id`) ON DELETE CASCADE
@@ -567,6 +572,7 @@ CREATE TABLE `cmg_core_model_tag` (
   `parentId` bigint(20) NOT NULL,
   `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` smallint(6) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_model_tag_1` (`tagId`),
   CONSTRAINT `fk_model_tag_1` FOREIGN KEY (`tagId`) REFERENCES `cmg_core_tag` (`id`) ON DELETE CASCADE
@@ -695,7 +701,7 @@ CREATE TABLE `cmg_core_object` (
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `modifiedAt` datetime DEFAULT NULL,
-  `options` mediumtext COLLATE utf8_unicode_ci,
+  `htmlOptions` mediumtext COLLATE utf8_unicode_ci,
   `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_object_1` (`siteId`),
@@ -731,7 +737,7 @@ CREATE TABLE `cmg_core_option` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8_unicode_ci,
+  `htmlOptions` mediumtext COLLATE utf8_unicode_ci,
   `data` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `fk_option_1` (`categoryId`),
@@ -955,6 +961,7 @@ CREATE TABLE `cmg_core_tag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1122,4 +1129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-16 11:38:45
+-- Dump completed on 2015-12-31 20:31:20

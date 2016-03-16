@@ -28,20 +28,20 @@ return [
 	        	// apix request rules --------------------------
 	        	// Forms
 	        	'apix/form/<slug:[\w\-]+>' => 'cmgforms/apix/site/index',
-	        	// Module Actions
-	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
 	        	// Core Module Actions
 	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+	        	// Module Actions
+	        	'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
 				// regular request rules -----------------------
 	        	// Forms
 	        	'form/<slug:[\w\-]+>' => 'cmgforms/site/index',
-	        	// Module Pages
-	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	// Core Module Pages
 	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
+	        	// Module Pages
+	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	// Standard Pages
-	        	'<action:(home|profile)>' => 'cmgcore/user/<action>',
-	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
+	        	'<action:(home)>' => 'cmgcore/user/<action>',
+	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>'
 	        ]
 		],
         'cmgCore' => [

@@ -10,11 +10,12 @@
 	},
 	"minimum-stability": "stable",
     "require": {
-        "yiisoft/yii2": "2.0.6",
+        "yiisoft/yii2": "2.0.7",
         "yiisoft/yii2-swiftmailer": "2.0.*",
         "cmsgears/module-core": "dev-1.0.0-alpha",
         "cmsgears/module-forms": "dev-1.0.0-alpha",
         "cmsgears/plugin-file-manager": "dev-1.0.0-alpha",
+        "cmsgears/plugin-icon-picker": "dev-1.0.0-alpha",
         "cmsgears/widget-cleditor": "dev-1.0.0-alpha",
         "cmsgears/widget-block": "dev-1.0.0-alpha",
         "cmsgears/widget-nav": "dev-1.0.0-alpha",
@@ -23,9 +24,14 @@
         "cmsgears/widget-newsletter": "dev-1.0.0-alpha",
         "cmsgears/widget-form": "dev-1.0.0-alpha",
         "cmsgears/widget-form-ajax": "dev-1.0.0-alpha",
-		"bower-asset/cmt-js": "dev-1.0.0-alpha",
+		"bower-asset/jquery-ui": "1.10.*",
 		"bower-asset/handlebars": "4.0.*",
-		"bower-asset/jquery-ui": "1.10.*"
+		"bower-asset/imagesloaded": "4.1.*",
+		"bower-asset/malihu-custom-scrollbar-plugin": "3.1.*",
+		"bower-asset/fontawesome": "4.5.*",
+		"bower-asset/cmt-ui": "dev-1.0.0-alpha",
+		"bower-asset/cmt-js": "dev-1.0.0-alpha",
+		"bower-asset/cmt-iconlib": "dev-1.0.0-alpha"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "2.0.*",

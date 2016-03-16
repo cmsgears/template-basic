@@ -1,5 +1,5 @@
 <?php
-defined( 'YII_DEBUG' ) or define( 'YII_DEBUG', true );
+defined( 'YII_DEBUG' ) or define( 'YII_DEBUG', false );
 defined( 'YII_ENV' ) or define( 'YII_ENV', 'dev' );
 
 require( __DIR__ . '/../../vendor/autoload.php' );
@@ -13,6 +13,6 @@ $config = yii\helpers\ArrayHelper::merge(
     require( __DIR__ . '/../config/config-env.php' )
 );
 
-$application = new yii\web\Application( $config );
+$application = new \cmsgears\core\common\base\Application( $config );
 $application->run();
 ?>

@@ -27,10 +27,10 @@ return [
         ],
         'urlManager' => [
 	        'rules' => [
-	        	// apix request rules
+	        	// APIX Rules
 	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<controller>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
-				// regular request rules
+	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+	        	// Regular Rules
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'cmgcore/site/<action>'
 	        ]

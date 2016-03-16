@@ -31,7 +31,8 @@ return [
         ],
         'formatter' => [
         	'dateFormat' => 'yyyy-MM-dd',
-        	'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss'
+        	'timeFormat' => 'HH:mm:ss',
+        	'datetimeFormat' => "yyyy-MM-dd HH:mm:ss"
         ],
         'errorHandler' => [
             'errorAction' => 'cmgcore/site/error',
@@ -46,17 +47,27 @@ return [
         'cmgCoreMailer' => [
         	'class' => 'cmsgears\core\common\components\Mailer'
         ],
-        'cmgFormsMessage' => [
-        	'class' => 'cmsgears\forms\common\components\MessageSource',
-        ],
-        'cmgFormsMailer' => [
-        	'class' => 'cmsgears\forms\common\components\Mailer'
-        ],
          'formDesigner' => [
         	'class' => 'cmsgears\core\common\components\FormDesigner'
         ],
         'fileManager' => [
         	'class' => 'cmsgears\files\components\FileManager'
+        ],
+        'iconManager' => [
+        	'class' => 'cmsgears\icons\components\IconManager' 
+        ],
+        'templateSource' => [
+        	'class' => 'cmsgears\core\common\components\TemplateSource',
+        	'templatesPath' => null,
+        	'renderers' => [
+        		'default' => 'Default'
+        	]
+        ],
+        'cmgFormsMessage' => [
+        	'class' => 'cmsgears\forms\common\components\MessageSource',
+        ],
+        'cmgFormsMailer' => [
+        	'class' => 'cmsgears\forms\common\components\Mailer'
         ]
     ]
 ];

@@ -23,6 +23,9 @@ return [
         'view' => [
             'theme' => 'themes\basic\Theme'
         ],
+        'errorHandler' => [
+            'errorAction' => 'cmgcore/site/error',
+        ],
         'urlManager' => [
 	        'rules' => [
 	        	// apix request rules --------------------------

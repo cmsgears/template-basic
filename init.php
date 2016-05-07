@@ -162,13 +162,49 @@ function copyFile( $root, $source, $target ) {
     return true;
 }
 
+function getParams() {
+
+    $rawParams = [];
+
+    if( isset( $_SERVER[ 'argv' ] ) ) {
+
+        $rawParams = $_SERVER[ 'argv' ];
+
+        array_shift( $rawParams );
+    }
+
+    $params = [];
+
+    foreach( $rawParams as $param ) {
+
+        if( preg_match( '/^--(\w+)(=(.*))?$/', $param, $matches ) ) {
+
+            $name 				= $matches[ 1 ];
+            $params[ $name ] 	= isset( $matches[ 3 ] ) ? $matches[ 3 ] : true;
+        } 
+        else {
+
+            $params[] = $param;
+        }
+    }
+
+    return $params;
+}
+
 function setWritable( $root, $paths ) {
-	
+
     foreach( $paths as $writable ) {
 
-        echo "      chmod 0777 $writable\n";
+        if ( is_dir( "$root/$writable" ) ) {
 
-        @chmod( "$root/$writable", 0777 );
+            echo "      chmod 0777 $writable\n";
+
+            @chmod( "$root/$writable", 0777 );
+        }
+        else {
+
+            echo "\n  Error. Directory $writable does not exist. \n";
+        }
     }
 }
 
@@ -190,11 +226,30 @@ function setCookieValidationKey( $root, $paths ) {
 
         $file 		= $root . '/' . $file;
         $length 	= 32;
-        $bytes 		= mcrypt_create_iv( $length, MCRYPT_DEV_URANDOM );
+        $bytes 		= openssl_random_pseudo_bytes( $length );
         $key 		= strtr( substr( base64_encode( $bytes ), 0, $length ), '+/=', '_-.' );
         $content 	= preg_replace( '/(("|\')cookieValidationKey("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents( $file ) );
 
         file_put_contents( $file, $content );
+    }
+}
+
+function createSymlink( $root, $links ) {
+
+    foreach( $links as $link => $target ) {
+
+        echo "      symlink " . $root . "/" . $target . " " . $root . "/" . $link . "\n";
+
+        //first removing folders to avoid errors if the folder already exists
+        @rmdir( $root . "/" . $link );
+
+        //next removing existing symlink in order to update the target
+        if( is_link( $root . "/" . $link ) ) {
+
+            @unlink( $root . "/" . $link );
+        }
+
+        @symlink( $root . "/" . $target, $root . "/" . $link );
     }
 }
 

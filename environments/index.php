@@ -18,6 +18,9 @@ return [
             'backend/config/config-env.php',
             'frontend/config/config-env.php',
         ],
+        'createSymlink' => [
+        	// add symlinks here
+        ]
     ],
     'Production' => [
         'path' => 'prod',
@@ -35,6 +38,9 @@ return [
             'backend/config/config-env.php',
             'frontend/config/config-env.php',
         ],
+        'createSymlink' => [
+        	// add symlinks here
+        ]
     ],
 ];
 

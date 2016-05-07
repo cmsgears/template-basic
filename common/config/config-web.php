@@ -34,9 +34,6 @@ return [
         	'timeFormat' => 'HH:mm:ss',
         	'datetimeFormat' => "yyyy-MM-dd HH:mm:ss"
         ],
-        'errorHandler' => [
-            'errorAction' => 'cmgcore/site/error',
-        ],
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core',
         	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor'
@@ -47,7 +44,7 @@ return [
         'cmgCoreMailer' => [
         	'class' => 'cmsgears\core\common\components\Mailer'
         ],
-         'formDesigner' => [
+		'formDesigner' => [
         	'class' => 'cmsgears\core\common\components\FormDesigner'
         ],
         'fileManager' => [

@@ -1,1 +1,0 @@
-All the uploaded files will be placed in this folder.

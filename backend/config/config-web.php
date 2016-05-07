@@ -25,6 +25,9 @@ return [
             	'class' => 'themes\admin\Theme'
 			]
         ],
+        'errorHandler' => [
+            'errorAction' => 'cmgcore/site/error',
+        ],
         'urlManager' => [
 	        'rules' => [
 	        	// APIX Rules

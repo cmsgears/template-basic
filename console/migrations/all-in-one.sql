@@ -1224,6 +1224,239 @@ LOCK TABLES `cmg_form_submit_field` WRITE;
 /*!40000 ALTER TABLE `cmg_form_submit_field` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cmg_form_submit_field` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_newsletter`
+--
+
+DROP TABLE IF EXISTS `cmg_newsletter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_newsletter` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `templateId` bigint(20) DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  `lastSentAt` datetime DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
+  `data` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_newsletter_1` (`templateId`),
+  KEY `fk_cmg_newsletter_2` (`createdBy`),
+  KEY `fk_cmg_newsletter_3` (`modifiedBy`),
+  CONSTRAINT `fk_cmg_newsletter_1` FOREIGN KEY (`templateId`) REFERENCES `cmg_core_template` (`id`),
+  CONSTRAINT `fk_cmg_newsletter_2` FOREIGN KEY (`createdBy`) REFERENCES `cmg_core_user` (`id`),
+  CONSTRAINT `fk_cmg_newsletter_3` FOREIGN KEY (`modifiedBy`) REFERENCES `cmg_core_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_newsletter`
+--
+
+LOCK TABLES `cmg_newsletter` WRITE;
+/*!40000 ALTER TABLE `cmg_newsletter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_newsletter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_newsletter_list`
+--
+
+DROP TABLE IF EXISTS `cmg_newsletter_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_newsletter_list` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `newsletterId` bigint(20) NOT NULL,
+  `memberId` bigint(20) NOT NULL,
+  `active` tinyint(4) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_newsletter_list_1` (`newsletterId`),
+  KEY `fk_cmg_newsletter_list_2` (`memberId`),
+  CONSTRAINT `fk_cmg_newsletter_list_1` FOREIGN KEY (`newsletterId`) REFERENCES `cmg_newsletter` (`id`),
+  CONSTRAINT `fk_cmg_newsletter_list_2` FOREIGN KEY (`memberId`) REFERENCES `cmg_core_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_newsletter_list`
+--
+
+LOCK TABLES `cmg_newsletter_list` WRITE;
+/*!40000 ALTER TABLE `cmg_newsletter_list` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_newsletter_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_newsletter_member`
+--
+
+DROP TABLE IF EXISTS `cmg_newsletter_member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_newsletter_member` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(4) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_newsletter_member`
+--
+
+LOCK TABLES `cmg_newsletter_member` WRITE;
+/*!40000 ALTER TABLE `cmg_newsletter_member` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_newsletter_member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_notify_event`
+--
+
+DROP TABLE IF EXISTS `cmg_notify_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_notify_event` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
+  `preReminderCount` smallint(6) DEFAULT NULL,
+  `preReminderInterval` smallint(6) DEFAULT NULL,
+  `postReminderCount` smallint(6) DEFAULT NULL,
+  `postReminderInterval` smallint(6) DEFAULT NULL,
+  `trash` tinyint(1) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  `scheduledAt` datetime DEFAULT NULL,
+  `content` mediumtext COLLATE utf8_unicode_ci,
+  `data` mediumtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_event_1` (`userId`),
+  CONSTRAINT `fk_cmg_event_1` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_notify_event`
+--
+
+LOCK TABLES `cmg_notify_event` WRITE;
+/*!40000 ALTER TABLE `cmg_notify_event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_notify_event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_notify_model_event`
+--
+
+DROP TABLE IF EXISTS `cmg_notify_model_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_notify_model_event` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `eventId` bigint(20) NOT NULL,
+  `parentId` bigint(20) NOT NULL,
+  `parentType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_model_event_1` (`eventId`),
+  CONSTRAINT `fk_cmg_model_event_1` FOREIGN KEY (`eventId`) REFERENCES `cmg_notify_event` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_notify_model_event`
+--
+
+LOCK TABLES `cmg_notify_model_event` WRITE;
+/*!40000 ALTER TABLE `cmg_notify_model_event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_notify_model_event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_notify_model_notification`
+--
+
+DROP TABLE IF EXISTS `cmg_notify_model_notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_notify_model_notification` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) DEFAULT NULL,
+  `parentId` bigint(20) DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `parentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
+  `ip` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `agent` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `follow` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `consumed` tinyint(1) NOT NULL DEFAULT '0',
+  `createdAt` datetime NOT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  `content` mediumtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_model_notification_1` (`userId`),
+  CONSTRAINT `fk_cmg_model_notification_1` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_notify_model_notification`
+--
+
+LOCK TABLES `cmg_notify_model_notification` WRITE;
+/*!40000 ALTER TABLE `cmg_notify_model_notification` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_notify_model_notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cmg_notify_model_reminder`
+--
+
+DROP TABLE IF EXISTS `cmg_notify_model_reminder`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cmg_notify_model_reminder` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) DEFAULT NULL,
+  `eventId` bigint(20) NOT NULL,
+  `parentId` bigint(20) NOT NULL,
+  `parentType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `createdAt` datetime NOT NULL,
+  `modifiedAt` datetime DEFAULT NULL,
+  `content` mediumtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `fk_cmg_model_reminder_1` (`userId`),
+  KEY `fk_cmg_model_reminder_2` (`eventId`),
+  CONSTRAINT `fk_cmg_model_reminder_1` FOREIGN KEY (`userId`) REFERENCES `cmg_core_user` (`id`),
+  CONSTRAINT `fk_cmg_model_reminder_2` FOREIGN KEY (`eventId`) REFERENCES `cmg_notify_event` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmg_notify_model_reminder`
+--
+
+LOCK TABLES `cmg_notify_model_reminder` WRITE;
+/*!40000 ALTER TABLE `cmg_notify_model_reminder` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cmg_notify_model_reminder` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

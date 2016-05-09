@@ -35,6 +35,7 @@ return [
 	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 	        	// Module Actions
 	        	'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+				
 				// regular request rules -----------------------
 	        	// Forms
 	        	'form/<slug:[\w\-]+>' => 'cmgforms/site/index',
@@ -42,7 +43,8 @@ return [
 	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
 	        	// Module Pages
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	// Standard Pages
+	        	
+	        	// static rules --------------------------------
 	        	'<action:(home)>' => 'cmgcore/user/<action>',
 	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>'
 	        ]

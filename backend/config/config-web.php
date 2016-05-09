@@ -17,6 +17,12 @@ return [
         ],
         'cmgforms' => [
             'class' => 'cmsgears\forms\admin\Module'
+        ],
+        'cmgnewsletter' => [
+            'class' => 'cmsgears\newsletter\admin\Module'
+        ],
+        'cmgnotify' => [
+            'class' => 'cmsgears\notify\admin\Module'
         ]
     ],
     'components' => [
@@ -44,7 +50,7 @@ return [
         ],
         'sidebar' => [
         	'class' => 'cmsgears\core\admin\components\Sidebar',
-        	'modules' => [ 'cmgforms', 'cmgcore' ],
+        	'modules' => [ 'cmgforms', 'cmgcore', 'cmgnewsletter', 'cmgnotify' ],
         	'plugins' => [
         		'fileManager' => [ 'file' ]
         	]

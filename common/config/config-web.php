@@ -25,14 +25,9 @@ return [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => [ 'error', 'warning' ],
                 ],
             ]
-        ],
-        'formatter' => [
-        	'dateFormat' => 'yyyy-MM-dd',
-        	'timeFormat' => 'HH:mm:ss',
-        	'datetimeFormat' => "yyyy-MM-dd HH:mm:ss"
         ],
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core',
@@ -51,7 +46,7 @@ return [
         	'class' => 'cmsgears\files\components\FileManager'
         ],
         'iconManager' => [
-        	'class' => 'cmsgears\icons\components\IconManager' 
+        	'class' => 'cmsgears\icons\components\IconManager'
         ],
         'templateSource' => [
         	'class' => 'cmsgears\core\common\components\TemplateSource',

@@ -1,5 +1,6 @@
 ## The migrate down work following the migrations table - version column - arranged in descending order
 ./yii migrate/down --migrationPath=@console/migrations/data --interactive=0
+./yii migrate/down --migrationPath=@console/migrations/data --interactive=0
 ./yii migrate/down --migrationPath=@themes/basic/migrations --interactive=0
 ./yii migrate/down --migrationPath=@foxslider/cmg-plugin/migrations --interactive=0
 ./yii migrate/down --migrationPath=@foxslider/cmg-plugin/migrations --interactive=0

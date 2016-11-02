@@ -28,6 +28,7 @@
         "cmsgears/widget-newsletter": "dev-1.0.0-alpha",
         "cmsgears/widget-form": "dev-1.0.0-alpha",
         "cmsgears/widget-form-ajax": "dev-1.0.0-alpha",
+        "foxslider/cmg-plugin": "dev-1.0.0-alpha",
 		"bower-asset/jquery-ui": "1.10.*",
 		"bower-asset/handlebars": "4.0.*",
 		"bower-asset/imagesloaded": "4.1.*",

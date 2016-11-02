@@ -1,19 +1,20 @@
 {
 	"name": "cmsgears/template-basic",
 	"description": "The basic template uses core and dynamic form modules from CMSGears. It needs basic theme for website and admin theme for admin.",
-	"homepage": "http://www.cmsgears.org", 
+	"homepage": "http://www.cmsgears.org",
 	"type": "project",
-	"keywords": [ "yii2", "cmsgears", "template", "basic" ],
+	"keywords": [ "yii", "yii2", "yii 2", "cmsgears", "template", "basic" ],
 	"license": "GPLv3",
 	"support": {
-		"resources": "http://www.cmsgears.org"
+		"forum": "http://forum.cmsgears.org"
 	},
 	"minimum-stability": "stable",
     "require": {
-        "yiisoft/yii2": "2.0.7",
+        "yiisoft/yii2": "2.0.10",
         "yiisoft/yii2-swiftmailer": "2.0.*",
         "cmsgears/module-core": "dev-1.0.0-alpha",
         "cmsgears/module-forms": "dev-1.0.0-alpha",
+		"cmsgears/module-sns-login": "dev-1.0.0-alpha",
         "cmsgears/module-newsletter": "dev-1.0.0-alpha",
         "cmsgears/module-notify": "dev-1.0.0-alpha",
         "cmsgears/plugin-file-manager": "dev-1.0.0-alpha",
@@ -37,10 +38,10 @@
 		"bower-asset/cmt-iconlib": "dev-1.0.0-alpha"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "2.0.*",
-        "yiisoft/yii2-debug": "2.0.*",
-        "yiisoft/yii2-gii": "2.0.*",
-        "yiisoft/yii2-faker": "2.0.*"
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
     },
     "extra": {
         "asset-installer-paths": {

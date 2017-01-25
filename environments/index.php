@@ -8,6 +8,7 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
+			'console/runtime',
 			'uploads'
 		],
 		'setExecutable' => [

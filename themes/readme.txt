@@ -1,1 +1,0 @@
-The themes directory to be used by site admin.

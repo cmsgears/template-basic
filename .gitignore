@@ -1,6 +1,17 @@
+# yii console commands
+/yii
+/yii_test
+/yii_test.bat
+
+# composer files
 composer.lock
 vendor
+
+// sass cache
 themes/admin/resources/.sass-cache
 themes/admin/resources/styles/scss/.sass-cache
 themes/basic/resources/.sass-cache
 themes/basic/resources/styles/scss/.sass-cache
+
+# windows thumbnail cache
+Thumbs.db

@@ -14,6 +14,6 @@ $config = yii\helpers\ArrayHelper::merge(
 	require( __DIR__ . '/../config/main-env.php' )
 );
 
-$application = new \cmsgears\core\common\base\Application( $config );
+$application = new cmsgears\core\common\base\Application( $config );
 
 $application->run();

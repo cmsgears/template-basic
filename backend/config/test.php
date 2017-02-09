@@ -1,4 +1,4 @@
 <?php
 return [
-    'id' => 'app-backend-tests'
+    'id' => 'app-admin-tests'
 ];

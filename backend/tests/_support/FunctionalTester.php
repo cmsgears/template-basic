@@ -43,4 +43,5 @@ class FunctionalTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// FunctionalTester ----------------------
+
 }

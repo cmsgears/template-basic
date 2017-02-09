@@ -8,13 +8,15 @@ class AppAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Public ----
+	// Variables -----------------------------
+
+	// Public -----------------
 
     public $basePath 	= '@webroot';
     public $baseUrl 	= '@web';
 
 	// Load css
-	public $css		= [
+	public $css = [
 		//'styles/main.css'
 	];
 
@@ -28,10 +30,23 @@ class AppAssets extends \yii\web\AssetBundle {
         'yii\web\YiiAsset'
     ];
 
+	// Protected --------------
+
+	// Private ----------------
+
+	// Traits ------------------------------------------------------
+
 	// Constructor and Initialisation ------------------------------
 
-	public function __construct()  {
+	public function init()  {
 
-		parent::__construct();
+		parent::init();
+
+		// Do initialization
 	}
+
+	// Instance methods --------------------------------------------
+
+	// AppAssets -----------------------------
+
 }

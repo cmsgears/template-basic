@@ -43,4 +43,5 @@ class UnitTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// UnitTester ----------------------------
+
 }

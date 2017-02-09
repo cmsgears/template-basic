@@ -3,7 +3,7 @@
 $config = [
 	'components' => [
 		'request' => [
-			'cookieValidationKey' => '',
+			'cookieValidationKey' => ''
 		]
 	]
 ];

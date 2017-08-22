@@ -13,8 +13,8 @@ require( __DIR__ . '/../../vendor/yiisoft/yii2/Yii.php' );
 require( __DIR__ . '/../../common/config/bootstrap.php' );
 require( __DIR__ . '/../config/bootstrap.php' );
 
-$config 		= require( __DIR__ . '/../config/test-env.php' );
+$config = require( __DIR__ . '/../config/test-env.php' );
 
-$application 	= new cmsgears\core\common\base\Application( $config );
+$application = new \yii\web\Application( $config );
 
 $application->run();

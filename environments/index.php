@@ -8,7 +8,6 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
-			'console/runtime',
 			'uploads'
 		],
 		'setExecutable' => [
@@ -17,8 +16,8 @@ return [
 		],
 		'setCookieValidationKey' => [
 			'backend/config/main-env.php',
-			'frontend/config/main-env.php'
-		],
+			'frontend/config/main-env.php',
+		]
 	],
 	'Production' => [
 		'path' => 'prod',
@@ -27,7 +26,6 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
-			'console/runtime',
 			'uploads'
 		],
 		'setExecutable' => [
@@ -35,7 +33,7 @@ return [
 		],
 		'setCookieValidationKey' => [
 			'backend/config/main-env.php',
-			'frontend/config/main-env.php'
-		],
-	],
+			'frontend/config/main-env.php',
+		]
+	]
 ];

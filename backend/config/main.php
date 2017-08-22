@@ -10,9 +10,11 @@ return [
     'basePath' => dirname( __DIR__ ),
     'controllerNamespace' => 'admin\controllers',
     'defaultRoute' => 'core/site/index',
-    // Uncomment it to load all the services in case controller actions are not configured to load components on demand excluding bootstrappers
-    //'bootstrap' => [ 'log', 'core', 'forms', 'snsLogin', 'newsletter', 'notify', 'foxSlider' ],
-    'bootstrap' => [ 'log', 'core' ],
+	'bootstrap' => [
+		'log',
+		'core', 'forms', 'snsLogin', 'newsletter', 'notify',
+		'foxSlider'
+	],
     'modules' => [
         'core' => [
             'class' => 'cmsgears\core\admin\Module'
@@ -34,52 +36,46 @@ return [
         ]
     ],
     'components' => [
-        'view' => [
+		'view' => [
 			'theme' => [
-            	'class' => 'themes\admin\Theme',
-            	'childs' => [
-            		// Child themes
-            		// Override parent theme css
-            		// Add additional js
-            	]
+				'class' => 'themes\admin\Theme',
+				'childs' => [ 'themes\adminchild\Theme' ]
 			]
-        ],
-        'request' => [
-            'csrfParam' => '_csrf-admin',
-		    'parsers' => [
-		        'application/json' => 'yii\web\JsonParser'
-		    ]
-        ],
-        'user' => [
-            'enableAutoLogin' => true,
-            'loginUrl' => '@web/login',
-            'identityCookie' => [ 'name' => '_identity-admin', 'httpOnly' => true ]
-        ],
-        'session' => [
-            'name' => 'cmg-basic-admin'
-        ],
-        'errorHandler' => [
-            'errorAction' => 'core/site/error'
-        ],
-        'log' => [
-            'targets' => [
-				[
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [ 'error', 'warning' ]
-                ]
-            ]
-        ],
-        'urlManager' => [
+		],
+		'request' => [
+			'csrfParam' => '_csrf-admin',
+			'parsers' => [
+				'application/json' => 'yii\web\JsonParser'
+			]
+		],
+		'user' => [
+			'identityCookie' => [ 'name' => '_identity-admin', 'httpOnly' => true ]
+		],
+		'session' => [
+			'name' => 'blog-admin'
+		],
+		'errorHandler' => [
+			'errorAction' => 'core/site/error'
+		],
+		'assetManager' => [
+			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+		],
+		'urlManager' => [
 			'rules' => [
-				// APIX Rules ---------------------------
-				// Catch All -------------
-				'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-				// Core Module -----------
-				'apix/<controller:\w+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
-				// Regular Rules ------------------------
-				// Catch All -------------
-				'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-				// Common Actions --------
+				// apix request rules --------------------------
+				// Core - 2 levels
+				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
+				// Generic - 3, 4 and 5 levels - catch all
+				'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// regular request rules -----------------------
+				// Core Module Pages
+				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
+				// Module Pages - 2 and 3 levels - catch all
+				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				// Standard Pages
 				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 			]
 		],
@@ -89,11 +85,11 @@ return [
         ],
         'sidebar' => [
         	'class' => 'cmsgears\core\admin\components\Sidebar',
-        	'modules' => [ 'notify', 'foxslider', 'forms', 'core', 'newsletter' ],
-        	'plugins' => [
-        		'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
-        		'fileManager' => [ 'file' ]
-        	]
+        	'modules' => [ 'foxslider', 'forms', 'core', 'notify', 'newsletter' ],
+			'plugins' => [
+				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
+				'fileManager' => [ 'file' ]
+			]
         ],
         'dashboard' => [
         	'class' => 'cmsgears\core\admin\components\Dashboard',

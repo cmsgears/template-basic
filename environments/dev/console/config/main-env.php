@@ -6,16 +6,6 @@ return [
 		'gii' => 'yii\gii\Module'
 	],
 	'components' => [
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [ 'error', 'warning', 'info' ],
-					// 'categories' => [ 'cmsgears\*', 'console\*', '<project>\*' ]
-                    'categories' => [ 'cmsgears\*', 'console\*' ]
-                ]
-            ]
-        ],
 		'urlManager' => [
 			'class' => 'yii\web\UrlManager',
 			'baseUrl' => 'http://localhost/cmgdemobasic/frontend/web'

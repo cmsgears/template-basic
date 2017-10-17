@@ -1,14 +1,13 @@
-# yii console commands
+# yii environment
 yii
 yii.bat
 yii_test
 yii_test.bat
 
 # phpstorm project files
-.idea
+.idea/
 
 # netbeans project files
-nbproject/private/
 nbproject/
 
 # eclipse/aptana project files
@@ -21,34 +20,18 @@ composer.phar
 composer.lock
 vendor/
 
-// sass cache
+# frontend
 frontend/web/.sass-cache/
-frontend/web/styles/
-frontend/web/scripts/
 frontend/runtime/
 
+# backend
 backend/web/.sass-cache/
-backend/web/styles/
-backend/web/scripts/
 backend/runtime/
 
+# console
 console/runtime/
 
-themes/admin/.sass-cache/
-themes/admin/resources/.sass-cache/
-themes/admin/resources/styles/.sass-cache/
-themes/admin/resources/styles/scss/.sass-cache/
-
-themes/adminchild/deploy/.sass-cache/
-themes/adminchild/deploy/node_modules/
-
-themes/basic/.sass-cache/
-themes/basic/resources/.sass-cache/
-themes/basic/resources/styles/.sass-cache/
-themes/basic/resources/styles/scss/.sass-cache/
-themes/basic/deploy/node_modules/
-
-# uploads
+# uploads - keep it commented for test data .. uncomment once test data is done
 uploads/
 
 # windows thumbnail cache

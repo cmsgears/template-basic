@@ -75,7 +75,7 @@ return [
         	]
         ],
         'eventManager' => [
-        	'class' => 'nutriquest\core\common\components\EventManager'
+        	'class' => 'cmsgears\core\common\components\EventManager'
         ],
 		// CMG Modules - Forms
 		'forms' => [

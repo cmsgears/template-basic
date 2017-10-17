@@ -1,0 +1,5 @@
+# Ignore everything in this directory.
+# Notes: We can remove this restriction in case the assets are added manually to this directory.
+*
+# Except this file
+!.gitignore

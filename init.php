@@ -56,12 +56,12 @@ switch( $envName ) {
 	}
 }
 
-$env		= $envs[ $envName ];
+$env = $envs[ $envName ];
 
 echo "\n  Start initialization ...\n\n";
 
 // Copy all files to respective directories
-$files	= getFileList( "$root/environments/{$env['path']}" );
+$files = getFileList( "$root/environments/{$env['path']}" );
 
 foreach ( $files as $file ) {
 

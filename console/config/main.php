@@ -15,21 +15,7 @@ return [
 	],
 	'controllerNamespace' => 'console\controllers',
 	'modules' => [
-		'core' => [
-			'class' => 'cmsgears\core\frontend\Module'
-		],
-		'forms' => [
-			'class' => 'cmsgears\forms\frontend\Module'
-		],
-		'snslogin' => [
-			'class' => 'cmsgears\social\login\frontend\Module'
-		],
-		'newsletter' => [
-			'class' => 'cmsgears\newsletter\frontend\Module'
-		],
-		'notify' => [
-			'class' => 'cmsgears\notify\frontend\Module'
-		]
+		// Console modules
 	],
 	'components' => [
         'log' => [

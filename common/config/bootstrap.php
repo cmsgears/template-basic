@@ -5,10 +5,6 @@ Yii::setAlias( '@themes', dirname( dirname( __DIR__ ) ) . '/themes' );
 Yii::setAlias( '@widgets', dirname( dirname( __DIR__ ) ) . '/widgets' );
 Yii::setAlias( '@uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
 
-// Bower and NPM
-Yii::setAlias( 'bower', '@vendor/bower-asset' );
-Yii::setAlias( '@npm', '@vendor/npm-asset' );
-
 // Applications
 Yii::setAlias( '@console', dirname( dirname( __DIR__ ) ) . '/console' );
 Yii::setAlias( '@backend', dirname( dirname( __DIR__ ) ) . '/backend' );

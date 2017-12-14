@@ -20,6 +20,8 @@ class UnitTester extends \Codeception\Actor {
 
 	// Variables ---------------------------------------------------
 
+	// Globals ----------------
+
 	// Public -----------------
 
 	// Protected --------------
@@ -43,4 +45,5 @@ class UnitTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// UnitTester ----------------------------
+
 }

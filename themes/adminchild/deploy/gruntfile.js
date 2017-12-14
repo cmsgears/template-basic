@@ -2,10 +2,17 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
-	grunt.renameTask( 'concat', 'concatCssCmn' );
+	grunt.renameTask( 'concat', 'concatCssCommon' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
-	grunt.renameTask( 'concat', 'concatCssMan' );
+	grunt.renameTask( 'concat', 'concatCssChild' );
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.renameTask( 'concat', 'concatJsCommon' );
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.renameTask( 'concat', 'concatJsPublic' );
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.renameTask( 'concat', 'concatJsPrivate' );
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.renameTask( 'concat', 'concatJsChild' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
@@ -25,7 +32,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-        concatCssCmn: {
+        concatCssCommon: {
       		options: {
         		separator: '\n\n'
       		},
@@ -37,7 +44,7 @@ module.exports = function( grunt ) {
         		dest: '<project root>/backend/web/styles/cmnazxrs-20170816-src.css'
       		}
     	},
-        concatCssMan: {
+        concatCssChild: {
       		options: {
         		separator: '\n\n'
       		},
@@ -45,10 +52,10 @@ module.exports = function( grunt ) {
         		src: [
 					'<project root>/themes/adminchild/resources/styles/main.css'
 				],
-        		dest: '<project root>/backend/web/styles/manazxrs-20170816-src.css'
+        		dest: '<project root>/backend/web/styles/chdazxrs-20170816-src.css'
       		}
     	},
-        concat: {
+        concatJsCommon: {
       		options: {
         		separator: '\n\n'
       		},
@@ -63,25 +70,55 @@ module.exports = function( grunt ) {
 					'<project root>/vendor/bower/cmt-js/dist/cmgtools.js',
 					'<project root>/vendor/cmsgears/widget-form-ajax/resources/scripts/apps/form.js',
 
-					'<project root>/themes/admin/resources/scripts/templates/public.js',
-					'<project root>/themes/admin/resources/scripts/templates/private.js',
-
 					'<project root>/themes/admin/resources/scripts/main.js',
-					'<project root>/themes/admin/resources/scripts/search.js',
+					'<project root>/themes/admin/resources/scripts/search.js'
+				],
+        		dest: '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js'
+      		}
+    	},
+        concatJsPublic: {
+      		options: {
+        		separator: '\n\n'
+      		},
+      		dist: {
+        		src: [
+					'<project root>/themes/admin/resources/scripts/templates/public.js',
 
 					'<project root>/themes/admin/resources/scripts/apix/public.js',
+
+					'<project root>/themes/admin/resources/scripts/apps/public.js'
+				],
+        		dest: '<project root>/backend/web/scripts/pubazxrs-20170816-src.js'
+      		}
+    	},
+        concatJsPrivate: {
+      		options: {
+        		separator: '\n\n'
+      		},
+      		dist: {
+        		src: [
+					'<project root>/themes/admin/resources/scripts/templates/private.js',
+
 					'<project root>/themes/admin/resources/scripts/apix/private.js',
 
-					'<project root>/themes/admin/resources/scripts/apps/public.js',
 					'<project root>/themes/admin/resources/scripts/apps/private.js',
 					'<project root>/themes/admin/resources/scripts/apps/user.js',
 					'<project root>/themes/admin/resources/scripts/apps/location.js',
 					'<project root>/themes/admin/resources/scripts/apps/notification.js',
-					'<project root>/themes/admin/resources/scripts/apps/category.js',
-
+					'<project root>/themes/admin/resources/scripts/apps/category.js'
+				],
+        		dest: '<project root>/backend/web/scripts/prvazxrs-20170816-src.js'
+      		}
+    	},
+        concatJsChild: {
+      		options: {
+        		separator: '\n\n'
+      		},
+      		dist: {
+        		src: [
 					'<project root>/themes/adminchild/resources/scripts/main.js'
 				],
-        		dest: '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js'
+        		dest: '<project root>/backend/web/scripts/chdazxrs-20170816-src.js'
       		}
     	},
     	cssmin: {
@@ -103,7 +140,10 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-	          		'<project root>/backend/web/scripts/cmnazxrs-20170816.js': [ '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js' ]
+	          		'<project root>/backend/web/scripts/cmnazxrs-20170816.js': [ '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js' ],
+					'<project root>/backend/web/scripts/pubazxrs-20170816.js': [ '<project root>/backend/web/scripts/pubazxrs-20170816-src.js' ],
+					'<project root>/backend/web/scripts/prvazxrs-20170816.js': [ '<project root>/backend/web/scripts/prvazxrs-20170816-src.js' ],
+					'<project root>/backend/web/scripts/chdazxrs-20170816.js': [ '<project root>/backend/web/scripts/chdazxrs-20170816-src.js' ]
 	        	}
       		}
     	},

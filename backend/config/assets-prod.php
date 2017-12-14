@@ -15,7 +15,7 @@ return [
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
 		'css' => [ 'styles/pubazxrs-20170816.css' ],
-		//'js' => [ 'scripts/pubazxrs-20170816.js' ],
+		'js' => [ 'scripts/pubazxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	],
 	'private' => [
@@ -23,15 +23,15 @@ return [
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
 		'css' => [ 'styles/prvazxrs-20170816.css' ],
-		//'js' => [ 'scripts/prvazxrs-20170816.js' ],
+		'js' => [ 'scripts/prvazxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	],
 	'child' => [
 		'class' => 'yii\web\AssetBundle',
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
-		'css' => [ 'styles/manazxrs-20170816.css' ],
-		//'js' => [ 'scripts/manazxrs-20170816.js' ],
+		'css' => [ 'styles/chdazxrs-20170816.css' ],
+		'js' => [ 'scripts/chdazxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	]
 ];

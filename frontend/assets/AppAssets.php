@@ -1,7 +1,9 @@
 <?php
 namespace frontend\assets;
 
-class AppAssets extends \yii\web\AssetBundle {
+use yii\web\AssetBundle;
+
+class AppAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 

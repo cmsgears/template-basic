@@ -12,7 +12,7 @@ return [
 			'cmgPrefix' => 'cmg_',
 			'appPrefix' => 'cmg_',
 			'siteName' => 'CMSGears',
-			'siteTitle' => 'CMSGears Demo',
+			'siteTitle' => 'Basic Demo',
 			'siteMaster' => 'demomaster',
 			'primaryDomain' => 'cmsgears.com',
 			'defaultSite' => 'https://demo.cmsgears.com/templates/basic',

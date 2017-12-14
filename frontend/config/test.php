@@ -7,6 +7,6 @@ return [
         ],
         'urlManager' => [
             'showScriptName' => true
-        ],
+        ]
     ]
 ];

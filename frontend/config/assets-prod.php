@@ -15,7 +15,7 @@ return [
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
 		'css' => [ 'styles/ladbzxrs-20170816.css' ],
-		//'js' => [ 'scripts/ladbzxrs-20170816.js' ],
+		'js' => [ 'scripts/ladbzxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	],
 	'public' => [
@@ -23,7 +23,7 @@ return [
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
 		'css' => [ 'styles/pubbzxrs-20170816.css' ],
-		//'js' => [ 'scripts/pubbzxrs-20170816.js' ],
+		'js' => [ 'scripts/pubbzxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	],
 	'private' => [
@@ -31,7 +31,7 @@ return [
 		'basePath' => '@webroot',
 		'baseUrl' => '@web',
 		'css' => [ 'styles/prvbzxrs-20170816.css' ],
-		//'js' => [ 'scripts/prvbzxrs-20170816.js' ],
+		'js' => [ 'scripts/prvbzxrs-20170816.js' ],
 		'depends' => [ 'common' ]
 	]
 ];

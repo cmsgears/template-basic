@@ -20,6 +20,8 @@ class FunctionalTester extends \Codeception\Actor {
 
 	// Variables ---------------------------------------------------
 
+	// Globals ----------------
+
 	// Public -----------------
 
 	// Protected --------------
@@ -43,4 +45,5 @@ class FunctionalTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// FunctionalTester ----------------------
+
 }

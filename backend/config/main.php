@@ -6,7 +6,7 @@ $params = yii\helpers\ArrayHelper::merge(
 );
 
 return [
-    'id' => 'app-admin',
+    'id' => 'cmg-basic-admin',
     'basePath' => dirname( __DIR__ ),
     'controllerNamespace' => 'admin\controllers',
     'defaultRoute' => 'core/site/index',
@@ -43,16 +43,16 @@ return [
 			]
 		],
 		'request' => [
-			'csrfParam' => '_csrf-admin',
+			'csrfParam' => '_csrf-cmg-basic-admin',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser'
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-admin', 'httpOnly' => true ]
+			'identityCookie' => [ 'name' => '_identity-cmg-basic-admin', 'httpOnly' => true ]
 		],
 		'session' => [
-			'name' => 'blog-admin'
+			'name' => 'cmg-basic-admin'
 		],
 		'errorHandler' => [
 			'errorAction' => 'core/site/error'
@@ -72,9 +72,10 @@ return [
 				// regular request rules -----------------------
 				// Core Module Pages
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-				// Module Pages - 2 and 3 levels - catch all
+				// Module Pages - 2, 3 and 4 levels - catch all
 				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
 				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 			]

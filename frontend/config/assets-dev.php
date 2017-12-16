@@ -3,12 +3,12 @@
 return [
 	'yii\web\JqueryAsset' => false,
 	'landing' => [
-		'class' => 'themes\nutriquest\assets\LandingAssets'
+		'class' => 'themes\basic\assets\LandingAssets'
 	],
 	'public' => [
-		'class' => 'themes\nutriquest\assets\PublicAssets'
+		'class' => 'themes\basic\assets\PublicAssets'
 	],
 	'private' => [
-		'class' => 'themes\nutriquest\assets\PrivateAssets'
+		'class' => 'themes\basic\assets\PrivateAssets'
 	]
 ];

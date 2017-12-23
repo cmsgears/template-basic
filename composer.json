@@ -3,7 +3,9 @@
 	"description": "The basic template uses core and dynamic form modules from CMSGears. It needs basic theme for website and admin theme for admin.",
 	"homepage": "http://www.cmsgears.org",
 	"type": "project",
-	"keywords": [ "yii", "yii2", "yii 2", "cmsgears", "template", "basic" ],
+	"keywords": [
+		"yii", "yii2", "yii 2", "cmsgears", "template", "basic"
+	],
 	"license": "GPLv3",
 	"support": {
 		"forum": "http://forum.cmsgears.org"

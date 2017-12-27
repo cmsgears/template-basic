@@ -79,7 +79,7 @@ return [
         	]
         ],
         'eventManager' => [
-        	'class' => 'cmsgears\core\common\components\EventManager'
+        	'class' => 'cmsgears\notify\common\components\EventManager'
         ],
 		// CMG Modules - Forms
 		'forms' => [

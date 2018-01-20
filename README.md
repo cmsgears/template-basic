@@ -1,8 +1,8 @@
-Project 	- CMSGears (http://www.cmsgears.org)
+Project 	- CMSGears (https://www.cmsgears.org)
 
 Template  	- Basic
 
-License 	- GPLv3 (http://www.gnu.org/licenses/gpl-3.0.html)
+License 	- GPLv3 (https://www.gnu.org/licenses/gpl-3.0.html)
 
 Description - The basic template requires below listed modules, plugins, themes and widgets freely provided by CMSGears.
 

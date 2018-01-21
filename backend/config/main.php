@@ -6,16 +6,20 @@ $params = yii\helpers\ArrayHelper::merge(
 );
 
 return [
-    'id' => 'app-admin',
+    'id' => 'cmg-basic-admin',
     'basePath' => dirname( __DIR__ ),
     'controllerNamespace' => 'admin\controllers',
     'defaultRoute' => 'core/site/index',
-    'bootstrap' => [ 'log', 'core', 'forms', 'snsLogin', 'newsletter', 'notify', 'foxSlider' ],
+	'bootstrap' => [
+		'log',
+		'core', 'forms', 'snsLogin', 'newsletter', 'notify',
+		'foxSlider'
+	],
     'modules' => [
         'core' => [
             'class' => 'cmsgears\core\admin\Module'
         ],
-        'forms' => [
+		'forms' => [
             'class' => 'cmsgears\forms\admin\Module'
         ],
         'snslogin' => [
@@ -29,39 +33,50 @@ return [
         ],
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
-        ],
+        ]
     ],
     'components' => [
-        'view' => [
+		'view' => [
 			'theme' => [
-            	'class' => 'themes\admin\Theme',
-            	'childs' => [
-            		// Child themes to override theme css and to add additional js 
-            	]
+				'class' => 'themes\admin\Theme',
+				'childs' => [ 'themes\adminchild\Theme' ]
 			]
-        ],
-        'request' => [
-            'csrfParam' => '_csrf-admin',
-		    'parsers' => [
-		        'application/json' => 'yii\web\JsonParser'
-		    ]
-        ],
-        'user' => [
-            'identityCookie' => [ 'name' => '_identity-admin', 'httpOnly' => true ]
-        ],
-        'session' => [
-            'name' => 'basic-admin'
-        ],
-        'errorHandler' => [
-            'errorAction' => 'core/site/error',
-        ],
-        'urlManager' => [
+		],
+		'request' => [
+			'csrfParam' => '_csrf-cmg-basic-admin',
+			'parsers' => [
+				'application/json' => 'yii\web\JsonParser'
+			]
+		],
+		'user' => [
+			'identityCookie' => [ 'name' => '_identity-cmg-basic-admin', 'httpOnly' => true ]
+		],
+		'session' => [
+			'name' => 'cmg-basic-admin'
+		],
+		'errorHandler' => [
+			'errorAction' => 'core/site/error'
+		],
+		'assetManager' => [
+			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+		],
+		'urlManager' => [
 			'rules' => [
-				// APIX Rules
-				'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-				'apix/<controller:\w+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
-				// Regular Rules
-				'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+				// apix request rules --------------------------
+				// Core - 2 levels
+				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
+				// Generic - 3, 4 and 5 levels - catch all
+				'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// regular request rules -----------------------
+				// Core Module Pages
+				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
+				// Module Pages - 2, 3 and 4 levels - catch all
+				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// Standard Pages
 				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 			]
 		],
@@ -71,10 +86,11 @@ return [
         ],
         'sidebar' => [
         	'class' => 'cmsgears\core\admin\components\Sidebar',
-        	'modules' => [ 'notify', 'foxslider', 'forms', 'core', 'newsletter' ],
-        	'plugins' => [
-        		'fileManager' => [ 'file' ]
-        	]
+        	'modules' => [ 'foxslider', 'forms', 'core', 'notify', 'newsletter' ],
+			'plugins' => [
+				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
+				'fileManager' => [ 'file' ]
+			]
         ],
         'dashboard' => [
         	'class' => 'cmsgears\core\admin\components\Dashboard',

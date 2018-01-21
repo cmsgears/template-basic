@@ -15,10 +15,12 @@ namespace backend\tests;
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class UnitTester extends \Codeception\Actor {
 
 	// Variables ---------------------------------------------------
+
+	// Globals ----------------
 
 	// Public -----------------
 
@@ -43,4 +45,5 @@ class UnitTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// UnitTester ----------------------------
+
 }

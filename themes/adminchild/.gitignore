@@ -1,0 +1,3 @@
+# Ignore sass cache and node module files
+deploy/.sass-cache/
+deploy/node_modules/

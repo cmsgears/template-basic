@@ -1,8 +1,8 @@
-Project 	- CMSGears (http://www.cmsgears.org)
+Project 	- CMSGears (https://www.cmsgears.org)
 
 Template  	- Basic
 
-License 	- GPLv3 (http://www.gnu.org/licenses/gpl-3.0.html)
+License 	- GPLv3 (https://www.gnu.org/licenses/gpl-3.0.html)
 
 Description - The basic template requires below listed modules, plugins, themes and widgets freely provided by CMSGears.
 
@@ -39,8 +39,8 @@ It also provide DB configuration having required test data. The uploads director
 
 Template Demo
 =========================================
-1. Frontend - http://demo.cmsgears.com/templates/basic (demouser@cmsgears.com, test#123)
-2. Admin - http://demo.cmsgears.com/templates/basic/admin (demomaster@cmsgears.com, test#123)
+1. Frontend - https://demo.cmsgears.com/templates/basic (demouser@cmsgears.com, test#123)
+2. Admin - https://demo.cmsgears.com/templates/basic/admin (demomaster@cmsgears.com, test#123)
 
 Real time emails are disabled on demo sites and the database reset is done every hour.
 
@@ -54,21 +54,21 @@ We can install release and pre-release i.e. alpha, beta versions using composer 
 ```
 // Release Versions
 
-php composer.phar create-project --prefer-dist --stability=stable cmsgears/template-basic cmgdemobasic
+php composer.phar create-project --prefer-dist --stability=stable cmsgears/template-basic basicdemo
 
 or
 
-composer create-project --prefer-dist --stability=stable cmsgears/template-basic cmgdemobasic
+composer create-project --prefer-dist --stability=stable cmsgears/template-basic basicdemo
 ```
 We can also use below mentioned commands to access the pre release code
 ```
 // Pre-release Versions
 
-php composer.phar create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-basic cmgdemobasic
+php composer.phar create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-basic basicdemo
 
 or
 
-composer create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-basic cmgdemobasic
+composer create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-basic basicdemo
 ```
 
 If we are using Apache web server, we need to run either of the above mentioned command under Apache web root directory. More details can be found at http://www.cmsgears.org.
@@ -78,9 +78,9 @@ We can also install the template for latest code by cloning Basic Template for t
 Template Configuration - New
 =========================================
 
-1. Create the database, database user and update both the environments config - environments/dev/common/config/config-env.php, environments/prod/common/config/config-env.php. The default database and database user are cmgdemobasic.
+1. Create the database, database user and update both the environments config - environments/dev/common/config/config-env.php, environments/prod/common/config/config-env.php. The default database and database user are basicdemo.
 2. To trigger real-time mails in production environment, remove the config param 'useFileTransport' from the environments/prod/common/config/config-env.php.
-3. Install the DB using all-in-one-d.sql provided within the console/migrations directory. We might need to change database name if it's different than cmgdemobasic.
+3. Install the DB using all-in-one-d.sql provided within the console/migrations directory. We might need to change database name if it's different than basicdemo.
 4. Run the php script init.php to initialize the application for the predefined environments. The script will ask to choose environemnt among prod or dev.
 5. Update htaccess located under template root based on your web server needs. More details about live application settings can be found at http://www.cmsgears.org.
 6. Download the Admin and Basic Themes and place them under <template root>/themes/admin and <template root>/themes/basic directories respectively. 
@@ -89,8 +89,8 @@ Template Configuration - New
 9. By default all the files uploaded by users will be stored in uploads directory.
 
 ```
-Frontend - http://localhost/cmgdemobasic/frontend/web
-Admin - http://localhost/cmgdemobasic/frontend/web
+Frontend - http://localhost/basicdemo/frontend/web
+Admin - http://localhost/basicdemo/frontend/web
 ```
 
 Template Configuration - Update

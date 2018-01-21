@@ -26,9 +26,9 @@ if( count( $argv ) > 1 ) {
 	$envName = $argv[ 1 ];
 }
 
-if( !isset( $envName ) || !in_array( $envName, [ 'dev', 'prod' ] ) ) {
+if( !isset( $envName ) || !in_array( $envName, [ 'dev', 'alpha', 'prod' ] ) ) {
 
-	echo "Enter your development environment among dev or prod:";
+	echo "Enter your development environment among dev, alpha or prod:";
 
 	// Set the required environemnt
 	$envName	= trim( fgets( STDIN ) );
@@ -39,6 +39,12 @@ switch( $envName ) {
 	case 'dev': {
 
 		$envName = "Development";
+
+		break;
+	}
+	case 'alpha': {
+
+		$envName = "Alpha";
 
 		break;
 	}
@@ -56,12 +62,12 @@ switch( $envName ) {
 	}
 }
 
-$env		= $envs[ $envName ];
+$env = $envs[ $envName ];
 
 echo "\n  Start initialization ...\n\n";
 
 // Copy all files to respective directories
-$files	= getFileList( "$root/environments/{$env['path']}" );
+$files = getFileList( "$root/environments/{$env['path']}" );
 
 foreach ( $files as $file ) {
 

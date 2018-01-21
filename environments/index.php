@@ -8,7 +8,6 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
-			'console/runtime',
 			'uploads'
 		],
 		'setExecutable' => [
@@ -17,8 +16,26 @@ return [
 		],
 		'setCookieValidationKey' => [
 			'backend/config/main-env.php',
-			'frontend/config/main-env.php'
+			'frontend/config/main-env.php',
+		]
+	],
+	'Alpha' => [
+		'path' => 'alpha',
+		'setWritable' => [
+			'backend/runtime',
+			'backend/web/assets',
+			'frontend/runtime',
+			'frontend/web/assets',
+			'uploads'
 		],
+		'setExecutable' => [
+			'yii',
+			'yii_test'
+		],
+		'setCookieValidationKey' => [
+			'backend/config/main-env.php',
+			'frontend/config/main-env.php',
+		]
 	],
 	'Production' => [
 		'path' => 'prod',
@@ -34,7 +51,7 @@ return [
 		],
 		'setCookieValidationKey' => [
 			'backend/config/main-env.php',
-			'frontend/config/main-env.php'
-		],
-	],
+			'frontend/config/main-env.php',
+		]
+	]
 ];

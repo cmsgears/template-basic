@@ -1,17 +1,46 @@
-# yii console commands
-/yii
-/yii_test
-/yii_test.bat
+# yii environment
+yii
+yii.bat
+yii_test
+yii_test.bat
+
+# phpstorm project files
+.idea/
+
+# netbeans project files
+nbproject/
+
+# eclipse/aptana project files
+.buildpath
+.project
+.settings
 
 # composer files
+composer.phar
 composer.lock
-vendor
+vendor/
 
-// sass cache
-themes/admin/resources/.sass-cache
-themes/admin/resources/styles/scss/.sass-cache
-themes/basic/resources/.sass-cache
-themes/basic/resources/styles/scss/.sass-cache
+# frontend
+frontend/web/.sass-cache/
+frontend/runtime/
+
+# backend
+backend/web/.sass-cache/
+backend/runtime/
+
+# console
+console/runtime/
+
+# uploads - keep it commented for test data .. uncomment once test data is done
+uploads/
 
 # windows thumbnail cache
 Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml

@@ -10,7 +10,7 @@ return [
 	'basePath' => dirname( __DIR__ ),
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'snsLogin', 'newsletter', 'notify',
+		'core', 'forms', 'snsConnect', 'newsletter', 'notify',
 		'foxSlider'
 	],
 	'controllerNamespace' => 'console\controllers',

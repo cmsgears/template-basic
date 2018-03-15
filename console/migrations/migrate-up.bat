@@ -5,6 +5,6 @@ call ../../yii migrate/up --migrationPath=@cmsgears/module-notify/migrations --i
 call ../../yii migrate/up --migrationPath=@cmsgears/plugin-file-manager/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@cmsgears/plugin-social-meta/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@foxslider/cmg-plugin/migrations --interactive=0
-call ../../yii migrate/up --migrationPath=@cmsgears/module-sns-login/migrations --interactive=0
+call ../../yii migrate/up --migrationPath=@cmsgears/module-sns-connect/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@themes/basic/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@console/migrations/data --interactive=0

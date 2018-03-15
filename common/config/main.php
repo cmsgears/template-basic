@@ -91,15 +91,15 @@ return [
 		'formsMailer' => [
 			'class' => 'cmsgears\forms\common\components\Mailer'
 		],
-        // CMG Modules - SNS Login
-        'snsLogin' => [
-        	'class' => 'cmsgears\social\login\common\components\SnsLogin'
+        // CMG Modules - SNS Connect
+        'snsConnect' => [
+        	'class' => 'cmsgears\social\connect\common\components\SnsConnect'
         ],
-		'snsLoginMessage' => [
-			'class' => 'cmsgears\social\login\common\components\MessageSource'
+		'snsConnectMessage' => [
+			'class' => 'cmsgears\social\connect\common\components\MessageSource'
 		],
-        'snsLoginMailer' => [
-        	'class' => 'cmsgears\social\login\common\components\Mailer'
+        'snsConnectMailer' => [
+        	'class' => 'cmsgears\social\connect\common\components\Mailer'
         ],
 		// CMG Modules - Newsletter
 		'newsletter' => [

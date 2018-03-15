@@ -12,7 +12,7 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'snsLogin', 'newsletter', 'notify',
+		'core', 'forms', 'snsConnect', 'newsletter', 'notify',
 		'foxSlider'
 	],
     'modules' => [
@@ -22,8 +22,8 @@ return [
 		'forms' => [
             'class' => 'cmsgears\forms\admin\Module'
         ],
-        'snslogin' => [
-            'class' => 'cmsgears\social\login\admin\Module'
+        'snsconnect' => [
+            'class' => 'cmsgears\social\connect\admin\Module'
         ],
         'newsletter' => [
             'class' => 'cmsgears\newsletter\admin\Module'

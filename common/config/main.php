@@ -56,9 +56,8 @@ return [
         		'owner' => 'cmsgears\core\common\filters\OwnerFilter'
         	],
         	'notifications' => true,
-        	'stats' => false,
-        	'statsTriggers' => false,
-        	'siteConfigAll' => true
+        	'siteConfigAll' => true,
+			'multiSite' => false
         ],
         'coreMessage' => [
         	'class' => 'cmsgears\core\common\components\MessageSource'

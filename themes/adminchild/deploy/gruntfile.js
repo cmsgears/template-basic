@@ -24,11 +24,11 @@ module.exports = function( grunt ) {
 			dist: {
 				options: {
 					style: 'expanded',
-					loadPath: '<cmgtools path>/cmgtools/cmt-ui/src/scss'
+					loadPath: 'e:/development/projects-vc/css/cmt-ui/cmt-ui/src/scss'
 				},
 				files: {
-					'<project root>/backend/web/styles/pubazxrs-20170816-src.css': '<project root>/themes/admin/resources/styles/scss/public.scss',
-					'<project root>/backend/web/styles/prvazxrs-20170816-src.css': '<project root>/themes/admin/resources/styles/scss/private.scss'
+					'e:/development/projects-vc/php/basicdemo/backend/web/styles/pubazxrs-20170816-src.css': 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/styles/scss/public.scss',
+					'e:/development/projects-vc/php/basicdemo/backend/web/styles/prvazxrs-20170816-src.css': 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -38,10 +38,10 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'<project root>/vendor/bower/fontawesome/css/font-awesome.min.css',
-					'<project root>/vendor/bower/cmt-iconlib/dist/css/cmti.min.css'
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/cmt-iconlib/dist/css/cmti.min.css'
 				],
-        		dest: '<project root>/backend/web/styles/cmnazxrs-20170816-src.css'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/styles/cmnazxrs-20170816-src.css'
       		}
     	},
         concatCssChild: {
@@ -50,9 +50,9 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'<project root>/themes/adminchild/resources/styles/main.css'
+					'e:/development/projects-vc/php/basicdemo/themes/adminchild/resources/styles/main.css'
 				],
-        		dest: '<project root>/backend/web/styles/chdazxrs-20170816-src.css'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/styles/chdazxrs-20170816-src.css'
       		}
     	},
         concatJsCommon: {
@@ -61,19 +61,19 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					//'<project root>/vendor/bower/jquery/dist/jquery.js',
-					'<project root>/vendor/bower/jquery-ui/jquery-ui.min.js',
-					'<project root>/vendor/foxslider/cmg-plugin/widgets/resources/scripts/foxslider-core.js',
-					'<project root>/vendor/bower/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-					'<project root>/vendor/bower/imagesloaded/imagesloaded.pkgd.min.js',
-					'<project root>/vendor/bower/handlebars/handlebars.js',
-					'<project root>/vendor/bower/cmt-js/dist/cmgtools.js',
-					'<project root>/vendor/cmsgears/widget-form-ajax/resources/scripts/apps/form.js',
+					//'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/jquery/dist/jquery.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/jquery-ui/jquery-ui.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/foxslider/cmg-plugin/widgets/resources/scripts/foxslider-core.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/imagesloaded/imagesloaded.pkgd.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/handlebars/handlebars.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/cmt-js/dist/cmgtools.min.js',
+					'e:/development/projects-vc/php/basicdemo/vendor/cmsgears/widget-form-ajax/resources/scripts/apps/form.js',
 
-					'<project root>/themes/admin/resources/scripts/main.js',
-					'<project root>/themes/admin/resources/scripts/search.js'
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/main.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/search.js'
 				],
-        		dest: '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/cmnazxrs-20170816-src.js'
       		}
     	},
         concatJsPublic: {
@@ -82,13 +82,13 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'<project root>/themes/admin/resources/scripts/templates/public.js',
-
-					'<project root>/themes/admin/resources/scripts/apix/public.js',
-
-					'<project root>/themes/admin/resources/scripts/apps/public.js'
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/templates/public.js',
+					
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apix/public.js',
+					
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/public.js'
 				],
-        		dest: '<project root>/backend/web/scripts/pubazxrs-20170816-src.js'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/pubazxrs-20170816-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -97,17 +97,19 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'<project root>/themes/admin/resources/scripts/templates/private.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/templates/private.js',
+					
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apix/public.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apix/private.js',
 
-					'<project root>/themes/admin/resources/scripts/apix/private.js',
-
-					'<project root>/themes/admin/resources/scripts/apps/private.js',
-					'<project root>/themes/admin/resources/scripts/apps/user.js',
-					'<project root>/themes/admin/resources/scripts/apps/location.js',
-					'<project root>/themes/admin/resources/scripts/apps/notification.js',
-					'<project root>/themes/admin/resources/scripts/apps/category.js'
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/public.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/private.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/user.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/location.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/notification.js',
+					'e:/development/projects-vc/php/basicdemo/themes/admin/resources/scripts/apps/category.js'
 				],
-        		dest: '<project root>/backend/web/scripts/prvazxrs-20170816-src.js'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/prvazxrs-20170816-src.js'
       		}
     	},
         concatJsChild: {
@@ -116,9 +118,9 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'<project root>/themes/adminchild/resources/scripts/main.js'
+					'e:/development/projects-vc/php/basicdemo/themes/adminchild/resources/scripts/main.js'
 				],
-        		dest: '<project root>/backend/web/scripts/chdazxrs-20170816-src.js'
+        		dest: 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/chdazxrs-20170816-src.js'
       		}
     	},
     	cssmin: {
@@ -127,10 +129,10 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'<project root>/backend/web/styles/cmnazxrs-20170816.css': [ '<project root>/backend/web/styles/cmnazxrs-20170816-src.css' ],
-	          		'<project root>/backend/web/styles/pubazxrs-20170816.css': [ '<project root>/backend/web/styles/pubazxrs-20170816-src.css' ],
-					'<project root>/backend/web/styles/prvazxrs-20170816.css': [ '<project root>/backend/web/styles/prvazxrs-20170816-src.css' ],
-					'<project root>/backend/web/styles/manazxrs-20170816.css': [ '<project root>/backend/web/styles/manazxrs-20170816-src.css' ]
+					'e:/development/projects-vc/php/basicdemo/backend/web/styles/cmnazxrs-20170816.css': [ 'e:/development/projects-vc/php/basicdemo/backend/web/styles/cmnazxrs-20170816-src.css' ],
+	          		'e:/development/projects-vc/php/basicdemo/backend/web/styles/pubazxrs-20170816.css': [ 'e:/development/projects-vc/php/basicdemo/backend/web/styles/pubazxrs-20170816-src.css' ],
+					'e:/development/projects-vc/php/basicdemo/backend/web/styles/prvazxrs-20170816.css': [ 'e:/development/projects-vc/php/basicdemo/backend/web/styles/prvazxrs-20170816-src.css' ],
+					'e:/development/projects-vc/php/basicdemo/backend/web/styles/chdazxrs-20170816.css': [ 'e:/development/projects-vc/php/basicdemo/backend/web/styles/chdazxrs-20170816-src.css' ]
 	        	}
       		}
     	},
@@ -140,26 +142,26 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-	          		'<project root>/backend/web/scripts/cmnazxrs-20170816.js': [ '<project root>/backend/web/scripts/cmnazxrs-20170816-src.js' ],
-					'<project root>/backend/web/scripts/pubazxrs-20170816.js': [ '<project root>/backend/web/scripts/pubazxrs-20170816-src.js' ],
-					'<project root>/backend/web/scripts/prvazxrs-20170816.js': [ '<project root>/backend/web/scripts/prvazxrs-20170816-src.js' ],
-					'<project root>/backend/web/scripts/chdazxrs-20170816.js': [ '<project root>/backend/web/scripts/chdazxrs-20170816-src.js' ]
+	          		'e:/development/projects-vc/php/basicdemo/backend/web/scripts/cmnazxrs-20170816.js': [ 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/cmnazxrs-20170816-src.js' ],
+					'e:/development/projects-vc/php/basicdemo/backend/web/scripts/pubazxrs-20170816.js': [ 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/pubazxrs-20170816-src.js' ],
+					'e:/development/projects-vc/php/basicdemo/backend/web/scripts/prvazxrs-20170816.js': [ 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/prvazxrs-20170816-src.js' ],
+					'e:/development/projects-vc/php/basicdemo/backend/web/scripts/chdazxrs-20170816.js': [ 'e:/development/projects-vc/php/basicdemo/backend/web/scripts/chdazxrs-20170816-src.js' ]
 	        	}
       		}
     	},
 		copy: {
 			main: {
 				files: [
-					{ expand: true, cwd: '<project root>/themes/admin/resources/fonts/clearsans/', src: ['**'], dest: '<project root>/backend/web/fonts/clearsans/', filter: 'isFile' },
-					{ expand: true, cwd: '<project root>/themes/admin/resources/fonts/opensans/', src: ['**'], dest: '<project root>/backend/web/fonts/opensans/', filter: 'isFile' },
-					{ expand: true, cwd: '<project root>/vendor/bower/cmt-iconlib/dist/fonts/cmgtools/', src: ['**'], dest: '<project root>/backend/web/fonts/cmgtools/', filter: 'isFile' },
-					{ expand: true, cwd: '<project root>/vendor/bower/fontawesome/fonts/', src: ['**'], dest: '<project root>/backend/web/fonts/', filter: 'isFile' },
-					{ expand: true, cwd: '<project root>/themes/admin/resources/images/', src: ['**'], dest: '<project root>/backend/web/images/', filter: 'isFile' },
-					{ expand: true, cwd: '<project root>/themes/admin/resources/images/icons/', src: ['**'], dest: '<project root>/backend/web/images/icons/', filter: 'isFile' }
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/fonts/clearsans/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/fonts/clearsans/', filter: 'isFile' },
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/fonts/opensans/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/fonts/opensans/', filter: 'isFile' },
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/cmt-iconlib/dist/fonts/cmgtools/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/fonts/cmgtools/', filter: 'isFile' },
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/fontawesome/web-fonts-with-css/webfonts/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/webfonts/', filter: 'isFile' },
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/images/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/images/', filter: 'isFile' },
+					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/admin/resources/images/icons/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/backend/web/images/icons/', filter: 'isFile' }
 				]
 			}
 		}
     });
 
-    grunt.registerTask( 'default', [ 'sass', 'concatCssCmn', 'concatCssMan', 'concat', 'cssmin', 'uglify', 'copy' ] );
+    grunt.registerTask( 'default', [ 'sass', 'concatCssCommon', 'concatCssChild', 'concatJsCommon', 'concatJsPublic', 'concatJsPrivate', 'concatJsChild', 'cssmin', 'uglify', 'copy' ] );
 };

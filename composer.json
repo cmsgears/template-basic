@@ -19,7 +19,7 @@
 	],
 	"require": {
 		"php": ">=7.0.0",
-		"yiisoft/yii2": "2.0.14",
+		"yiisoft/yii2": "2.0.15.1",
 		"yiisoft/yii2-swiftmailer": "2.1.*",
 		"yiisoft/yii2-twig" : "~2.2.0",
 		"cmsgears/module-core": "dev-1.0.0-alpha",
@@ -50,12 +50,12 @@
 		"bower-asset/handlebars": "4.0.*",
 		"bower-asset/imagesloaded": "4.1.*",
 		"bower-asset/malihu-custom-scrollbar-plugin": "3.1.*",
-		"bower-asset/fontawesome": "4.7.*",
+		"bower-asset/fontawesome": "5.0.*",
 		"bower-asset/chart.js": "2.7.*",
-		"bower-asset/moment": "2.18.*",
-		"bower-asset/cmt-ui": "dev-1.0.0-alpha",
-		"bower-asset/cmt-js": "dev-1.0.0-alpha",
-		"bower-asset/cmt-iconlib": "dev-1.0.0-alpha"
+		"bower-asset/moment": "2.22.*",
+		"bower-asset/cmt-ui" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-js" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-iconlib" : "dev-1.0.0-alpha"
 	},
 	"require-dev": {
 		"codeception/base": "^2.2.3",

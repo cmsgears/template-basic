@@ -6,7 +6,7 @@ $params = yii\helpers\ArrayHelper::merge(
 );
 
 return [
-	'id' => 'cmg-basic-site',
+	'id' => 'app-site',
 	'name' => 'Basic Demo',
 	'version' => '1.0.0',
 	'basePath' => dirname( __DIR__ ),

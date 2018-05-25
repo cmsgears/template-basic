@@ -12,7 +12,7 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'snsConnect', 'newsletter', 'notify',
+		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
 		'foxSlider'
 	],
     'modules' => [
@@ -22,14 +22,14 @@ return [
 		'forms' => [
             'class' => 'cmsgears\forms\admin\Module'
         ],
-        'snsconnect' => [
-            'class' => 'cmsgears\social\connect\admin\Module'
-        ],
         'newsletter' => [
             'class' => 'cmsgears\newsletter\admin\Module'
         ],
         'notify' => [
             'class' => 'cmsgears\notify\admin\Module'
+        ],
+        'snsconnect' => [
+            'class' => 'cmsgears\social\connect\admin\Module'
         ],
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
@@ -43,16 +43,16 @@ return [
 			]
 		],
 		'request' => [
-			'csrfParam' => '_csrf-cmg-basic-admin',
+			'csrfParam' => '_csrf-basic-admin',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser'
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-cmg-basic-admin', 'httpOnly' => true ]
+			'identityCookie' => [ 'name' => '_identity-basic-admin', 'httpOnly' => true ]
 		],
 		'session' => [
-			'name' => 'cmg-basic-admin'
+			'name' => 'basic-admin'
 		],
 		'errorHandler' => [
 			'errorAction' => 'core/site/error'

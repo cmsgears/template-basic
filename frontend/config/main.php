@@ -15,7 +15,7 @@ return [
 	'catchAll' => null,
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'snsConnect', 'newsletter', 'notify',
+		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
 		'foxSlider'
 	],
 	'modules' => [
@@ -25,15 +25,15 @@ return [
 		'forms' => [
 			'class' => 'cmsgears\forms\frontend\Module'
 		],
-		'snsconnect' => [
-			'class' => 'cmsgears\social\connect\frontend\Module'
-		],
 		'newsletter' => [
 			'class' => 'cmsgears\newsletter\frontend\Module'
 		],
 		'notify' => [
 			'class' => 'cmsgears\notify\frontend\Module'
-		]
+		],
+		'snsconnect' => [
+			'class' => 'cmsgears\social\connect\frontend\Module'
+		],
 	],
 	'components' => [
 		'view' => [
@@ -45,16 +45,16 @@ return [
 			]
 		],
 		'request' => [
-			'csrfParam' => '_csrf-cmg-basic-site',
+			'csrfParam' => '_csrf-basic-site',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser'
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-cmg-basic-site', 'httpOnly' => true ]
+			'identityCookie' => [ 'name' => '_identity-basic-site', 'httpOnly' => true ]
 		],
 		'session' => [
-			'name' => 'cmg-basic-site'
+			'name' => 'basic-site'
 		],
 		'errorHandler' => [
 			'errorAction' => 'core/site/error'
@@ -84,14 +84,15 @@ return [
 				'sns/<controller:\w+>/<action:[\w\-]+>' => 'snsconnect/<controller>/<action>',
 				// Forms
 				'form/<slug:[\w\-]+>' => 'forms/form/single',
-				// Core Module Pages
+				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-				// Module Pages - 2 and 3 levels - catch all
+				// Module Pages - 3, 4 and 5 levels - catch all
 				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
 				'<action:(home|profile|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'core/site/<action>'
+				'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

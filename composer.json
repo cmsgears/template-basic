@@ -43,6 +43,7 @@
 		"cmsgears/widget-tag" : "dev-1.0.0-alpha",
 		"cmsgears/widget-category" : "dev-1.0.0-alpha",
 		"cmsgears/widget-social-share": "dev-1.0.0-alpha",
+		"cmsgears/widget-social-feeds": "dev-1.0.0-alpha",
 		"cmsgears/widget-social-counts": "dev-1.0.0-alpha",
 		"cmsgears/widget-popup": "dev-1.0.0-alpha",
 		"cmsgears/widget-grid": "dev-1.0.0-alpha",

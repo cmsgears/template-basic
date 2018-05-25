@@ -90,16 +90,6 @@ return [
 		'formsMailer' => [
 			'class' => 'cmsgears\forms\common\components\Mailer'
 		],
-        // CMG Modules - SNS Connect
-        'snsConnect' => [
-        	'class' => 'cmsgears\social\connect\common\components\SnsConnect'
-        ],
-		'snsConnectMessage' => [
-			'class' => 'cmsgears\social\connect\common\components\MessageSource'
-		],
-        'snsConnectMailer' => [
-        	'class' => 'cmsgears\social\connect\common\components\Mailer'
-        ],
 		// CMG Modules - Newsletter
 		'newsletter' => [
 			'class' => 'cmsgears\newsletter\common\components\Newsletter'
@@ -120,6 +110,16 @@ return [
 		'notifyMailer' => [
 			'class' => 'cmsgears\notify\common\components\Mailer'
 		],
+        // CMG Modules - SNS Connect
+        'snsConnect' => [
+        	'class' => 'cmsgears\social\connect\common\components\SnsConnect'
+        ],
+		'snsConnectMessage' => [
+			'class' => 'cmsgears\social\connect\common\components\MessageSource'
+		],
+        'snsConnectMailer' => [
+        	'class' => 'cmsgears\social\connect\common\components\Mailer'
+        ],
 		// CMG Plugins
 		'fileManager' => [
 			'class' => 'cmsgears\files\components\FileManager'

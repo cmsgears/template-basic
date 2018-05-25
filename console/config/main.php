@@ -10,8 +10,9 @@ return [
 	'basePath' => dirname( __DIR__ ),
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'snsConnect', 'newsletter', 'notify',
-		'foxSlider'
+		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
+		'foxSlider',
+		'core-console'
 	],
 	'controllerNamespace' => 'console\controllers',
 	'controllerMap' => [
@@ -22,6 +23,9 @@ return [
 	],
 	'modules' => [
 		// Console modules
+		'core-console' => [
+			'class' => 'cmsgears\core\console\Module'
+		]
 	],
 	'components' => [
         'log' => [

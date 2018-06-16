@@ -59,8 +59,9 @@
 		"bower-asset/fontawesome": "5.0.*",
 		"bower-asset/chart.js": "2.7.*",
 		"bower-asset/moment": "2.22.*",
-		"bower-asset/cmt-ui" : "dev-1.0.0-alpha",
-		"bower-asset/cmt-js" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-breeze" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-velocity" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-vapps" : "dev-1.0.0-alpha",
 		"bower-asset/cmt-iconlib" : "dev-1.0.0-alpha"
 	},
 	"require-dev": {

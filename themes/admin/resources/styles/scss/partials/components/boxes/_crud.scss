@@ -1,0 +1,46 @@
+.box-crud-wrap {
+	background-color: $color-primary-l;
+	color: $color-primary-text-l;
+	padding: 0.5rem 1rem;
+
+	.box-crud-wrap-main {
+
+	}
+
+	.box-crud-wrap-sidebar {
+
+	}
+}
+
+.box-crud {
+	border: 1px solid $color-border;
+
+	.box-header {
+		background-color: $color-secondary;
+		color: $color-secondary-text;
+		height: 2.3em;
+		line-height: 1.8em;
+		padding: 0.25em;
+		border-bottom: 1px solid $color-border;
+	}
+
+	.box-content-wrap {
+		padding: 1em 0.25em;
+
+		.cmt-checkbox, .cmt-switch {
+			padding-left: 0.30em;
+		}
+
+		.card-file {
+			max-width: 240px;
+			margin: 0 auto;
+		}
+	}
+
+	.box-content-wysiwyg {
+
+		.cleditorMain {
+			border: none;
+		}
+	}
+}

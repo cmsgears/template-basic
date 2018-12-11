@@ -1,0 +1,43 @@
+// == Form Elements =================
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select, .cmt-selected {
+	@include rounded( $size-medium );
+	padding: 0.5em;
+	line-height: 1.75em;
+}
+
+input[type="submit"], input[type="button"], button, .btn, .btn-icon {
+	@include rounded( $size-medium );
+	padding: 0.5em 0.75em;
+	line-height: 1.75em;
+}
+
+.frm-icon-element {
+
+	.cmti {
+		@include rounded-left( $size-medium );
+	}
+
+	.icon {
+		padding: 0.65em 0.40em;
+		@include rounded-left( $size-medium );
+		@include border-right( 1px, solid, $color-shadow-inset );
+	}
+}
+
+.form {
+
+	.cmt-select-wrap {
+
+		.cmt-selected {
+			padding: 0.5em;
+		}
+	}
+
+	.frm-icon-element {
+
+		.cmti, .icon, .fa {
+			margin-bottom: 0;
+		}
+	}
+}

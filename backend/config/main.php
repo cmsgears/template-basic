@@ -12,7 +12,8 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
+		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
+		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
 		'foxSlider'
 	],
     'modules' => [
@@ -58,15 +59,10 @@ return [
 			'errorAction' => 'core/site/error'
 		],
 		'assetManager' => [
-			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+			'bundles' => require( dirname( dirname( __DIR__ ) ) . '/themes/assets/admin/' . ( YII_ENV_PROD ? 'prod.php' : 'dev.php' ) )
 		],
 		'urlManager' => [
 			'rules' => [
-				// api request rules ---------------------------
-				// Generic - 3, 4 and 5 levels - catch all
-				'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
-				'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
-				'api/<module:\w+>/<pcontroller1:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// apix request rules --------------------------
 				// Core - 2 levels
 				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
@@ -85,22 +81,22 @@ return [
 				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 			]
 		],
-        'core' => [
-        	'loginRedirectPage' => '/dashboard',
-        	'logoutRedirectPage' => '/login'
-        ],
-        'sidebar' => [
-        	'class' => 'cmsgears\core\admin\components\Sidebar',
-        	'modules' => [ 'foxslider', 'forms', 'core', 'notify', 'newsletter' ],
+		'core' => [
+			'loginRedirectPage' => '/dashboard',
+			'logoutRedirectPage' => '/login'
+		],
+		'sidebar' => [
+			'class' => 'cmsgears\core\admin\components\Sidebar',
+			'modules' => [ 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]
 			]
-        ],
-        'dashboard' => [
-        	'class' => 'cmsgears\core\admin\components\Dashboard',
-        	'modules' => [ 'core' ]
-        ]
+		],
+		'dashboard' => [
+			'class' => 'cmsgears\core\admin\components\Dashboard',
+			'modules' => [ 'cms', 'core' ]
+		]
     ],
     'params' => $params
 ];

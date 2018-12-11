@@ -1,0 +1,51 @@
+.count-sidebar {
+	margin-left: $size-medium;
+
+	&.count-sidebar-header {
+		position: absolute;
+		top: 1em;
+		right: 20px;
+		padding: $size-small;
+		line-height: 1em !important;
+		background: $color-tertiary-d;
+		color: $color-tertiary-text-d;
+		border-radius: $size-medium;
+		font-size: $font-size-8;
+	}
+
+	&.count-sidebar-content {
+		float: right;
+		margin-right: 20px;
+		color: $color-tertiary-d;
+	}
+}
+
+.count-header {
+	display: inline-block;
+	position: absolute;
+	background-color: $color-tertiary-d;
+	color: $color-tertiary-text-d;
+	border-radius: 5px;
+	font-size: $font-size-tiny;
+	height: 1.5em;
+	padding: 0 0.25em;
+	line-height: 1.5em;
+	top: 1em;
+}
+
+#pre-loader-main {
+	z-index: 1000;
+	position: absolute;
+	width: 100%;
+}
+
+.rp-map {
+
+	.col4 {
+		margin-bottom: 1em;
+
+		input[type=checkbox] {
+			margin-right: 0.5em;
+		}
+	}
+}

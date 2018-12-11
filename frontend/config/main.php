@@ -15,7 +15,8 @@ return [
 	'catchAll' => null,
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
+		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
+		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
 		'foxSlider'
 	],
 	'modules' => [
@@ -60,16 +61,10 @@ return [
 			'errorAction' => 'core/site/error'
 		],
 		'assetManager' => [
-			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+			'bundles' => require( dirname( dirname( __DIR__ ) ) . '/themes/assets/basic/' . ( YII_ENV_PROD ? 'prod.php' : 'dev.php' ) )
 		],
 		'urlManager' => [
 			'rules' => [
-				// TODO: Use Group Rule for api and apix prefix
-				// api request rules ---------------------------
-				// Generic - 3, 4 and 5 levels - catch all
-				'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
-				'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
-				'api/<module:\w+>/<pcontroller1:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// apix request rules --------------------------
 				// Forms - site forms
 				'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
@@ -80,10 +75,8 @@ return [
 				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
 				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
-				// SNS Connect
-				'sns/<controller:\w+>/<action:[\w\-]+>' => 'snsconnect/<controller>/<action>',
 				// Forms
-				'form/<slug:[\w\-]+>' => 'forms/form/single',
+				'form/<slug:[\w\-]+>' => 'cms/form/single',
 				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
 				// Module Pages - 3, 4 and 5 levels - catch all
@@ -91,8 +84,8 @@ return [
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
-				'<action:(home|profile|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>'
+				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

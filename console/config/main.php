@@ -10,7 +10,8 @@ return [
 	'basePath' => dirname( __DIR__ ),
 	'bootstrap' => [
 		'log',
-		'core', 'forms', 'newsletter', 'notify', 'snsConnect',
+		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
+		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
 		'foxSlider',
 		'core-console'
 	],

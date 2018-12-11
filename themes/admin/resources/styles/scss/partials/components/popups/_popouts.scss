@@ -1,0 +1,133 @@
+.popout-group-main {
+
+	.popout-actions {
+
+		.popout-trigger {
+			position: relative;
+			display: inline-block;
+			width: 100px;
+			height: 60px;
+			padding: 10px;
+			line-height: 40px;
+			cursor: pointer;
+			position: relative;
+			text-align: center;
+			margin-left: -4px;
+			@include transit-all( $transit-eio, $transit-time-small );
+
+			&:hover {
+				background-color: $color-tertiary;
+				color: $color-tertiary-text;
+			}
+
+			&.active, &.active:hover {
+				background-color: $color-primary !important;
+				color: $color-primary-text !important;
+			}
+		}
+
+		.wrap-user {
+
+			.icon {
+				padding: 0.75em;
+				@include circled1( $color-secondary, $color-secondary-text );
+			}
+
+			.user-avatar {
+				height: 2em;
+				@include shadow-inset( 0, 0, 0, $color-shadow-inset, 2px );
+			}
+		}
+	}
+
+	.popouts {
+		position: relative;
+		width: 100%;
+
+		.popout {
+			position: absolute;
+			width: 350px;
+
+			.popout-content-wrap {
+				background-color: $color-primary;
+				color: $color-primary-text;
+				padding: 0.5em;
+				text-align: left;
+				@include shadow( 0, 4px, 4px, $color-shadow, 0 );
+
+				.popout-content {
+
+					li {
+						padding: 0.5em;
+						@include transit-all( $transit-eio, $transit-time-small );
+
+						a {
+							display: block;
+						}
+
+						&:hover {
+							background-color: $color-primary-l;
+						}
+					}
+				}
+			}
+		}
+
+		#popout-user {
+			right: 0;
+			width: 150px;
+		}
+
+		#popout-activity {
+			right: 100px;
+		}
+
+		#popout-reminder {
+			right: 200px;
+		}
+
+		#popout-notification {
+			right: 300px;
+		}
+	}
+
+	@include responsive-max( screen-tablet-large ) {
+
+		.popout-actions {
+
+			.popout-trigger {
+				height: 40px;
+				padding: 5px;
+				line-height: 30px;
+			}
+		}
+
+		.popouts {
+
+			.popout {
+				width: 220px;
+			}
+		}
+	}
+
+	@include responsive-max( screen-tablet-small ) {
+
+		.popout-actions {
+
+			.popout-trigger {
+				width: 25%;
+			}
+		}
+
+		.popouts {
+
+			.popout {
+				width: 100%;
+			}
+
+			#popout-activity, #popout-reminder, #popout-notification {
+				right: 0;
+			}
+		}
+	}
+}

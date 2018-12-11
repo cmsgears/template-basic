@@ -12,42 +12,10 @@ namespace themes\adminchild;
 // CMG Imports
 use themes\adminchild\assets\ChildAssets;
 
-/**
- * Theme registers the assets available in admin child theme.
- *
- * @since 1.0.0
- */
 class Theme {
-
-	// Variables ---------------------------------------------------
-
-	// Globals ----------------
-
-	// Public -----------------
-
-	// Protected --------------
-
-	// Private ----------------
-
-	// Traits ------------------------------------------------------
-
-	// Constructor and Initialisation ------------------------------
-
-	// Instance methods --------------------------------------------
-
-	// Yii interfaces ------------------------
-
-	// Yii parent classes --------------------
 
 	public function registerAssets( $view ) {
 
 		ChildAssets::register( $view );
 	}
-
-	// CMG interfaces ------------------------
-
-	// CMG parent classes --------------------
-
-	// Theme ---------------------------------
-
 }

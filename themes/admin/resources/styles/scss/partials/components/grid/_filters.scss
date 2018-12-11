@@ -1,0 +1,33 @@
+.wrap-filters {
+
+    .filter {
+        cursor: pointer;
+        font-size: 1.2em;
+        line-height: 1.5em;
+        margin-right: 0.5em;
+
+        &:hover {
+            color: $color-blue;
+        }
+
+        &.active {
+            color: $color-green;
+        }
+    }
+}
+
+.wrap-sort {
+
+    .sort {
+        background-color: $color-gray-l;
+        color: $color-white;
+
+        &.asc {
+            background-color: $color-green;
+        }
+
+        &.desc {
+            background-color: $color-red;
+        }
+    }
+}

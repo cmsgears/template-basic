@@ -11,14 +11,8 @@ namespace themes\adminchild\assets;
 
 // Yii Imports
 use yii\web\View;
-use yii\web\AssetBundle;
 
-/**
- * ChildAssets registers the assets available in admin child theme.
- *
- * @since 1.0.0
- */
-class ChildAssets extends AssetBundle {
+class ChildAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -35,24 +29,19 @@ class ChildAssets extends AssetBundle {
 	// Public -----------------
 
 	// Path Configuration
-	public $sourcePath = '@themes/adminchild/resources';
+	public $sourcePath	= '@themes/adminchild/resources';
 
 	// Load CSS
     public $css	= [
         'styles/main.css'
     ];
 
-	// CSS Position
-	public $cssOptions = [
-		'position' => View::POS_HEAD
-	];
-
 	// Load Javascript
     public $js = [
         'scripts/main.js'
     ];
 
-	// JS Position
+	// Define the Position to load Assets
     public $jsOptions = [
         'position' => View::POS_END
     ];

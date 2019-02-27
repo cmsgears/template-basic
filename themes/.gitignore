@@ -1,0 +1,7 @@
+# Ignore sass cache files
+deploy/admin/.sass-cache/
+deploy/admin/node_modules/
+deploy/admin/package-lock.json
+deploy/basic/.sass-cache/
+deploy/basic/node_modules/
+deploy/basic/package-lock.json

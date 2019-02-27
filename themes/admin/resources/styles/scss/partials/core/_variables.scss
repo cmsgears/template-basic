@@ -1,0 +1,73 @@
+$font-default: opensans-regular, Helvetica, sans-serif;
+$font-heading: opensans-bold, Helvetica, sans-serif;
+
+// Primary Color:
+$color-primary: #F9F9F9;
+$color-primary-l: #FFFFFF;
+$color-primary-d: #E6E7E8;
+
+// Primary Text Color:
+$color-primary-text: #898989;
+$color-primary-text-l: #898989;
+$color-primary-text-d: #6D6E6F;
+
+// Secondary Color:
+$color-secondary: #F9F9F9;
+$color-secondary-l: #FFFFFF;
+$color-secondary-d: #F2F2F2;
+
+// Secondary Text Color:
+$color-secondary-text: #898989;
+$color-secondary-text-l: #898989;
+$color-secondary-text-d: #6D6E6F;
+
+// Tertiary Color:
+$color-tertiary: #026eb7;
+$color-tertiary-l: #FFFFFF;
+$color-tertiary-d: #3489DB;
+
+// Tertiary Text Color:
+$color-tertiary-text: $color-white;
+$color-tertiary-text-l: #3489DB;
+$color-tertiary-text-d: #FFFFFF;
+
+// Form Fields Color - input, textarea, select
+$color-field: #F2F2F2;
+$color-field-text: #A5A5A5;
+$color-field-h: #F2F2F2;      // Field Hover
+$color-field-text-h: #A5A5A5;
+$color-field-f: #FFFFFF;      // Focused Field
+$color-field-text-f: #6D6E6F;
+$color-field-d: #CCCCCC;      // Disabled Field
+$color-field-text-d: #909090;
+$color-placeholder: #D1D2D3;  // Placeholder
+
+$color-shadow-inset: #F2F2F2; // Inset color for fields
+$color-shadow-inset-h: #F2F2F2; // Inset color for field hover
+$color-shadow-inset-f: #94CBEA; // Inset color for field focus
+$color-shadow-inset-d: #CCCCCC; // Inset color for disabled field
+
+// Buttons
+$color-btn: #3498DB;
+$color-btn-text: #FFFFFF;
+//$color-btn-h: #42A8E2;    // Button Hover
+$color-btn-h: $color-blue-d;
+$color-btn-text-h: #FFFFFF;
+$color-btn-a: #2980B9;    // Active Button
+$color-btn-text-a: #FFFFFF;
+$color-btn-d: #808080;       // Disabled Button
+$color-btn-text-d: #E6E7E8;
+
+// Additional Colors
+$color-header: #FFFFFF;
+$color-header-text: #6D6E6F;
+
+$color-footer: #000000;
+$color-footer-text: #AAAAAA;
+
+//$color-link: #3498DB;
+$color-link: $color-blue;
+
+$color-border: #D1D2D3;
+$color-border-l: #F4F4F4; // Light border color
+$color-border-d: #A5A5A5; // Dark border color

@@ -1,0 +1,46 @@
+.pagination-grid {
+	display: inline-block;
+	text-align: left;
+	margin-top: 0.55em;
+
+	li {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		margin-left: 0.25em;
+		height: 1.4em;
+		line-height: 1.4em;
+
+		span, a {
+			border: 1px solid $color-link;
+			color: $color-secondary-text;
+			padding: 0.6em 0.65em;
+			text-decoration: none;
+			@include rounded( $size-medium );
+		}
+
+		&.prev a, &.prev span {
+			border-left: 1px solid $color-link;
+			@include rounded( $size-medium );
+		}
+
+		&.next a, &.next span {
+			@include rounded( $size-medium );
+		}
+	}
+
+	.active a {
+		background-color: $color-tertiary-d;
+		color: $color-tertiary-text-d;
+	}
+
+	a:hover {
+		background-color: $color-blue-d;
+		color: $color-white;
+	}
+
+	.disabled span {
+		background-color: $color-gray;
+		color: $color-white;
+	}
+}

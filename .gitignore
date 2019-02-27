@@ -1,8 +1,8 @@
 # yii environment
-yii
-yii.bat
-yii_test
-yii_test.bat
+/yii
+/yii.bat
+/yii_test
+/yii_test.bat
 
 # phpstorm project files
 .idea/

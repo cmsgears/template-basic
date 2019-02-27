@@ -56,9 +56,8 @@ return [
         		'owner' => 'cmsgears\core\common\filters\OwnerFilter'
         	],
         	'notifications' => true,
-        	'stats' => false,
-        	'statsTriggers' => false,
-        	'siteConfigAll' => true
+        	'siteConfigAll' => true,
+			'multiSite' => false
         ],
         'coreMessage' => [
         	'class' => 'cmsgears\core\common\components\MessageSource'
@@ -91,16 +90,6 @@ return [
 		'formsMailer' => [
 			'class' => 'cmsgears\forms\common\components\Mailer'
 		],
-        // CMG Modules - SNS Login
-        'snsLogin' => [
-        	'class' => 'cmsgears\social\login\common\components\SnsLogin'
-        ],
-		'snsLoginMessage' => [
-			'class' => 'cmsgears\social\login\common\components\MessageSource'
-		],
-        'snsLoginMailer' => [
-        	'class' => 'cmsgears\social\login\common\components\Mailer'
-        ],
 		// CMG Modules - Newsletter
 		'newsletter' => [
 			'class' => 'cmsgears\newsletter\common\components\Newsletter'
@@ -121,6 +110,16 @@ return [
 		'notifyMailer' => [
 			'class' => 'cmsgears\notify\common\components\Mailer'
 		],
+        // CMG Modules - SNS Connect
+        'snsConnect' => [
+        	'class' => 'cmsgears\social\connect\common\components\SnsConnect'
+        ],
+		'snsConnectMessage' => [
+			'class' => 'cmsgears\social\connect\common\components\MessageSource'
+		],
+        'snsConnectMailer' => [
+        	'class' => 'cmsgears\social\connect\common\components\Mailer'
+        ],
 		// CMG Plugins
 		'fileManager' => [
 			'class' => 'cmsgears\files\components\FileManager'

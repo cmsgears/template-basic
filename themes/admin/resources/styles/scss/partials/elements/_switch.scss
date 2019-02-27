@@ -1,0 +1,23 @@
+// == Switch ========================
+
+.cmt-switch {
+
+	.cmt-toggle-round + label {
+		height: 1.75em;
+		padding: 0.75em;
+		border-radius: 0.75em;
+	}
+
+	.cmt-toggle-round + label:before {
+		border-radius: 0.75em;
+	}
+
+	.cmt-toggle-round + label:after {
+		width: 2.75em;
+		border-radius: 0.75em;
+	}
+
+	.cmt-toggle-round:checked + label:after {
+		margin-left: 2em;
+	}
+}

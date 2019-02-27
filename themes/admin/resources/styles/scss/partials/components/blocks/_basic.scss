@@ -1,0 +1,40 @@
+.block {
+
+    .block-content-wrap {
+		height: 100%;
+    }
+}
+
+// Public block used for system pages having forms
+#block-public {
+    padding-top: 140px;
+
+    .block-content {
+        background-color: $color-primary-l;
+        color: $color-primary-text-l;
+        width: 90%;
+        margin: 0 auto;
+        padding: 2rem;
+		@include shadow( $size-default, $size-default, $size-medium, rgba( $color-shadow, $color-transparent-medium ) );
+
+        @include responsive-max( screen-mobile-large ) {
+            width: 90%;
+        }
+    }
+
+    @include responsive-min( screen-mobile-large ) {
+        padding-top: 180px;
+
+		.block-content {
+			width: 320px;
+		}
+    }
+
+    @include responsive-min( screen-desktop-large ) {
+		padding-top: 240px;
+
+		.block-content {
+			width: 420px;
+		}
+    }
+}

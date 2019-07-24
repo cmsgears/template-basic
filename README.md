@@ -140,13 +140,14 @@ Template Configuration - New
 8. Login to admin and update file upload url in case project name is different.
 9. By default all the files uploaded by users will be stored in uploads directory. The uploads directory can be changes based on project needs.
 10. Update the migration scripts if required and run the commands migrate-down and migrate-up to refresh the database.
+<a/>
+
+The default application URLs will be as shown below:
 
 ```
 Frontend - http://localhost/basicdemo/frontend/web
 Admin - http://localhost/basicdemo/frontend/web
 ```
-
-[//]: # (Hello)
 
 Template - Updates
 -------------------

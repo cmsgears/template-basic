@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
 
@@ -54,17 +46,17 @@ class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'featured', 'lValue', 'rValue', 'createdAt', 'modifiedAt' ];
 
 		$groups = [
-			//[ 10001, $site->id, $master->id, $master->id, 'Security', 'security', CoreGlobal::TYPE_OPTION_GROUP, 'Security', false, 1, 2, DateUtil::getDateTime(), DateUtil::getDateTime() ],
+			//[ 10001, $site->id, $master->id, $master->id, 'Group 1', 'group1', CoreGlobal::TYPE_OPTION_GROUP, 'Group 1', false, 1, 2, DateUtil::getDateTime(), DateUtil::getDateTime() ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_category', $columns, $groups );
 
-		//$security = Category::findBySlugType( 'security', CoreGlobal::TYPE_OPTION_GROUP );
+		//$group1	= Category::findBySlugType( 'group1', CoreGlobal::TYPE_OPTION_GROUP );
 
-		$optionColumns = [ 'id', 'categoryId', 'name', 'value', 'icon', 'input', 'htmlOptions', 'content', 'data' ];
+		$optionColumns = [ 'id', 'categoryId', 'name', 'value', 'icon', 'active', 'input', 'htmlOptions', 'content', 'data' ];
 
 		$options = [
-			//[100001, $security->id, 'CCTV', 'CCTV', NULL, 0, NULL, NULL, NULL]
+			//[ 100001, $group1->id, 'CCTV', 'CCTV', NULL, 1, 0, NULL, NULL, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_option', $optionColumns, $options );

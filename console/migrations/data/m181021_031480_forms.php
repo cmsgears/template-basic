@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
 
@@ -59,10 +51,10 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 		$site	= $this->site;
 		$master	= $this->master;
 
-		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'thumb', 'altText', 'link', 'shared', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'tag', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'caption', 'altText', 'link', 'shared', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			//[108001, $site->id, $master->id, $master->id, 'b9xF0Ousj0TPtSPEWevQ85PKSZScie4l','mailbox','','jpg','banner',0.1135,1500,'image',NULL,'2018-06-02/banner/b9xF0Ousj0TPtSPEWevQ85PKSZScie4l.jpg','2018-06-02/banner/b9xF0Ousj0TPtSPEWevQ85PKSZScie4l-medium.jpg','2018-06-02/banner/b9xF0Ousj0TPtSPEWevQ85PKSZScie4l-thumb.jpg','','',0,DateUtil::getDateTime(), DateUtil::getDateTime(),NULL,NULL,NULL,0,NULL]
+			//[ 108001, $site->id, $master->id, $master->id, 'file1', NULL, 'file1', '', 'jpg', 'gallery', 0.0951, 1500, 'image', NULL, '2019-03-26/gallery/file1.jpg', '2019-03-26/gallery/file1-medium.jpg', '2019-03-26/gallery/file1-small.jpg', '2019-03-26/gallery/file1-thumb.jpg', '2019-03-26/gallery/file1-pl.jpg', '2019-03-26/gallery/file1-small-pl.jpg', NULL, NULL, NULL, 0, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
@@ -76,12 +68,12 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 		$vis	= Form::VISIBILITY_PUBLIC;
 		$status	= Form::STATUS_ACTIVE;
 
-		$formTemplate = Template::findGlobalBySlugType( 'default', CoreGlobal::TYPE_FORM );
+		//$formTemplate = Template::findGlobalBySlugType( 'default', CoreGlobal::TYPE_FORM );
 
 		$columns = [ 'id', 'siteId', 'templateId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'title', 'description', 'success', 'captcha', 'visibility', 'status', 'userMail', 'adminMail', 'createdAt', 'modifiedAt', 'content', 'data' ];
 
 		$models = [
-			//[ 10001, $site->id, $formTemplate->id, $master->id, $master->id, 'Joint Development', 'joint-development', CoreGlobal::TYPE_FORM, null, null, 'Joint Development form', 'Thanks for contacting us.', true, $vis, $status, false, true, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
+			//[ 10001, $site->id, $formTemplate->id, $master->id, $master->id, 'Form 1', 'form-1', CoreGlobal::TYPE_FORM, null, null, 'Test Form', 'Thanks for contacting us.', true, $vis, $status, false, true, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_form', $columns, $models );
@@ -115,10 +107,10 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 		];
 
 		// Contact Form
-		$form = Form::findBySlugType( 'contact-us', 'form' );
+		//$form = Form::findBySlugType( 'contact-us', 'form' );
 
 		// Update Form
-		$this->update( $this->cmgPrefix . 'core_form', [ 'texture' => 'texture texture-black', 'title' => 'Contact Us', 'description' => $desc[ 0 ], 'data' => $setting[ 0 ], 'htmlOptions' => $options[ 0 ] ], [ 'id' => $form->id ] );
+		//$this->update( $this->cmgPrefix . 'core_form', [ 'texture' => 'texture texture-black', 'title' => 'Contact Us', 'description' => $desc[ 0 ], 'data' => $setting[ 0 ], 'htmlOptions' => $options[ 0 ] ], [ 'id' => $form->id ] );
 
 		// Update Form Fields
 		//$this->update( $this->cmgPrefix . 'core_form_field', [ ], [ 'formId' => $form->id, 'name' => 'name' ] );
@@ -144,9 +136,9 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 			null
 		];
 
-		$form = Form::findBySlugType( 'contact-us', 'form' );
+		//$form = Form::findBySlugType( 'contact-us', 'form' );
 
-		$this->update( $this->cmgPrefix . 'cms_model_content', [ 'bannerId' => null, 'summary' => $summary[ 0 ], 'seoName' => $seo[ 0 ][ 0 ], 'seoDescription' => $seo[ 0 ][ 1 ], 'seoKeywords' => $seo[ 0 ][ 2 ], 'content' => $content[ 0 ] ], [ 'parentId' => $form->id, 'parentType' => 'form' ] );
+		//$this->update( $this->cmgPrefix . 'core_form', [ 'bannerId' => null, 'summary' => $summary[ 0 ], 'seoName' => $seo[ 0 ][ 0 ], 'seoDescription' => $seo[ 0 ][ 1 ], 'seoKeywords' => $seo[ 0 ][ 2 ], 'content' => $content[ 0 ] ], [ 'parentId' => $form->id, 'parentType' => 'form' ] );
 	}
 
 	public function down() {

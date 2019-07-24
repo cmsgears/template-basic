@@ -12,8 +12,8 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
-		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
 		'foxSlider'
 	],
     'modules' => [
@@ -95,7 +95,7 @@ return [
 		],
 		'dashboard' => [
 			'class' => 'cmsgears\core\admin\components\Dashboard',
-			'modules' => [ 'cms', 'core' ]
+			'modules' => [ 'core' ]
 		]
     ],
     'params' => $params

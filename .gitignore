@@ -31,9 +31,6 @@ backend/runtime/
 # console
 console/runtime/
 
-# uploads - keep it commented for test data .. uncomment once test data is done
-uploads/
-
 # windows thumbnail cache
 Thumbs.db
 

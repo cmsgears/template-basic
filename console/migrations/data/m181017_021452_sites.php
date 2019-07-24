@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
 
@@ -65,10 +57,10 @@ class m181017_021452_sites extends \cmsgears\core\common\base\Migration {
 		$site	= $this->site;
 		$master	= $this->master;
 
-		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'thumb', 'altText', 'link', 'shared', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'tag', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'caption', 'altText', 'link', 'shared', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			//[100001, $site->id, $master->id, $master->id,'ZxeQNBgZ_iykl1XEcrbNkvEa-5DjdLqP','site','','jpg','slider',0.228,1500,'image',NULL,'2018-05-25/slider/ZxeQNBgZ_iykl1XEcrbNkvEa-5DjdLqP.jpg','2018-05-25/slider/ZxeQNBgZ_iykl1XEcrbNkvEa-5DjdLqP-medium.jpg','2018-05-25/slider/ZxeQNBgZ_iykl1XEcrbNkvEa-5DjdLqP-thumb.jpg','','',0,'2018-05-25 07:16:46','2018-05-25 07:16:46',NULL,NULL,NULL,0,NULL]
+			//[ 100001, $site->id, $master->id, $master->id, 'file1', NULL, 'file1', '', 'jpg', 'gallery', 0.0951, 1500, 'image', NULL, '2019-03-26/gallery/file1.jpg', '2019-03-26/gallery/file1-medium.jpg', '2019-03-26/gallery/file1-small.jpg', '2019-03-26/gallery/file1-thumb.jpg', '2019-03-26/gallery/file1-pl.jpg', '2019-03-26/gallery/file1-small-pl.jpg', NULL, NULL, NULL, 0, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
@@ -108,7 +100,7 @@ class m181017_021452_sites extends \cmsgears\core\common\base\Migration {
 		$this->locale = Locale::findByCode( 'en_US' );
 
 		$users	= [
-			//[5,$this->locale->id,NULL,NULL,NULL,NULL,NULL,User::STATUS_ACTIVE,'example@example.com','example','example','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W',CoreGlobal::TYPE_DEFAULT,'icon','','Example','','','Archana','','',NULL,'7259224413','',1,0,NULL,'','','xnaNUktj2Lh0F3WtGjvcgm7viJMu0i2N',NULL,NULL,NULL,'2018-12-07 12:32:25',NULL,NULL,'tFhJLcg8qQa6hRm01eW9miO9cfxNcDhm',645105,'2018-12-14 11:12:25',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL]
+			//[ 5, $this->locale->id, NULL, NULL, NULL, NULL, NULL, User::STATUS_ACTIVE, 'example@example.com', 'example', 'example', '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', CoreGlobal::TYPE_DEFAULT, 'icon', '', 'Example', '', '', 'Example', '', '', NULL, NULL, '', 1, 0, NULL, '', '', 'xnaNUktj2Lh0F3WtGjvcgm7viJMu0i2N', NULL, NULL, NULL, DateUtil::getDateTime(), NULL, NULL, 'tFhJLcg8qQa6hRm01eW9miO9cfxNcDhm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_user', $columns, $users );
@@ -123,7 +115,7 @@ class m181017_021452_sites extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'siteId', 'userId', 'roleId', 'pinned', 'featured', 'createdAt', 'modifiedAt' ];
 
 		$members = [
-			//[10001,$site->id,5,$userRole->id,0,0,'2018-12-07 18:02:25','2018-12-07 18:05:04']
+			//[ 10001, $site->id, 5, $userRole->id, 0, 0, DateUtil::getDateTime(), DateUtil::getDateTime() ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_site_member', $columns, $members );

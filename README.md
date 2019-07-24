@@ -23,7 +23,7 @@ common
     services/            contains shared services used in REST, backend and frontend
     tests/               contains tests for common classes
 console
-    components/			 contains console components
+    components/          contains console components
     config/              contains console configurations
     controllers/         contains console controllers (commands)
     migrations/          contains database migrations
@@ -145,7 +145,8 @@ Template Configuration - New
 Frontend - http://localhost/basicdemo/frontend/web
 Admin - http://localhost/basicdemo/frontend/web
 ```
-</ol>
+</a>
+
 Template - Updates
 -------------------
 

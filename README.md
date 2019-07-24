@@ -20,23 +20,23 @@ common
     config/              contains shared configurations
     mail/                contains view files for e-mails
     models/              contains model classes used in REST, backend and frontend
-	services/			 contains shared services used in REST, backend and frontend
+    services/			 contains shared services used in REST, backend and frontend
     tests/               contains tests for common classes
 console
-	components/			 contains console components
+    components/			 contains console components
     config/              contains console configurations
     controllers/         contains console controllers (commands)
     migrations/          contains database migrations
     models/              contains console-specific model classes
     runtime/             contains files generated during runtime
-	services/			 contains console services
+    services/			 contains console services
 backend
     assets/              contains application asset classes
     config/              contains backend configurations
     controllers/         contains Web controller classes
     models/              contains backend-specific model classes
     runtime/             contains files generated during runtime
-	services/			 contains backend-specific services
+    services/			 contains backend-specific services
     tests/               contains tests for backend application
     views/               contains view files for the Web application
     web/                 contains the entry script and Web resources
@@ -46,7 +46,7 @@ frontend
     controllers/         contains Web controller classes
     models/              contains frontend-specific model classes
     runtime/             contains files generated during runtime
-	services/			 contains frontend-specific services
+    services/			 contains frontend-specific services
     tests/               contains tests for frontend application
     views/               contains view files for the Web application
     web/                 contains the entry script and Web resources
@@ -55,13 +55,13 @@ rest
     controllers/         contains REST controller classes
     models/              contains rest-specific model classes
     runtime/             contains files generated during runtime
-	services/			 contains rest-specific services
+    services/			 contains rest-specific services
     tests/               contains tests for REST application
     web/                 contains the entry script
-modules/				 contains the project modules
-templates/				 contains the project templates
-themes/					 contains the template themes
-uploads/				 contains the uploaded files
+modules/    	         contains the project modules
+templates/    	         contains the project templates
+themes/    	             contains the template themes
+uploads/    	         contains the uploaded files
 widgets/    	         contains the template widgets
 environments/            contains environment-based overrides
 vendor/                  contains dependent 3rd-party packages

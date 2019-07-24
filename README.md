@@ -145,7 +145,8 @@ Template Configuration - New
 Frontend - http://localhost/basicdemo/frontend/web
 Admin - http://localhost/basicdemo/frontend/web
 ```
-</a>
+
+[//]: # (Hello)
 
 Template - Updates
 -------------------

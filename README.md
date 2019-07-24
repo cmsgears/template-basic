@@ -12,9 +12,6 @@ The template includes four tiers: REST, front end, back end, and console, each o
 
 The template is designed to work in a team development environment. It supports deploying the application in different environments.
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/cmsgears/template-basic)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/cmsgears/template-basic)
-
 DIRECTORY STRUCTURE
 -------------------
 

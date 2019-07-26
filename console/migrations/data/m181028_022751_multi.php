@@ -1,7 +1,5 @@
 <?php
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Locale;
 use cmsgears\core\common\models\entities\ObjectData;
 use cmsgears\core\common\models\entities\Role;
@@ -10,6 +8,9 @@ use cmsgears\core\common\models\entities\Template;
 use cmsgears\core\common\models\entities\User;
 
 use cmsgears\core\common\utilities\DateUtil;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
 

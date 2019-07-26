@@ -1,9 +1,10 @@
 <?php
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181017_021404_base extends \cmsgears\core\common\base\Migration {
 

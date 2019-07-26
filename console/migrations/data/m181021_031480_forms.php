@@ -1,7 +1,5 @@
 <?php
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\Template;
 use cmsgears\core\common\models\entities\User;
@@ -9,6 +7,9 @@ use cmsgears\core\common\models\resources\Form;
 use cmsgears\core\common\models\resources\FormField;
 
 use cmsgears\core\common\utilities\DateUtil;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 

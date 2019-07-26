@@ -1,11 +1,12 @@
 <?php
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 
 use cmsgears\core\common\utilities\DateUtil;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 
@@ -49,7 +50,7 @@ class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 			//[ 100001, $this->master->id, $this->master->id, 'Template 1', 'template-1', null, 'notification', 'Trigger Notification to Admin.', true, 'twig', 0, null, false, null, DateUtil::getDateTime(), DateUtil::getDateTime(), 'Template 1', 'Template 1. {% if config.link %}Please follow this <a href="{{config.link}}">link</a>.{% endif %}{% if config.adminLink %}Please follow this <a href="{{config.adminLink}}">link</a>.{% endif %}', '{"config":{"admin":"1","user":"0","direct":"0","adminEmail":"0","userEmail":"0","directEmail":"0"}}' ]
 		];
 
-		$this->batchInsert( $this->prefix . 'core_template', $columns, $templates );
+		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
 	}
 
     public function down() {

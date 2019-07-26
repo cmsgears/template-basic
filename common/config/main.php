@@ -51,8 +51,14 @@ return [
 			'class' => 'cmsgears\core\common\components\ObjectFactory'
 		],
 		'core' => [
-			'class' => 'cmsgears\core\common\components\Core',
-			'editorClass' => 'cmsgears\widgets\cleditor\ClEditor',
+			'class' => 'modules\core\common\components\Core',
+			//'editor' => 'cmsgears\widgets\cleditor\ClEditor',
+			'editor' => [
+				'class' => 'cmsgears\widgets\tinymce\TinyMce',
+				'options' => [
+					'unsafeTargetLink' => true
+				]
+			],
 			'rbacFilters' => [
 				'discover' => 'cmsgears\core\common\filters\DiscoverFilter',
 				'owner' => 'cmsgears\core\common\filters\OwnerFilter'
@@ -70,16 +76,16 @@ return [
 			'class' => 'cmsgears\core\common\components\Factory'
 		],
 		'coreMessage' => [
-			'class' => 'cmsgears\core\common\components\MessageSource'
+			'class' => 'modules\core\common\components\MessageSource'
 		],
 		'coreMailer' => [
-			'class' => 'cmsgears\core\common\components\Mailer'
+			'class' => 'modules\core\common\components\Mailer'
 		],
 		'formDesigner' => [
-			'class' => 'cmsgears\core\common\components\FormDesigner'
+			'class' => 'modules\core\common\components\FormDesigner'
 		],
 		'templateManager' => [
-			'class' => 'cmsgears\core\common\components\TemplateManager',
+			'class' => 'modules\core\common\components\TemplateManager',
 			'templatesPath' => null,
 			'renderers' => [
 				'default' => 'Default',
@@ -91,7 +97,7 @@ return [
 			'class' => 'cmsgears\notify\common\components\EventManager'
 		],
 		'smsManager' => [
-			'class' => 'cmsgears\sms\common\components\Msg91Manager'
+			'class' => 'modules\sms\common\components\SmsManager'
 		],
 		// CMG Modules - Forms
 		'forms' => [
@@ -152,9 +158,16 @@ return [
 		'iconManager' => [
 			'class' => 'cmsgears\icons\components\IconManager'
 		],
+		'breeze' => [
+			'class' => 'cmsgears\templates\breeze\components\Breeze'
+		],
 		// FoxSlider
 		'foxSlider' => [
 			'class' => 'foxslider\common\components\Core'
-		]
+		],
+		// Basic
+		'bcoreFactory' => [
+			'class' => 'modules\core\common\components\Factory'
+		],
 	]
 ];

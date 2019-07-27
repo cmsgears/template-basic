@@ -1,6 +1,9 @@
 <?php
 namespace modules\core\frontend\controllers;
 
+// CMG Imports
+use cmsgears\core\frontend\config\CoreGlobalWeb;
+
 // Basic Imports
 use modules\core\common\models\resources\Carrier;
 
@@ -53,10 +56,14 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 
 	public function actionTerms() {
 
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
+
 		return $this->render( 'terms' );
 	}
 
 	public function actionPrivacy() {
+
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
 
 		return $this->render( 'privacy' );
 	}

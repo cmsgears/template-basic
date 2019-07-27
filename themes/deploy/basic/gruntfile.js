@@ -64,7 +64,7 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-core.min.css',
 					//'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-currency.min.css',
 					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.css',
-					//'../../../vendor/bower-asset/intl-tel-input/build/css/intlTelInput.min.css'
+					'../../../vendor/bower-asset/intl-tel-input/build/css/intlTelInput.min.css'
 				],
         		dest: '../../../frontend/web/basic/cmncmgbi-20190402-src.css'
       		}
@@ -132,8 +132,8 @@ module.exports = function( grunt ) {
 					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.js',
 					//'../../../vendor/bower-asset/progressbar.js/dist/progressbar.min.js',
 					//'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
-					//'../../../vendor/bower-asset/intl-tel-input/build/js/utils.js',
-					//'../../../vendor/bower-asset/intl-tel-input/build/js/intlTelInput-jquery.min.js',
+					'../../../vendor/bower-asset/intl-tel-input/build/js/utils.js',
+					'../../../vendor/bower-asset/intl-tel-input/build/js/intlTelInput-jquery.min.js',
 					'../../../vendor/bower-asset/cmt-velocity/dist/velocity.js',
 
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/base.js',

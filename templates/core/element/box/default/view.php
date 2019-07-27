@@ -7,7 +7,8 @@ $settings = isset( $data->settings ) ? $data->settings : [];
 $defaultIncludes	= Yii::getAlias( '@breeze' ) . '/templates/cms/element/box/default/includes';
 $templateIncludes	= Yii::getAlias( '@templates' ) . '/core/element/box/default/includes';
 
-$buffer = "$defaultIncludes/buffer.php";
+$buffer		= "$defaultIncludes/buffer.php";
+$attributes	= "$defaultIncludes/attributes.php";
 ?>
 <?php include "$defaultIncludes/styles.php"; ?>
 <?php include "$defaultIncludes/background.php"; ?>

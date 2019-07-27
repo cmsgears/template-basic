@@ -1,4 +1,6 @@
 <?php
+// CMS Imports
+use cmsgears\core\common\config\CoreGlobal;
 
 return [
 	'aliases' => [
@@ -93,11 +95,18 @@ return [
 				'smarty' => 'Smarty'
 			]
 		],
+		'pluginManager' => [
+			'class' => 'cmsgears\core\common\components\PluginManager',
+			'plugins' => [
+				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [ CoreGlobal::TYPE_FORM ] ]
+			]
+		],
 		'eventManager' => [
 			'class' => 'cmsgears\notify\common\components\EventManager'
 		],
 		'smsManager' => [
-			'class' => 'modules\sms\common\components\SmsManager'
+			//'class' => 'modules\sms\common\components\SmsManager'
+			'class' => 'cmsgears\sms\common\components\Msg91Manager'
 		],
 		// CMG Modules - Forms
 		'forms' => [
@@ -150,6 +159,10 @@ return [
 		],
 		'snsConnectMailer' => [
 			'class' => 'cmsgears\social\connect\common\components\Mailer'
+		],
+		// CMG Modules - Sms
+		'sms' => [
+			'class' => 'cmsgears\sms\common\components\Sms'
 		],
 		// CMG Plugins
 		'fileManager' => [

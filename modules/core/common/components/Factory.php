@@ -56,6 +56,7 @@ class Factory extends \cmsgears\core\common\base\Component {
 
 		$factory = Yii::$app->factory->getContainer();
 
+		$factory->set( 'modules\core\common\services\interfaces\resources\IFormService', 'modules\core\common\services\resources\FormService' );
 	}
 
 	/**
@@ -86,6 +87,7 @@ class Factory extends \cmsgears\core\common\base\Component {
 
 		$factory = Yii::$app->factory->getContainer();
 
+		$factory->set( 'formService', 'modules\core\common\services\resources\FormService' );
 	}
 
 	/**

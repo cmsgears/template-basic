@@ -33,6 +33,9 @@ return [
         'snsconnect' => [
             'class' => 'cmsgears\social\connect\admin\Module'
         ],
+		'sms' => [
+			'class' => 'cmsgears\sms\admin\Module'
+		],
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
         ],
@@ -91,7 +94,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
+			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]

@@ -17,7 +17,8 @@ return [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
 		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
-		'foxSlider'
+		'foxSlider',
+		'bcoreFactory'
 	],
 	'modules' => [
 		'core' => [
@@ -76,7 +77,7 @@ return [
 				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
 				// Forms
-				'form/<slug:[\w\-]+>' => 'cms/form/single',
+				'form/<slug:[\w\-]+>' => 'forms/form/single',
 				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
 				// Module Pages - 3, 4 and 5 levels - catch all

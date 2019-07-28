@@ -131,7 +131,7 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
 					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.js',
 					//'../../../vendor/bower-asset/progressbar.js/dist/progressbar.min.js',
-					//'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
+					'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
 					'../../../vendor/bower-asset/intl-tel-input/build/js/utils.js',
 					'../../../vendor/bower-asset/intl-tel-input/build/js/intlTelInput-jquery.min.js',
 					'../../../vendor/bower-asset/cmt-velocity/dist/velocity.js',
@@ -147,6 +147,9 @@ module.exports = function( grunt ) {
 
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/base.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/controllers/form.js',
+
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/basic/resources/scripts/templates/public.js',
 
@@ -219,9 +222,6 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/meta.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/model.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/user.js',
-
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/basic/resources/scripts/templates/private.js',
 

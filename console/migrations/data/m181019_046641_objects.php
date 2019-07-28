@@ -119,8 +119,7 @@ class m181019_046641_objects extends \cmsgears\core\common\base\Migration {
 		$maxBlock	= Template::findGlobalBySlugType( 'max', CoreGlobal::TYPE_BLOCK );
 		$fxsBlock	= Template::findGlobalBySlugType( 'foxslider', CoreGlobal::TYPE_BLOCK );
 
-		$featuresBlock	= Template::findByThemeSlugType( 'features', CoreGlobal::TYPE_BLOCK );
-		$contactBlock	= Template::findByThemeSlugType( 'contact', CoreGlobal::TYPE_BLOCK );
+		$contactBlock = Template::findByThemeSlugType( 'basic-contact', CoreGlobal::TYPE_BLOCK );
 
 		$columns = [ 'id', 'siteId', 'themeId', 'templateId', 'avatarId', 'bannerId', 'videoId', 'galleryId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'texture', 'title', 'description', 'classPath', 'link', 'status', 'visibility', 'order', 'pinned', 'featured', 'createdAt', 'modifiedAt', 'htmlOptions', 'summary', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 

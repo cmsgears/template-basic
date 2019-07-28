@@ -42,6 +42,7 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 
 		$behaviours[ 'verbs' ][ 'actions' ][ 'terms' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'privacy' ] = [ 'get' ];
+		$behaviours[ 'verbs' ][ 'actions' ][ 'faqs' ] = [ 'get' ];
 
 		return $behaviours;
 	}
@@ -66,6 +67,13 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
 
 		return $this->render( 'privacy' );
+	}
+
+	public function actionFaqs() {
+
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
+
+		return $this->render( 'faqs' );
 	}
 
 	private function setPageData( $action ) {
@@ -118,6 +126,10 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 			'privacy' => [
 				"name" => "Privacy Policy", "summary" => "Privacy Policy", "description" => "Privacy Policy",
 				"keywords" => "Privacy, Policy", "robot" => "noindex,follow"
+			],
+			'privacy' => [
+				"name" => "FAQs", "summary" => "FAQs", "description" => "FAQs",
+				"keywords" => "FAQs", "robot" => "noindex,follow"
 			]
 		];
 

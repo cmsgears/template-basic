@@ -58,7 +58,7 @@ return [
 			'editor' => [
 				'class' => 'cmsgears\widgets\tinymce\TinyMce',
 				'options' => [
-					'unsafeTargetLink' => true
+					'unsafeTargetLink' => false
 				]
 			],
 			'rbacFilters' => [

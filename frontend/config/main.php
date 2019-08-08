@@ -12,16 +12,17 @@ return [
 	'basePath' => dirname( __DIR__ ),
 	'controllerNamespace' => 'frontend\controllers',
 	'defaultRoute' => 'core/site/index',
-	'catchAll' => null,
+	//'catchAll' => [ 'core/site/maintenance' ],
 	'bootstrap' => [
 		'log',
-		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
-		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
-		'foxSlider'
+		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'foxSlider',
+		'bcoreFactory'
 	],
 	'modules' => [
 		'core' => [
-			'class' => 'cmsgears\core\frontend\Module'
+			'class' => 'modules\core\frontend\Module'
 		],
 		'forms' => [
 			'class' => 'cmsgears\forms\frontend\Module'
@@ -34,7 +35,7 @@ return [
 		],
 		'snsconnect' => [
 			'class' => 'cmsgears\social\connect\frontend\Module'
-		],
+		]
 	],
 	'components' => [
 		'view' => [
@@ -76,7 +77,7 @@ return [
 				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
 				// Forms
-				'form/<slug:[\w\-]+>' => 'cms/form/single',
+				'form/<slug:[\w\-]+>' => 'forms/form/single',
 				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
 				// Module Pages - 3, 4 and 5 levels - catch all
@@ -85,7 +86,7 @@ return [
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
 				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>'
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial|terms|privacy|faqs)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

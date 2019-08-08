@@ -1,15 +1,5 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Locale;
 use cmsgears\core\common\models\entities\ObjectData;
 use cmsgears\core\common\models\entities\Role;
@@ -18,6 +8,9 @@ use cmsgears\core\common\models\entities\Template;
 use cmsgears\core\common\models\entities\User;
 
 use cmsgears\core\common\utilities\DateUtil;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
 
@@ -72,7 +65,7 @@ class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'localeId', 'status', 'email', 'username', 'type', 'passwordHash', 'firstName', 'lastName', 'name', 'registeredAt', 'lastLoginAt', 'authKey' ];
 
 		$users	= [
-			//[ $this->locale->id, User::STATUS_ACTIVE, "testuser1@centuryrealestate.in", 'testuser1', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W','Test','User 1', 'Test User 1', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
+			//[ $this->locale->id, User::STATUS_ACTIVE, "testuser1@example.com", 'testuser1', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', 'Test', 'User 1', 'Test User 1', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_user', $columns, $users );

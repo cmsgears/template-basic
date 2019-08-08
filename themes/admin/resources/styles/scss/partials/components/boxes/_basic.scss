@@ -1,8 +1,0 @@
-// Collapsible boxes - content can collapse on clicking header / collapse button on header.
-.box-collapsible {
-    @include shadow( 0px, 0px, 4px, $color-shadow, 1px );
-
-    .box-header {
-        padding: 0.25em 0;
-    }
-}

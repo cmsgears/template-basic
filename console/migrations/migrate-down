@@ -8,6 +8,7 @@
 ./yii migrate/down --migrationPath=@console/migrations/data --interactive=0
 ./yii migrate/down --migrationPath=@console/migrations/data --interactive=0
 ./yii migrate/down --migrationPath=@themes/basic/migrations --interactive=0
+./yii migrate/down --migrationPath=@cmsgears/module-sms/migrations/msg91 --interactive=0
 ./yii migrate/down --migrationPath=@cmsgears/module-sns-connect/migrations --interactive=0
 ./yii migrate/down --migrationPath=@cmsgears/module-sns-connect/migrations --interactive=0
 ./yii migrate/down --migrationPath=@cmsgears/module-sns-connect/migrations --interactive=0

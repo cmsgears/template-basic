@@ -8,6 +8,8 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
+			'console/runtime',
+			'rest/runtime',
 			'uploads'
 		],
 		'setExecutable' => [
@@ -26,6 +28,8 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
+			'console/runtime',
+			'rest/runtime',
 			'uploads'
 		],
 		'setExecutable' => [
@@ -44,6 +48,8 @@ return [
 			'backend/web/assets',
 			'frontend/runtime',
 			'frontend/web/assets',
+			'console/runtime',
+			'rest/runtime',
 			'uploads'
 		],
 		'setExecutable' => [

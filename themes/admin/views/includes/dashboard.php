@@ -1,1 +1,0 @@
-<?= Yii::$app->dashboard->getDashboardHtml() ?>

@@ -1,4 +1,5 @@
-class_name: UnitTester
+suite_namespace: backend\tests\unit
+actor: UnitTester
 bootstrap: false
 modules:
     enabled:

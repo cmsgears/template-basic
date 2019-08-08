@@ -1,17 +1,10 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 

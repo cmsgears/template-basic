@@ -1,3 +1,9 @@
+# Keep CSS and JS vendors
+!admin/resources/scripts/vendor/
+!admin/resources/styles/vendor/
+!basic/resources/scripts/vendor/
+!basic/resources/styles/vendor/
+
 # Ignore sass cache files
 deploy/admin/.sass-cache/
 deploy/admin/node_modules/

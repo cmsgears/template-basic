@@ -1,19 +1,12 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 
 use cmsgears\core\common\utilities\DateUtil;
+
+// Basic Imports
+use modules\core\common\config\CoreGlobal;
 
 class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 
@@ -51,10 +44,10 @@ class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 	 */
 	private function insertNotificationTemplates() {
 
-		$columns = [ 'id', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'description', 'active', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
+		$columns = [ 'id', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'description', 'active', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'message', 'content', 'data' ];
 
 		$templates = [
-			//[ 100001, $this->master->id, $this->master->id, 'Register', 'register', null, 'notification', 'Trigger Notification and Email to Admin, when new organization is registered by site users.', true, 'twig', 0, null, false, null, DateUtil::getDateTime(), DateUtil::getDateTime(), 'New Organization "{{orgName | raw }}" is registered', '{"config":{"admin":"1","user":"0","adminEmail":"1","userEmail":"0"}}' ]
+			//[ 100001, $this->master->id, $this->master->id, 'Template 1', 'template-1', null, 'notification', 'Trigger Notification to Admin.', true, 'twig', 0, null, false, null, DateUtil::getDateTime(), DateUtil::getDateTime(), 'Template 1', 'Template 1. {% if config.link %}Please follow this <a href="{{config.link}}">link</a>.{% endif %}{% if config.adminLink %}Please follow this <a href="{{config.adminLink}}">link</a>.{% endif %}', '{"config":{"admin":"1","user":"0","direct":"0","adminEmail":"0","userEmail":"0","directEmail":"0"}}' ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );

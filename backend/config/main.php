@@ -12,9 +12,10 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'coreFactory', 'forms', 'formsFactory', 'newsletter', 'newsletterFactory',
-		'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
-		'foxSlider'
+		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'foxSlider',
+		'bcoreFactory'
 	],
     'modules' => [
         'core' => [
@@ -32,8 +33,14 @@ return [
         'snsconnect' => [
             'class' => 'cmsgears\social\connect\admin\Module'
         ],
+		'sms' => [
+			'class' => 'cmsgears\sms\admin\Module'
+		],
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
+        ],
+        'bcore' => [
+            'class' => 'modules\core\admin\Module'
         ]
     ],
     'components' => [
@@ -87,7 +94,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
+			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]
@@ -95,7 +102,7 @@ return [
 		],
 		'dashboard' => [
 			'class' => 'cmsgears\core\admin\components\Dashboard',
-			'modules' => [ 'cms', 'core' ]
+			'modules' => [ 'core' ]
 		]
     ],
     'params' => $params

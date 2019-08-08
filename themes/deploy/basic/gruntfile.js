@@ -35,9 +35,9 @@ module.exports = function( grunt ) {
 					loadPath: [ '../../../../../../projects-vc/css/cmt-ui/breeze/src/scss', '../../../../../../projects-vc/css/cmt-ui/breeze-templates/src/scss' ]
 				},
 				files: {
-					'../../../frontend/web/basic/ladcmgbi-20190402-src.css': '../../../themes/basic/resources/styles/scss/landing.scss',
-					'../../../frontend/web/basic/pubcmgbi-20190402-src.css': '../../../themes/basic/resources/styles/scss/public.scss',
-					'../../../frontend/web/basic/prvcmgbi-20190402-src.css': '../../../themes/basic/resources/styles/scss/private.scss'
+					'../../../frontend/web/basic/ladcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/landing.scss',
+					'../../../frontend/web/basic/pubcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/public.scss',
+					'../../../frontend/web/basic/prvcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -50,7 +50,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/styles/fixes/font-fix-fa.css',
 					'../../../vendor/bower-asset/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css'
 				],
-        		dest: '../../../frontend/web/basic/fawcmgbi-20190402-src.css'
+        		dest: '../../../frontend/web/basic/fawcmgbi-20190405-src.css'
       		}
     	},
         concatCssCommon: {
@@ -66,7 +66,7 @@ module.exports = function( grunt ) {
 					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.css',
 					'../../../vendor/bower-asset/intl-tel-input/build/css/intlTelInput.min.css'
 				],
-        		dest: '../../../frontend/web/basic/cmncmgbi-20190402-src.css'
+        		dest: '../../../frontend/web/basic/cmncmgbi-20190405-src.css'
       		}
     	},
         concatCssLanding: {
@@ -75,9 +75,9 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../frontend/web/basic/ladcmgbi-20190402-src.css'
+					'../../../frontend/web/basic/ladcmgbi-20190405-src.css'
 				],
-        		dest: '../../../frontend/web/basic/ladcmgbi-20190402-src.css'
+        		dest: '../../../frontend/web/basic/ladcmgbi-20190405-src.css'
       		}
     	},
         concatCssPublic: {
@@ -87,9 +87,9 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
-					'../../../frontend/web/basic/pubcmgbi-20190402-src.css'
+					'../../../frontend/web/basic/pubcmgbi-20190405-src.css'
 				],
-        		dest: '../../../frontend/web/basic/pubcmgbi-20190402-src.css'
+        		dest: '../../../frontend/web/basic/pubcmgbi-20190405-src.css'
       		}
     	},
         concatCssPrivate: {
@@ -100,9 +100,9 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
 					'../../../vendor/bower-asset/fullcalendar/dist/fullcalendar.min.css',
-					'../../../frontend/web/basic/prvcmgbi-20190402-src.css'
+					'../../../frontend/web/basic/prvcmgbi-20190405-src.css'
 				],
-        		dest: '../../../frontend/web/basic/prvcmgbi-20190402-src.css'
+        		dest: '../../../frontend/web/basic/prvcmgbi-20190405-src.css'
       		}
     	},
         concatJsLazy: {
@@ -113,7 +113,7 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../vendor/bower-asset/cmt-velocity/src/solo/lazy.js'
 				],
-        		dest: '../../../frontend/web/basic/lzycmgbi-20190402-src.js'
+        		dest: '../../../frontend/web/basic/lzycmgbi-20190405-src.js'
       		}
     	},
         concatJsCommon: {
@@ -161,7 +161,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/apps/core/autoload.js',
 					'../../../themes/basic/resources/scripts/apps/core/controllers/site.js'
 				],
-        		dest: '../../../frontend/web/basic/cmncmgbi-20190402-src.js'
+        		dest: '../../../frontend/web/basic/cmncmgbi-20190405-src.js'
       		}
     	},
         concatJsLanding: {
@@ -175,7 +175,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/ladcmgbi-20190402-src.js'
+        		dest: '../../../frontend/web/basic/ladcmgbi-20190405-src.js'
       		}
     	},
         concatJsPublic: {
@@ -191,7 +191,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/pubcmgbi-20190402-src.js'
+        		dest: '../../../frontend/web/basic/pubcmgbi-20190405-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -238,7 +238,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/prvcmgbi-20190402-src.js'
+        		dest: '../../../frontend/web/basic/prvcmgbi-20190405-src.js'
       		}
     	},
     	cssmin: {
@@ -247,11 +247,11 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'../../../frontend/web/basic/fawcmgbi-20190402.css': [ '../../../frontend/web/basic/fawcmgbi-20190402-src.css' ],
-					'../../../frontend/web/basic/cmncmgbi-20190402.css': [ '../../../frontend/web/basic/cmncmgbi-20190402-src.css' ],
-	          		'../../../frontend/web/basic/ladcmgbi-20190402.css': [ '../../../frontend/web/basic/ladcmgbi-20190402-src.css' ],
-					'../../../frontend/web/basic/pubcmgbi-20190402.css': [ '../../../frontend/web/basic/pubcmgbi-20190402-src.css' ],
-					'../../../frontend/web/basic/prvcmgbi-20190402.css': [ '../../../frontend/web/basic/prvcmgbi-20190402-src.css' ]
+					'../../../frontend/web/basic/fawcmgbi-20190405.css': [ '../../../frontend/web/basic/fawcmgbi-20190405-src.css' ],
+					'../../../frontend/web/basic/cmncmgbi-20190405.css': [ '../../../frontend/web/basic/cmncmgbi-20190405-src.css' ],
+	          		'../../../frontend/web/basic/ladcmgbi-20190405.css': [ '../../../frontend/web/basic/ladcmgbi-20190405-src.css' ],
+					'../../../frontend/web/basic/pubcmgbi-20190405.css': [ '../../../frontend/web/basic/pubcmgbi-20190405-src.css' ],
+					'../../../frontend/web/basic/prvcmgbi-20190405.css': [ '../../../frontend/web/basic/prvcmgbi-20190405-src.css' ]
 	        	}
       		}
     	},
@@ -261,11 +261,11 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-					'../../../frontend/web/basic/lzycmgbi-20190402.js': [ '../../../frontend/web/basic/lzycmgbi-20190402-src.js' ],
-	          		'../../../frontend/web/basic/cmncmgbi-20190402.js': [ '../../../frontend/web/basic/cmncmgbi-20190402-src.js' ],
-					'../../../frontend/web/basic/ladcmgbi-20190402.js': [ '../../../frontend/web/basic/ladcmgbi-20190402-src.js' ],
-					'../../../frontend/web/basic/pubcmgbi-20190402.js': [ '../../../frontend/web/basic/pubcmgbi-20190402-src.js' ],
-					'../../../frontend/web/basic/prvcmgbi-20190402.js': [ '../../../frontend/web/basic/prvcmgbi-20190402-src.js' ]
+					'../../../frontend/web/basic/lzycmgbi-20190405.js': [ '../../../frontend/web/basic/lzycmgbi-20190405-src.js' ],
+	          		'../../../frontend/web/basic/cmncmgbi-20190405.js': [ '../../../frontend/web/basic/cmncmgbi-20190405-src.js' ],
+					'../../../frontend/web/basic/ladcmgbi-20190405.js': [ '../../../frontend/web/basic/ladcmgbi-20190405-src.js' ],
+					'../../../frontend/web/basic/pubcmgbi-20190405.js': [ '../../../frontend/web/basic/pubcmgbi-20190405-src.js' ],
+					'../../../frontend/web/basic/prvcmgbi-20190405.js': [ '../../../frontend/web/basic/prvcmgbi-20190405-src.js' ]
 	        	}
       		}
     	},

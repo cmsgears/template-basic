@@ -14,7 +14,7 @@ The template includes four tiers: REST, frontend, backend, and console, each of 
 
 The template is designed to work in a team development environment. It supports deploying the application in different environments.
 
-The basic template is tailored to develop small and medium web applications and support mobile applications without needing advanced modules including Module CMS, Module Community, etc. In case you need CMS system or CMS based modules, kindly look at other templates including Blog, News, and Shop.
+The basic template is tailored to develop small and medium web applications and support mobile applications without needing complex modules including Module CMS, Module Community, etc. In case you need CMS system or CMS based modules, kindly look at other templates including Blog, News, and Shop.
 
 DIRECTORY STRUCTURE
 -------------------

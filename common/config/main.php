@@ -136,7 +136,8 @@ return [
 		],
 		// CMG Modules - Notify
 		'notify' => [
-			'class' => 'cmsgears\notify\common\components\Notify'
+			'class' => 'cmsgears\notify\common\components\Notify',
+			//'defaultLayout' => '//max'
 		],
 		'notifyFactory' => [
 			'class' => 'cmsgears\notify\common\components\Factory'
@@ -181,6 +182,6 @@ return [
 		// Basic
 		'bcoreFactory' => [
 			'class' => 'modules\core\common\components\Factory'
-		],
+		]
 	]
 ];

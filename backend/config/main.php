@@ -15,7 +15,7 @@ return [
 		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
 		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
 		'foxSlider',
-		'bcoreFactory'
+		'basicCoreFactory'
 	],
     'modules' => [
         'core' => [
@@ -39,7 +39,7 @@ return [
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
         ],
-        'bcore' => [
+        'basiccore' => [
             'class' => 'modules\core\admin\Module'
         ]
     ],
@@ -94,7 +94,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
+			'modules' => [ 'basiccore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]

@@ -180,7 +180,7 @@ return [
 			'class' => 'foxslider\common\components\Core'
 		],
 		// Basic
-		'bcoreFactory' => [
+		'basicCoreFactory' => [
 			'class' => 'modules\core\common\components\Factory'
 		]
 	]

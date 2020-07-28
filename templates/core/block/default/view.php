@@ -21,3 +21,4 @@ $postObjects	= "$defaultIncludes/objects-post.php";
 	<?php include "$defaultIncludes/footer.php"; ?>
 </div>
 <?php include "$defaultIncludes/scripts.php"; ?>
+<div id="block-second"></div>

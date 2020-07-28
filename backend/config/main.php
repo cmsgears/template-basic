@@ -13,7 +13,8 @@ return [
 	'bootstrap' => [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
-		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory',
+		'snsConnect', 'snsConnectFactory',
 		'foxSlider',
 		'basicCoreFactory'
 	],
@@ -39,15 +40,17 @@ return [
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
         ],
-        'basiccore' => [
+        'bcore' => [
             'class' => 'modules\core\admin\Module'
         ]
     ],
-    'components' => [
+	'components' => [
 		'view' => [
 			'theme' => [
 				'class' => 'themes\admin\Theme',
-				'childs' => [ 'themes\adminchild\Theme' ]
+				'childs' => [
+					'themes\adminchild\Theme'
+				]
 			]
 		],
 		'request' => [
@@ -57,7 +60,10 @@ return [
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-basic-admin', 'httpOnly' => true ]
+			'identityCookie' => [
+				'name' => '_identity-basic-admin',
+				'httpOnly' => true
+			]
 		],
 		'session' => [
 			'name' => 'basic-admin'
@@ -85,7 +91,7 @@ return [
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
-				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
+				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account|colors|theme)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [
@@ -94,7 +100,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'basiccore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
+			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]
@@ -102,7 +108,7 @@ return [
 		],
 		'dashboard' => [
 			'class' => 'cmsgears\core\admin\components\Dashboard',
-			'modules' => [ 'core' ]
+			'modules' => [ 'cms', 'core' ]
 		]
     ],
     'params' => $params

@@ -63,7 +63,14 @@ return [
 			],
 			'rbacFilters' => [
 				'discover' => 'cmsgears\core\common\filters\DiscoverFilter',
-				'owner' => 'cmsgears\core\common\filters\OwnerFilter'
+				'owner' => 'cmsgears\core\common\filters\OwnerFilter',
+				'belongsToUser' => 'cmsgears\core\common\filters\BelongsToUserFilter',
+				'org' => 'cmsgears\org\common\filters\OrganizationFilter',
+				'belongsToOrg' => 'cmsgears\org\common\filters\BelongsToOrgFilter',
+				'organizer' => 'empathyconnects\organizer\common\filters\OrganizerFilter',
+				'belongsToOrganizer' => 'empathyconnects\organizer\common\filters\BelongsToOrganizerFilter',
+				'experience' => 'empathyconnects\experience\common\filters\ExperienceFilter',
+				'application' => 'empathyconnects\experience\common\filters\ApplicationFilter'
 			],
 			'notifications' => true,
 			'siteConfigAll' => true,
@@ -71,7 +78,7 @@ return [
 			'subDirectory' => false,
 			'defaultSiteSlug' => 'main',
 			'provinceLabel' => 'State',
-			'regionLabel' => 'District',
+			'regionLabel' => 'Province',
 			'zipLabel' => 'Postal Code'
 		],
 		'coreFactory' => [
@@ -105,8 +112,7 @@ return [
 			'class' => 'cmsgears\notify\common\components\EventManager'
 		],
 		'smsManager' => [
-			//'class' => 'modules\sms\common\components\SmsManager'
-			'class' => 'cmsgears\sms\common\components\Msg91Manager'
+			'class' => 'modules\sms\common\components\Msg91Manager'
 		],
 		// CMG Modules - Forms
 		'forms' => [

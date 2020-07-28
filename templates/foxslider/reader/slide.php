@@ -73,16 +73,14 @@ if( isset( $slideImage ) ) {
 		<a href="<?= $slideUrl ?>">
 			<?= $content ?>
 				<?= $slideTexture ?>
-				<div class="slide-content">
-					<div class="fxs-header">
-						<?= $slideTitle ?>
-						<?= $slideDesc ?>
-					</div>
-					<div class="fxs-content">
-						<?= $imageDesc ?>
-					</div>
+				<div class="slide-content">									
+						<div class="fxs-content reader">
+							<h2><?= $slideTitle ?></h2>
+							<?= $slideDesc ?>
+							<?= $imageDesc ?>
+							<p class="padding padding-small"><?= $slideContent ?></p>
+						</div>					
 				</div>
-				<?= $slideContent ?>
 			</div>
 		</a>
 	</div>
@@ -90,16 +88,14 @@ if( isset( $slideImage ) ) {
 	<div class="slide">
 		<?= $content ?>
 			<?= $slideTexture ?>
-			<div class="slide-content">
-				<div class="fxs-header">
-					<?= $slideTitle ?>
+			<div class="slide-content">				
+				<div class="fxs-content reader">
+					<h2><?= $slideTitle ?></h2>
 					<?= $slideDesc ?>
-				</div>
-				<div class="fxs-content">
 					<?= $imageDesc ?>
+					<p class="padding padding-small"><?= $slideContent ?></p>
 				</div>
 			</div>
-			<?= $slideContent ?>
 		</div>
 	</div>
 <?php } ?>

@@ -1,12 +1,10 @@
 <?php
 // Yii Imports
 use yii\helpers\Html;
-
 // CMG Imports
 use cmsgears\core\common\widgets\ActiveForm;
 use cmsgears\core\common\widgets\Editor;
 use cmsgears\icons\widgets\IconChooser;
-
 // SF Imports
 $coreProperties = $this->context->getCoreProperties();
 $title			= $this->context->title;

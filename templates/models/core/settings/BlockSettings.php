@@ -1,11 +1,8 @@
 <?php
 namespace templates\models\core\settings;
-
 // Yii Imports
 use Yii;
-
 class BlockSettings extends \cmsgears\core\common\models\forms\DataModel {
-
 	// Variables ---------------------------------------------------
 
 	// Globals -------------------------------

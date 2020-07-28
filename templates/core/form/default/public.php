@@ -21,14 +21,16 @@ $outerObjects	= "$defaultIncludes/objects-outer.php";
 <?php include "$templateIncludes/options.php"; ?>
 <?php include "$defaultIncludes/styles.php"; ?>
 <?php include "$defaultIncludes/objects-config.php"; ?>
-<div <?= $options ?>>
+
 	<?php include "$templateIncludes/background.php"; ?>
-	<div class="page-content-wrap">
+	
 		<?php include "$defaultIncludes/header.php"; ?>
-		<div class="page-content-row row">
+	
 			<?php include "$defaultIncludes/content.php"; ?>
-		</div>
+		
 		<?php include $outerObjects; ?>
-	</div>
-</div>
+	
+
 <?php include "$defaultIncludes/scripts.php"; ?>
+
+

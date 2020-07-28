@@ -1,9 +1,7 @@
 <?php
 namespace widgets\block;
-
 // Yii Imports
 use Yii;
-
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 

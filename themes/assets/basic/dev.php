@@ -9,5 +9,8 @@ return [
 	],
 	'private' => [
 		'class' => 'themes\basic\assets\PrivateAssets'
+	],
+	'main' => [
+		'class' => 'themes\basic\assets\MainAssets'
 	]
 ];

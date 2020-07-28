@@ -9,9 +9,6 @@ class CoreGlobal extends \cmsgears\core\common\config\CoreGlobal {
 
 	// Grouping by type ------------------------------------------------
 
-	const TYPE_ELEMENT	= 'element';
-	const TYPE_BLOCK	= 'block';
-
 	// Templates -------------------------------------------------------
 
 	// Config ----------------------------------------------------------

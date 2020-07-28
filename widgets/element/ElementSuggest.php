@@ -1,6 +1,5 @@
 <?php
 namespace widgets\element;
-
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 

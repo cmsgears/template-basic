@@ -26,8 +26,8 @@ module.exports = function( grunt ) {
 					loadPath: [ '../../../../../../projects-vc/css/cmt-ui/breeze/src/scss', '../../../../../../projects-vc/css/cmt-ui/breeze-templates/src/scss' ]
 				},
 				files: {
-					'../../../backend/web/styles/pubazxrs-20190405-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
-					'../../../backend/web/styles/prvazxrs-20190405-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
+					'../../../backend/web/styles/pubazxrs-20191001-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
+					'../../../backend/web/styles/prvazxrs-20191001-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -39,9 +39,10 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../vendor/bower-asset/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css',
 					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-core.min.css',
+					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-brand.min.css',
 					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-currency.min.css'
 				],
-        		dest: '../../../backend/web/styles/cmnazxrs-20190405-src.css'
+        		dest: '../../../backend/web/styles/cmnazxrs-20191001-src.css'
       		}
     	},
         concatCssChild: {
@@ -52,7 +53,7 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../themes/adminchild/resources/styles/main.css'
 				],
-        		dest: '../../../backend/web/styles/chdazxrs-20190405-src.css'
+        		dest: '../../../backend/web/styles/chdazxrs-20191001-src.css'
       		}
     	},
         concatJsCommon: {
@@ -64,9 +65,10 @@ module.exports = function( grunt ) {
 					//'../../../vendor/bower-asset/jquery/dist/jquery.min.js',
 					'../../../vendor/bower-asset/jquery-ui/jquery-ui.min.js',
 					'../../../vendor/foxslider/cmg-plugin/widgets/resources/scripts/foxslider-core.js',
+					//'../../../vendor/bower-asset/conditionizr/dist/conditionizr.min.js',
+					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
 					'../../../vendor/bower-asset/imagesloaded/imagesloaded.pkgd.min.js',
 					'../../../vendor/bower-asset/handlebars/handlebars.min.js',
-					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
 					'../../../vendor/bower-asset/cmt-velocity/dist/velocity.js',
 
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/base.js',
@@ -89,7 +91,7 @@ module.exports = function( grunt ) {
 
 					'../../../themes/admin/resources/scripts/apps/core/controllers/site.js'
 				],
-        		dest: '../../../backend/web/scripts/cmnazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/cmnazxrs-20191001-src.js'
       		}
     	},
         concatJsPublic: {
@@ -101,7 +103,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/main.js',
 					'../../../themes/admin/resources/scripts/search.js'
 				],
-        		dest: '../../../backend/web/scripts/pubazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/pubazxrs-20191001-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -110,23 +112,28 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/data.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/social.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/gallery.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/mapper.js',
+					'../../../vendor/bower-asset/moment/min/moment.min.js',
 
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/location.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/data.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/file.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/gallery.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/location.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/mapper.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/meta.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/model.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/social.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/user.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/main.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/location.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/data.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/file.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/gallery.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/location.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/mapper.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/meta.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/model.js',
+					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/social.js',
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/user.js',
 
 					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
@@ -142,6 +149,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/apps/core/controllers/main.js',
 					'../../../themes/admin/resources/scripts/apps/core/controllers/user.js',
 					'../../../themes/admin/resources/scripts/apps/core/controllers/admin.js',
+					'../../../themes/admin/resources/scripts/apps/notify/base.js',
 
 					'../../../themes/admin/resources/scripts/main.js',
 					'../../../themes/admin/resources/scripts/search.js',
@@ -149,7 +157,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/popups.js',
 					'../../../themes/admin/resources/scripts/maps.js'
 				],
-        		dest: '../../../backend/web/scripts/prvazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/prvazxrs-20191001-src.js'
       		}
     	},
         concatJsChild: {
@@ -158,9 +166,16 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
+					'../../../themes/adminchild/resources/scripts/apps/project/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/project/controllers/project.js',
+					'../../../themes/adminchild/resources/scripts/apps/crm/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/crm/controllers/user.js',
+					'../../../themes/adminchild/resources/scripts/apps/hr/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/hr/controllers/application.js',
+
 					'../../../themes/adminchild/resources/scripts/main.js'
 				],
-        		dest: '../../../backend/web/scripts/chdazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/chdazxrs-20191001-src.js'
       		}
     	},
     	cssmin: {
@@ -169,10 +184,10 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'../../../backend/web/styles/cmnazxrs-20190405.css': [ '../../../backend/web/styles/cmnazxrs-20190405-src.css' ],
-	          		'../../../backend/web/styles/pubazxrs-20190405.css': [ '../../../backend/web/styles/pubazxrs-20190405-src.css' ],
-					'../../../backend/web/styles/prvazxrs-20190405.css': [ '../../../backend/web/styles/prvazxrs-20190405-src.css' ],
-					'../../../backend/web/styles/chdazxrs-20190405.css': [ '../../../backend/web/styles/chdazxrs-20190405-src.css' ]
+					'../../../backend/web/styles/cmnazxrs-20191001.css': [ '../../../backend/web/styles/cmnazxrs-20191001-src.css' ],
+	          		'../../../backend/web/styles/pubazxrs-20191001.css': [ '../../../backend/web/styles/pubazxrs-20191001-src.css' ],
+					'../../../backend/web/styles/prvazxrs-20191001.css': [ '../../../backend/web/styles/prvazxrs-20191001-src.css' ],
+					'../../../backend/web/styles/chdazxrs-20191001.css': [ '../../../backend/web/styles/chdazxrs-20191001-src.css' ]
 	        	}
       		}
     	},
@@ -182,10 +197,10 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-	          		'../../../backend/web/scripts/cmnazxrs-20190405.js': [ '../../../backend/web/scripts/cmnazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/pubazxrs-20190405.js': [ '../../../backend/web/scripts/pubazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/prvazxrs-20190405.js': [ '../../../backend/web/scripts/prvazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/chdazxrs-20190405.js': [ '../../../backend/web/scripts/chdazxrs-20190405-src.js' ]
+	          		'../../../backend/web/scripts/cmnazxrs-20191001.js': [ '../../../backend/web/scripts/cmnazxrs-20191001-src.js' ],
+					'../../../backend/web/scripts/pubazxrs-20191001.js': [ '../../../backend/web/scripts/pubazxrs-20191001-src.js' ],
+					'../../../backend/web/scripts/prvazxrs-20191001.js': [ '../../../backend/web/scripts/prvazxrs-20191001-src.js' ],
+					'../../../backend/web/scripts/chdazxrs-20191001.js': [ '../../../backend/web/scripts/chdazxrs-20191001-src.js' ]
 	        	}
       		}
     	},

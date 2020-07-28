@@ -37,6 +37,8 @@ class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
 	public function up() {
 
 		$this->insertOptionGroups();
+
+		$this->insertOptions();
 	}
 
 	private function insertOptionGroups() {
@@ -47,17 +49,21 @@ class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'featured', 'lValue', 'rValue', 'createdAt', 'modifiedAt' ];
 
 		$groups = [
-			//[ 10001, $site->id, $master->id, $master->id, 'Group 1', 'group1', CoreGlobal::TYPE_OPTION_GROUP, 'Group 1', false, 1, 2, DateUtil::getDateTime(), DateUtil::getDateTime() ]
+			// Generic
+			//[ 10001, $site->id, $master->id, $master->id, 'test', 'test', CoreGlobal::TYPE_OPTION_GROUP, 'test', false, 1, 2, DateUtil::getDateTime(), DateUtil::getDateTime() ],
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_category', $columns, $groups );
+	}
 
-		//$group1	= Category::findBySlugType( 'group1', CoreGlobal::TYPE_OPTION_GROUP );
+	private function insertOptions() {
+
+		//$test	= Category::findBySlugType( 'test', CoreGlobal::TYPE_OPTION_GROUP );
 
 		$optionColumns = [ 'id', 'categoryId', 'name', 'value', 'icon', 'active', 'input', 'htmlOptions', 'content', 'data' ];
 
 		$options = [
-			//[ 100001, $group1->id, 'CCTV', 'CCTV', NULL, 1, 0, NULL, NULL, NULL ]
+			//[ 100001, $test->id, 'CCTV', 'CCTV', NULL, 1, 0, NULL, NULL, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_option', $optionColumns, $options );

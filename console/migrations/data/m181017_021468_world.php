@@ -6,7 +6,7 @@ use cmsgears\core\common\models\entities\User;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181210_021468_world extends \cmsgears\core\common\base\Migration {
+class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -563,7 +563,7 @@ class m181210_021468_world extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181210_021468_world will be deleted with m160621_014408_core.\n";
+		echo "m181017_021468_world will be deleted with m160621_014408_core.\n";
 	}
 
 }

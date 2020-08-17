@@ -6,8 +6,10 @@ $settings = isset( $data->settings ) ? $data->settings : [];
 
 $defaultIncludes	= Yii::getAlias( '@breeze' ) . '/templates/cms/block/default/includes';
 $elementIncludes	= Yii::getAlias( '@templates' ) . '/core/block/default/includes';
+$widgetIncludes		= null;
+$templateIncludes	= Yii::getAlias( '@templates' ) . '/core/block/default/includes';
 
-$buffer			= "$defaultIncludes/buffer.php";
+$buffer			= "$templateIncludes/buffer.php";
 $attributes		= "$defaultIncludes/attributes.php";
 $preObjects		= "$defaultIncludes/objects-pre.php";
 $postObjects	= "$defaultIncludes/objects-post.php";
@@ -21,4 +23,3 @@ $postObjects	= "$defaultIncludes/objects-post.php";
 	<?php include "$defaultIncludes/footer.php"; ?>
 </div>
 <?php include "$defaultIncludes/scripts.php"; ?>
-<div id="block-second"></div>

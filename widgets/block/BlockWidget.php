@@ -1,7 +1,9 @@
 <?php
 namespace widgets\block;
+
 // Yii Imports
 use Yii;
+
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
@@ -21,7 +23,7 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 
 	// Public -----------------
 
-	public $options = [ 'class' => 'block' ];
+	public $options = [ 'class' => 'cmt-block block' ];
 
 	// Background
 	public $bkg			= false;
@@ -37,6 +39,11 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $texture			= false;
 	public $textureClass	= null;
 
+	// Max Cover
+	public $maxCover		= false;
+	public $maxCoverClass	= null;
+	public $maxCoverContent	= null;
+
 	// Block Header
 	public $header			= false;
 	public $headerIcon		= false;
@@ -46,14 +53,13 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $headerInfo		= null;
 	public $headerContent	= null;
 
-	// Content
+	// Block Content
 	public $content			= false;
 	public $contentTitle	= null;
 	public $contentInfo		= null;
 	public $contentSummary	= null;
 	public $contentData		= null;
-
-	public $maxCover = false;
+	public $contentRaw		= null;
 
 	public $contentClass		= null;
 	public $contentDataClass	= null;
@@ -74,12 +80,17 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $metaWrapClass = null;
 
 	// Block Elements
-	public $elements		= false;
-	public $elementType		= null;
+	public $elements	= false;
+	public $elementType	= null;
 
+	// Elements Wrapper
 	public $boxWrapClass	= null;
 	public $boxWrapper		= null;
 	public $boxClass		= null;
+
+	// Purifier
+	public $purifySummary = true;
+	public $purifyContent = true;
 
 	// Protected --------------
 

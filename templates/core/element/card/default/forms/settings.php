@@ -20,21 +20,39 @@ Editor::widget();
 			<div class="col col3x2">
 				<div class="box box-crud">
 					<div class="box-header">
-						<div class="box-header-title">Background</div>
+						<div class="box-header-title">Icon</div>
 					</div>
 					<div class="box-content-wrap frm-split-40-60">
 						<div class="box-content">
 							<div class="row">
 								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'bkg', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'texture', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'defaultAvatar', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'lazyAvatar', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'resAvatar', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="filler-height"></div>
+				<div class="box box-crud">
+					<div class="box-header">
+						<div class="box-header-title">Background</div>
+					</div>
+					<div class="box-content-wrap frm-split-40-60">
+						<div class="box-content">
+							<div class="row">
+								<div class="col col3">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'bkg', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+								<div class="col col3">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'texture', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+								<div class="col col3">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'defaultBanner', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 							</div>
@@ -60,6 +78,24 @@ Editor::widget();
 				<div class="filler-height"></div>
 				<div class="box box-crud">
 					<div class="box-header">
+						<div class="box-header-title">Max Cover</div>
+					</div>
+					<div class="box-content-wrap frm-split-40-60">
+						<div class="box-content">
+							<div class="row">
+								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'maxCover', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+								<div class="col col2">
+									<?= $form->field( $settings, 'maxCoverClass' ) ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="filler-height"></div>
+				<div class="box box-crud">
+					<div class="box-header">
 						<div class="box-header-title">Header</div>
 					</div>
 					<div class="box-content-wrap frm-split-40-60">
@@ -69,27 +105,19 @@ Editor::widget();
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'header', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'headerIcon', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'headerTitle', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'headerInfo', null, 'cmti cmti-checkbox' ) ?>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'headerContent', null, 'cmti cmti-checkbox' ) ?>
 								</div>
-								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'lazyAvatar', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'resAvatar', null, 'cmti cmti-checkbox' ) ?>
-								</div>
 							</div>
 							<div class="row">
+								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'headerIcon', null, 'cmti cmti-checkbox' ) ?>
+								</div>
 								<div class="col col2">
 									<?= $form->field( $settings, 'headerIconUrl' ) ?>
 								</div>
@@ -122,9 +150,6 @@ Editor::widget();
 								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'contentData', null, 'cmti cmti-checkbox' ) ?>
 								</div>
-								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'maxCover', null, 'cmti cmti-checkbox' ) ?>
-								</div>
 								<div class="col col2">
 									<?= $form->field( $settings, 'contentClass' ) ?>
 								</div>
@@ -155,18 +180,18 @@ Editor::widget();
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footer', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerIcon', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerTitle', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerInfo', null, 'cmti cmti-checkbox' ) ?>
 								</div>
+								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerContent', null, 'cmti cmti-checkbox' ) ?>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerContent', null, 'cmti cmti-checkbox' ) ?>
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'footerIcon', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col2">
 									<?= $form->field( $settings, 'footerIconUrl' ) ?>
@@ -198,7 +223,7 @@ Editor::widget();
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'metas', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 								<div class="col col5x2">
-									<?= $form->field( $settings, 'metaType' ) ?>
+									<?= $form->field( $settings, 'metaTypes' ) ?>
 								</div>
 								<div class="col col5x2">
 									<?= $form->field( $settings, 'metaWrapClass' ) ?>

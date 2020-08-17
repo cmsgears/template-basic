@@ -1,7 +1,9 @@
 <?php
 namespace widgets\element;
+
 // Yii Imports
 use Yii;
+
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
@@ -29,7 +31,6 @@ class ElementWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $bkgClass	= null;
 	public $bkgVideo	= false;
 	public $bkgVideoSrc	= null;
-	public $bkgLazy		= false;
 
 	// Texture
 	public $texture			= false;

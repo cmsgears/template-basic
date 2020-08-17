@@ -58,10 +58,10 @@ class m181017_021452_sites extends \cmsgears\core\common\base\Migration {
 		$site	= $this->site;
 		$master	= $this->master;
 
-		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'tag', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'backend', 'frontend', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			//[ 100001, $site->id, $master->id, $master->id, 'test', null, 'test','','jpg','banner',0.1702,1500,'image',NULL,'2018-06-01/banner/test.jpg','2018-06-01/banner/test-medium.jpg', '2018-06-01/banner/test-small.jpg', '2018-06-01/banner/test-thumb.jpg', '2018-06-01/banner/test-pl.jpg', '2018-06-01/banner/test-small-pl.jpg', NULL, NULL, NULL, 0, NULL, NULL, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
+			//[ 100001, $site->id, $master->id, $master->id, 'test', null, 'test','','jpg','banner',0.1702,1500,'image',NULL,'2018-06-01/banner/test.jpg','2018-06-01/banner/test-medium.jpg', '2018-06-01/banner/test-small.jpg', '2018-06-01/banner/test-thumb.jpg', '2018-06-01/banner/test-pl.jpg', '2018-06-01/banner/test-small-pl.jpg', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );

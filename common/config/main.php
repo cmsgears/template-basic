@@ -64,15 +64,10 @@ return [
 			'rbacFilters' => [
 				'discover' => 'cmsgears\core\common\filters\DiscoverFilter',
 				'owner' => 'cmsgears\core\common\filters\OwnerFilter',
-				'belongsToUser' => 'cmsgears\core\common\filters\BelongsToUserFilter',
-				'org' => 'cmsgears\org\common\filters\OrganizationFilter',
-				'belongsToOrg' => 'cmsgears\org\common\filters\BelongsToOrgFilter',
-				'organizer' => 'empathyconnects\organizer\common\filters\OrganizerFilter',
-				'belongsToOrganizer' => 'empathyconnects\organizer\common\filters\BelongsToOrganizerFilter',
-				'experience' => 'empathyconnects\experience\common\filters\ExperienceFilter',
-				'application' => 'empathyconnects\experience\common\filters\ApplicationFilter'
+				'belongsToUser' => 'cmsgears\core\common\filters\BelongsToUserFilter'
 			],
 			'notifications' => true,
+			'activities' => true,
 			'siteConfigAll' => true,
 			'multiSite' => false,
 			'subDirectory' => false,
@@ -105,14 +100,16 @@ return [
 		'pluginManager' => [
 			'class' => 'cmsgears\core\common\components\PluginManager',
 			'plugins' => [
-				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [ CoreGlobal::TYPE_FORM ] ]
+				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [ CoreGlobal::TYPE_FORM ] ],
+				'geoSeo' => [ 'class' => 'cmsgears\seo\plugins\GeoSeo', 'modelTypes' => [] ],
+				'advancedSeo' => [ 'class' => 'cmsgears\seo\plugins\AdvancedSeo', 'modelTypes' => [] ]
 			]
 		],
 		'eventManager' => [
 			'class' => 'cmsgears\notify\common\components\EventManager'
 		],
 		'smsManager' => [
-			'class' => 'modules\sms\common\components\Msg91Manager'
+			'class' => 'modules\core\common\components\SmsManager'
 		],
 		// CMG Modules - Forms
 		'forms' => [
@@ -166,10 +163,6 @@ return [
 		],
 		'snsConnectMailer' => [
 			'class' => 'cmsgears\social\connect\common\components\Mailer'
-		],
-		// CMG Modules - Sms
-		'sms' => [
-			'class' => 'cmsgears\sms\common\components\Sms'
 		],
 		// CMG Plugins
 		'fileManager' => [

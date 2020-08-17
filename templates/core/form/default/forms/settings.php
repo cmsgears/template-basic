@@ -43,6 +43,24 @@ Editor::widget();
 				<div class="filler-height"></div>
 				<div class="box box-crud">
 					<div class="box-header">
+						<div class="box-header-title">Max Cover</div>
+					</div>
+					<div class="box-content-wrap frm-split-40-60">
+						<div class="box-content">
+							<div class="row">
+								<div class="col col4">
+									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'maxCover', null, 'cmti cmti-checkbox' ) ?>
+								</div>
+								<div class="col col2">
+									<?= $form->field( $settings, 'maxCoverClass' ) ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="filler-height"></div>
+				<div class="box box-crud">
+					<div class="box-header">
 						<div class="box-header-title">Header</div>
 					</div>
 					<div class="box-content-wrap frm-split-40-60">
@@ -110,9 +128,6 @@ Editor::widget();
 							<div class="row">
 								<div class="col col4">
 									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'contentData', null, 'cmti cmti-checkbox' ) ?>
-								</div>
-								<div class="col col4">
-									<?= Yii::$app->formDesigner->getIconCheckbox( $form, $settings, 'maxCover', null, 'cmti cmti-checkbox' ) ?>
 								</div>
 							</div>
 							<div class="row">

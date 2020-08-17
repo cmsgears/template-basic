@@ -1,6 +1,7 @@
 <?php
 // Yii Imports
 use yii\helpers\Html;
+
 // Basic Imports
 use widgets\element\ElementWidget;
 
@@ -14,26 +15,26 @@ $boxClass		= !empty( $settings->boxClass ) ? $settings->boxClass : $widget->boxC
 	<div class="block-box-wrap <?= $boxWrapClass ?>">
 		<?php
 			$elements = [];
-			
+
 			if( empty( $elementType ) ) {
-				
+
 				$elements = $model->activeElements;
 			}
 			else {
-				
+
 				$elements = Yii::$app->factory->get( 'elementService' )->getActiveByType( $elementType );
 			}
-			
+
 			foreach( $elements as $element ) {
 
 				$elementContent = ElementWidget::widget( [ 'model' => $element ] );
-			
+
 				if( !empty( $boxClass ) ) {
-					
-					echo Html::tag( $boxWrapper, $elementContent, [ 'class' => $boxClass ] );	
+
+					echo Html::tag( $boxWrapper, $elementContent, [ 'class' => $boxClass ] );
 				}
 				else {
-					
+
 					echo $elementContent;
 				}
 			}

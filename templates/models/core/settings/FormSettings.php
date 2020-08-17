@@ -1,8 +1,11 @@
 <?php
 namespace templates\models\core\settings;
+
 // Yii Imports
 use Yii;
+
 class FormSettings extends \cmsgears\core\common\models\forms\DataModel {
+
 	// Variables ---------------------------------------------------
 
 	// Globals -------------------------------
@@ -24,6 +27,10 @@ class FormSettings extends \cmsgears\core\common\models\forms\DataModel {
 	// Texture
 	public $texture;
 
+	// Max Cover
+	public $maxCover;
+	public $maxCoverClass;
+
 	// Header
 	public $header; // Show Header
 	public $headerIcon; // Show Header Icon using Model Icon
@@ -37,14 +44,11 @@ class FormSettings extends \cmsgears\core\common\models\forms\DataModel {
 	public $headerElementType;
 
 	// Content
-
 	public $content; // Show content
 	public $contentTitle; // Show Model Title within content
 	public $contentInfo; // Show Model Description within content
 	public $contentSummary; // Show Model Summary within content
 	public $contentData; // Show Model Content within content
-
-	public $maxCover;
 
 	public $contentClass;
 	public $contentDataClass;
@@ -132,7 +136,7 @@ class FormSettings extends \cmsgears\core\common\models\forms\DataModel {
 			[ [ 'purifySummary', 'purifyContent' ], 'boolean' ],
 			[ [ 'elementType', 'headerElementType', 'footerElementType', 'blockType', 'boxWrapper' ], 'string', 'min' => 1, 'max' => Yii::$app->core->mediumText ],
 			[ 'formCaptchaAction', 'string', 'min' => 1, 'max' => Yii::$app->core->xLargeText ],
-			[ [ 'backgroundClass', 'contentClass', 'contentDataClass', 'boxWrapClass', 'boxClass', 'formClass' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
+			[ [ 'maxCoverClass', 'backgroundClass', 'contentClass', 'contentDataClass', 'boxWrapClass', 'boxClass', 'formClass' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
 			[ [ 'footerIconClass', 'footerTitleData' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
 			[ 'footerInfoData' , 'string', 'min' => 1, 'max' => Yii::$app->core->xtraLargeText ],
 			[ [ 'elementsOrder', 'blocksOrder' ], 'number', 'integerOnly' => true, 'min' => 0 ],

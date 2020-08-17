@@ -100,7 +100,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
+			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]
@@ -108,7 +108,7 @@ return [
 		],
 		'dashboard' => [
 			'class' => 'cmsgears\core\admin\components\Dashboard',
-			'modules' => [ 'cms', 'core' ]
+			'modules' => [ 'core' ]
 		]
     ],
     'params' => $params

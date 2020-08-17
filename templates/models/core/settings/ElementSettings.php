@@ -33,13 +33,17 @@ class ElementSettings extends \cmsgears\core\common\models\forms\DataModel {
 	// Texture
 	public $texture;
 
+	// Max Cover
+	public $maxCover;
+	public $maxCoverClass;
+
 	// Header
 	public $header; // Show Header
 	public $headerIcon; // Show Header Icon using Model Avatar/Icon
+	public $headerIconUrl; // Show Header Icon using Icon Url irrespective of Model Avatar/Icon
 	public $headerTitle; // Show Header Title using Model Title
 	public $headerInfo; // Show Header Info using Model Description
 	public $headerContent; // Show Header Content using Model Summary
-	public $headerIconUrl; // Show Header Icon using Icon Url irrespective of Model Avatar/Icon
 
 	// Content
 	public $content; // Show content
@@ -48,8 +52,6 @@ class ElementSettings extends \cmsgears\core\common\models\forms\DataModel {
 	public $contentSummary; // Show Model Summary within content
 	public $contentData; // Show Model Content within content
 	public $contentRaw; // Content without purifier
-
-	public $maxCover;
 
 	public $contentClass;
 	public $contentDataClass;
@@ -71,7 +73,7 @@ class ElementSettings extends \cmsgears\core\common\models\forms\DataModel {
 
 	// Attributes
 	public $metas;
-	public $metaType;
+	public $metaTypes;
 
 	public $metaWrapClass;
 
@@ -109,7 +111,7 @@ class ElementSettings extends \cmsgears\core\common\models\forms\DataModel {
 			[ [ 'content', 'contentTitle', 'contentInfo', 'contentSummary', 'contentData', 'metas' ], 'boolean' ],
 			[ [ 'footer', 'footerIcon', 'footerTitle', 'footerInfo', 'footerContent' ], 'boolean' ],
 			[ [ 'bkgVideo', 'purifySummary', 'purifyContent' ], 'boolean' ],
-			[ [ 'bkgClass', 'contentClass', 'contentDataClass', 'metaWrapClass', 'metaType' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
+			[ [ 'bkgClass', 'maxCoverClass', 'contentClass', 'contentDataClass', 'metaWrapClass', 'metaTypes' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
 			[ [ 'footerIconClass', 'footerTitleData' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxxLargeText ],
 			[ 'footerInfoData' , 'string', 'min' => 1, 'max' => Yii::$app->core->xtraLargeText ],
 			[ [ 'headerIconUrl', 'footerIconUrl' ], 'string', 'min' => 1, 'max' => Yii::$app->core->xxLargeText ]
@@ -131,7 +133,7 @@ class ElementSettings extends \cmsgears\core\common\models\forms\DataModel {
 			'resBanner' => 'Responsive',
 			'contentRaw' => 'Raw Content',
 			'metas' => 'Attributes',
-			'metaType' => 'Attribute Type',
+			'metaTypes' => 'Attribute Types',
 			'metaWrapClass' => 'Attribute Wrap Class'
 		];
 	}

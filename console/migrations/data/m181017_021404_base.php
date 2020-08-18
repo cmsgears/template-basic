@@ -51,6 +51,10 @@ class m181017_021404_base extends \cmsgears\core\common\base\Migration {
 
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'site', 'type' => 'twitter-meta' ] );
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'creator', 'type' => 'twitter-meta' ] );
+
+		$site->description = 'Basic template demo';
+
+		$site->update();
 	}
 
 	public function down() {

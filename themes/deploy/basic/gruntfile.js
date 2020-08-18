@@ -124,7 +124,7 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../vendor/bower-asset/jquery/dist/jquery.min.js',
+					//'../../../vendor/bower-asset/jquery/dist/jquery.min.js',
 					'../../../vendor/bower-asset/jquery-ui/jquery-ui.min.js',
 					'../../../vendor/foxslider/cmg-plugin/widgets/resources/scripts/foxslider-core.js',
 					//'../../../vendor/bower-asset/conditionizr/dist/conditionizr.min.js',
@@ -151,8 +151,8 @@ module.exports = function( grunt ) {
 					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/base.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/controllers/form.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/controllers/notification.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/basic/resources/scripts/templates/public.js',
 

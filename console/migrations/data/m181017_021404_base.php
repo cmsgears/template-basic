@@ -3,10 +3,10 @@
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 
-// Blog Imports
+// Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181210_021404_base extends \cmsgears\core\common\base\Migration {
+class m181017_021404_base extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -46,24 +46,23 @@ class m181210_021404_base extends \cmsgears\core\common\base\Migration {
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => 0 ], [ 'modelId' => $site->id, 'name' => 'generate_name', 'type' => 'file' ] );
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => 1 ], [ 'modelId' => $site->id, 'name' => 'pretty_name', 'type' => 'file' ] );
 
-		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => 'Blog Demo' ], [ 'modelId' => $site->id, 'name' => 'author', 'type' => 'facebook-meta' ] );
-		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'app_id', 'type' => 'facebook-meta' ] );
+		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => 'Basic Demo' ], [ 'modelId' => $site->id, 'name' => 'author', 'type' => 'facebook-meta' ] );
+		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => '165543887129841' ], [ 'modelId' => $site->id, 'name' => 'app_id', 'type' => 'facebook-meta' ] );
 
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'site', 'type' => 'twitter-meta' ] );
 		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'creator', 'type' => 'twitter-meta' ] );
 
-		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => '|' ], [ 'modelId' => $site->id, 'name' => 'title_separator', 'type' => 'blog' ] );
+		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => 0 ], [ 'modelId' => $site->id, 'name' => 'active', 'type' => 'google-maps' ] );
+		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'key', 'type' => 'google-maps' ] );
 
-		$this->update( $this->cmgPrefix . 'core_site_meta', [ 'value' => null ], [ 'modelId' => $site->id, 'name' => 'comments_disqus_forum', 'type' => 'comment' ] );
-
-		$site->description = 'Blog template demo';
+		$site->description = 'Basic Demo';
 
 		$site->update();
 	}
 
 	public function down() {
 
-		echo "m181017_021404_base will be deleted with m160621_014408_core.\n";
+		echo "m180502_112711_base will be deleted with m160621_014408_core.\n";
 	}
 
 }

@@ -1,17 +1,17 @@
 <?php
 // CMG Imports
-use cmsgears\core\common\models\entities\Locale;
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\Role;
 use cmsgears\core\common\models\entities\Theme;
 use cmsgears\core\common\models\entities\User;
+use cmsgears\core\common\models\entities\Locale;
 
 use cmsgears\core\common\utilities\DateUtil;
 
-// Blog Imports
+// Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
+class m181017_021452_sites extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -61,7 +61,7 @@ class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'backend', 'frontend', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			//[ 100001, $site->id, $master->id, $master->id, 'test', null, 'test','','jpg','banner',0.1702,1500,'image',NULL,'2018-06-01/banner/test.jpg','2018-06-01/banner/test-medium.jpg', '2018-06-01/banner/test-small.jpg', '2018-06-01/banner/test-thumb.jpg', '2018-06-01/banner/test-pl.jpg', '2018-06-01/banner/test-small-pl.jpg', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
+			//[ 100001, $site->id, $master->id, $master->id, 'test', null, 'test', '', 'jpg', 'banner', 0.1702, 1500, 'image', NULL, '2018-06-01/banner/test.jpg', '2018-06-01/banner/test-medium.jpg', '2018-06-01/banner/test-small.jpg', '2018-06-01/banner/test-thumb.jpg', '2018-06-01/banner/test-pl.jpg', '2018-06-01/banner/test-small-pl.jpg', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
@@ -80,8 +80,8 @@ class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'themeId', 'avatarId', 'bannerId', 'createdBy', 'modifiedBy', 'name', 'slug', 'title', 'order', 'active', 'createdAt', 'modifiedAt' ];
 
 		$sites = [
-			//[ 101, $theme->id, 100002, null, $master->id, $master->id, 'Forum', 'forum', 'Forum', 0, 1, DateUtil::getDateTime(), DateUtil::getDateTime() ],
-			//[ 102, $theme->id, 100003, null, $master->id, $master->id, 'Support', 'support', 'Support', 0, 1, DateUtil::getDateTime(), DateUtil::getDateTime() ]
+			//[ 101, $theme->id, 100001, null, $master->id, $master->id, 'Forum', 'forum', 'Forum', 0, 1, DateUtil::getDateTime(), DateUtil::getDateTime() ],
+			//[ 102, $theme->id, 100002, null, $master->id, $master->id, 'Support', 'support', 'Support', 0, 1, DateUtil::getDateTime(), DateUtil::getDateTime() ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_site', $columns, $sites );
@@ -89,6 +89,7 @@ class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
 
 	private function insertSitesMeta() {
 
+		// Sites Meta
 	}
 
 	private function insertSiteUsers() {
@@ -100,8 +101,8 @@ class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
 
 		$this->locale = Locale::findByCode( 'en_US' );
 
-		$users = [
-			//[ 5, $this->locale->id, NULL, NULL, NULL, NULL, NULL, User::STATUS_ACTIVE, 'user@example.com', 'user', 'user', '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', CoreGlobal::TYPE_DEFAULT, 'icon', '', 'User', '', '', 'User', '', '', NULL, NULL, '', 1, 0, NULL, '', '', 'xnaNUktj2Lh0F3WtGjvcgm7viJMu0i2N', NULL, NULL, NULL, '2018-12-07 12:32:25', NULL, NULL, 'tFhJLcg8qQa6hRm01eW9miO9cfxNcDhm', 645105, '2018-12-14 11:12:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL ]
+		$users	= [
+			//[5,$this->locale->id,NULL,NULL,NULL,NULL,NULL,User::STATUS_ACTIVE,'user@cmsgears.com','user','user','$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W',CoreGlobal::TYPE_DEFAULT,'icon','','User','','','User','','',NULL,'1111111111','',1,0,NULL,'','','xnaNUktj2Lh0F3WtGjvcgm7viJMu0i2N',NULL,NULL,NULL,'2018-12-07 12:32:25',NULL,NULL,'tFhJLcg8qQa6hRm01eW9miO9cfxNcDhm',645105,'2018-12-14 11:12:25',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_user', $columns, $users );
@@ -124,7 +125,7 @@ class m181210_021452_sites extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181210_021452_sites will be deleted with m160621_014408_core.\n";
+		echo "m181017_021452_sites will be deleted with m160621_014408_core.\n";
 	}
 
 }

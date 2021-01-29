@@ -3,10 +3,10 @@
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 
-// Blog Imports
+// Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181210_021468_world extends \cmsgears\core\common\base\Migration {
+class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -518,6 +518,7 @@ class m181210_021468_world extends \cmsgears\core\common\base\Migration {
 		$columns = [ 'id', 'countryId', 'provinceId', 'code', 'iso', 'name', 'title' ];
 
 		$fields	= [
+			// India
 			/*
 			[ 10000001, 100, 1335, 'NI', '638', 'Nicobar', NULL], [ 10000002, 100, 1335, 'NA', '639', 'North & Middle Andaman', NULL], [ 10000003, 100, 1335, 'SA', '640', 'South Andaman', NULL],
 			[ 10000004, 100, 1336, 'SR', '542', 'Srikakulam', NULL], [ 10000005, 100, 1336, 'VZ', '543', 'Vizianagaram', NULL], [ 10000006, 100, 1336, 'VS', '544', 'Vishakhapatnam', NULL], [ 10000007, 100, 1336, 'EG', '545', 'East Godavari', NULL], [ 10000008, 100, 1336, 'WG', '546', 'West Godavari', NULL], [ 10000009, 100, 1336, 'KR', '547', 'Krishna', NULL], [ 10000010, 100, 1336, 'GU', '548', 'Guntur', NULL], [ 10000011, 100, 1336, 'PR', '549', 'Prakasam', NULL], [ 10000012, 100, 1336, 'NE', '550', 'Nellore', NULL], [ 10000013, 100, 1336, 'CU', '551', 'Cuddapah', 'Kadapa'], [ 10000014, 100, 1336, 'KU', '552', 'Kurnool', NULL], [ 10000015, 100, 1336, 'AN', '553', 'Anantapur', NULL], [ 10000016, 100, 1336, 'CH', '554', 'Chittoor', NULL],
@@ -563,7 +564,7 @@ class m181210_021468_world extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181210_021468_world will be deleted with m160621_014408_core.\n";
+		echo "m181017_021468_world will be deleted with m160621_014408_core.\n";
 	}
 
 }

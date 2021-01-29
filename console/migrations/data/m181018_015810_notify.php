@@ -5,10 +5,10 @@ use cmsgears\core\common\models\entities\User;
 
 use cmsgears\core\common\utilities\DateUtil;
 
-// Blog Imports
+// Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181211_015810_notify extends \cmsgears\core\common\base\Migration {
+class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 
 	// Public variables
 
@@ -55,7 +55,7 @@ class m181211_015810_notify extends \cmsgears\core\common\base\Migration {
 
     public function down() {
 
-        echo "m181211_015810_notify will be deleted with m160621_014408_core.\n";
+        echo "m181018_015810_notify will be deleted with m160621_014408_core.\n";
 
         return true;
     }

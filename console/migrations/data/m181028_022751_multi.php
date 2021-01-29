@@ -1,7 +1,13 @@
 <?php
-// CMG Imports
-use cmsgears\cms\common\config\CmsGlobal;
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
 
+// CMG Imports
 use cmsgears\core\common\models\entities\Locale;
 use cmsgears\core\common\models\entities\ObjectData;
 use cmsgears\core\common\models\entities\Role;
@@ -9,17 +15,12 @@ use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\Template;
 use cmsgears\core\common\models\entities\User;
 
-use cmsgears\cms\common\models\entities\Menu;
-use cmsgears\cms\common\models\entities\Page;
-use cmsgears\cms\common\models\entities\Sidebar;
-use cmsgears\cms\common\models\entities\Widget;
-
 use cmsgears\core\common\utilities\DateUtil;
 
-// Blog Imports
+// Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181221_022751_multi extends \cmsgears\core\common\base\Migration {
+class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -71,8 +72,8 @@ class m181221_022751_multi extends \cmsgears\core\common\base\Migration {
 
 		$columns = [ 'localeId', 'status', 'email', 'username', 'type', 'passwordHash', 'firstName', 'lastName', 'name', 'registeredAt', 'lastLoginAt', 'authKey' ];
 
-		$users = [
-			//[ $this->locale->id, User::STATUS_ACTIVE, "test@example.com", 'test', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', 'Test', 'User', 'Test User', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
+		$users	= [
+			//[ $this->locale->id, User::STATUS_ACTIVE, "testuser1@example.com", 'testuser1', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', 'Test', 'User 1', 'Test User 1', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_user', $columns, $users );
@@ -80,16 +81,16 @@ class m181221_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	private function insertSiteMembers() {
 
-		$siteId = $this->site->id;
+		$siteId = $this->site->id < 10 ? '0' . $this->site->id : $this->site->id;
 
 		$adminRole = Role::findBySlugType( 'admin', CoreGlobal::TYPE_SYSTEM );
 
-		$test = User::findByUsername( 'test' );
+		//$test1	= User::findByUsername( 'testuser1' );
 
 		$columns = [ 'id', 'siteId', 'userId', 'roleId', 'createdAt', 'modifiedAt' ];
 
 		$members = [
-			//[ intval( $siteId . '01' ), $this->site->id, $test->id, $adminRole->id, DateUtil::getDateTime(), DateUtil::getDateTime() ]
+			//[ intval( '1' . $siteId . '01' ), $this->site->id, $test1->id, $adminRole->id, DateUtil::getDateTime(), DateUtil::getDateTime() ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_site_member', $columns, $members );
@@ -103,14 +104,8 @@ class m181221_022751_multi extends \cmsgears\core\common\base\Migration {
 		$this->execute( "ALTER TABLE fxs_slider AUTO_INCREMENT = 100001" );
 		$this->execute( "ALTER TABLE fxs_slide AUTO_INCREMENT = 1000001" );
 
-		$this->execute( "ALTER TABLE {$this->cmgPrefix}cms_page AUTO_INCREMENT = 1000001" );
-		$this->execute( "ALTER TABLE {$this->cmgPrefix}cms_model_content AUTO_INCREMENT = 1000001" );
-
 		$this->execute( "ALTER TABLE {$this->cmgPrefix}core_object AUTO_INCREMENT = 1000001" );
 		$this->execute( "ALTER TABLE {$this->cmgPrefix}core_model_object AUTO_INCREMENT = 1000001" );
-
-		$this->execute( "ALTER TABLE {$this->cmgPrefix}cms_link AUTO_INCREMENT = 100001" );
-		$this->execute( "ALTER TABLE {$this->cmgPrefix}cms_model_link AUTO_INCREMENT = 1000001" );
 
 		$this->execute( "ALTER TABLE {$this->cmgPrefix}core_form AUTO_INCREMENT = 1000001" );
 		$this->execute( "ALTER TABLE {$this->cmgPrefix}core_form_field AUTO_INCREMENT = 1000001" );
@@ -125,7 +120,7 @@ class m181221_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181221_022751_multi will be deleted with m160621_014408_core.\n";
+		echo "m181028_022751_multi will be deleted with m160621_014408_core.\n";
 	}
 
 }

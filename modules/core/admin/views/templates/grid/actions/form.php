@@ -11,7 +11,7 @@ $template	= $model->template;
 <?php } ?>
 
 <span title="Fields"><?= Html::a( "", [ "/forms/form/field/all?pid=$model->id" ], [ 'class' => 'cmti cmti-list-small' ] ) ?></span>
-<span title="Update"><?= Html::a( "", [ "update?id=$model->id" ], [ 'class' => 'cmti cmti-edit' ] ) ?></span>
+<span title="Update"><?= Html::a( "", [ "update?id=$model->id" ], [ 'class' => 'cmti cmti-edit' ] )  ?></span>
 
 <?php if( isset( $template ) ) { ?>
 	<?php if( !empty( $template->dataForm ) ) { ?>

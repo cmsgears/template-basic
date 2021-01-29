@@ -63,7 +63,6 @@ module.exports = function( grunt ) {
 					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-core.min.css',
 					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-brand.min.css',
 					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-currency.min.css',
-					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.css',
 					'../../../vendor/bower-asset/chart.js/dist/Chart.min.css',
 					'../../../vendor/bower-asset/aos/dist/aos.css',
 					'../../../vendor/bower-asset/intl-tel-input/build/css/intlTelInput.min.css'
@@ -101,7 +100,7 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
-					//'../../../vendor/bower-asset/fullcalendar/dist/fullcalendar.min.css',
+					'../../../themes/assets/vendor/fullcalendar/lib/main.min.css',
 					'../../../frontend/web/basic/prvcmgbi-20200401-src.css'
 				],
         		dest: '../../../frontend/web/basic/prvcmgbi-20200401-src.css'
@@ -131,7 +130,6 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/imagesloaded/imagesloaded.pkgd.min.js',
 					'../../../vendor/bower-asset/handlebars/handlebars.min.js',
 					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.js',
 					//'../../../vendor/bower-asset/progressbar.js/dist/progressbar.min.js',
 					'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
 					'../../../vendor/bower-asset/aos/dist/aos.js',
@@ -142,11 +140,13 @@ module.exports = function( grunt ) {
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/base.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/grid.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/autoload.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/follower.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/site.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/province.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/region.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/city.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/comment.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/follower.js',
 
 					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/base.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/controllers/form.js',
@@ -206,8 +206,8 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.full.min.js',
-					//'../../../vendor/bower-asset/moment/min/moment.min.js',
-					//'../../../vendor/bower-asset/fullcalendar/dist/fullcalendar.min.js',
+					'../../../vendor/bower-asset/moment/min/moment.min.js',
+					'../../../themes/assets/vendor/fullcalendar/lib/main/fullcalendar.min.js',
 
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/address.js',
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/data.js',

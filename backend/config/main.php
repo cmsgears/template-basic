@@ -1,8 +1,8 @@
 <?php
 
-$params = yii\helpers\ArrayHelper::merge(
-    require( __DIR__ . '/../../common/config/params.php' ),
-    require( __DIR__ . '/params.php' )
+$params = array_merge(
+    require __DIR__ . '/../../common/config/params.php',
+    require __DIR__ . '/params.php'
 );
 
 return [
@@ -100,7 +100,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
+			'modules' => [ 'bcore', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect', 'sms' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]

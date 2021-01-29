@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\common\components;
 
 // Yii Imports
@@ -67,6 +75,7 @@ class Factory extends \cmsgears\core\common\base\Component {
 		$factory = Yii::$app->factory->getContainer();
 
 		$factory->set( 'modules\core\common\services\interfaces\mappers\IModelElementService', 'modules\core\common\services\mappers\ModelElementService' );
+		$factory->set( 'modules\core\common\services\interfaces\mappers\IModelBlockService', 'modules\core\common\services\mappers\ModelBlockService' );
 	}
 
 	/**
@@ -98,6 +107,7 @@ class Factory extends \cmsgears\core\common\base\Component {
 		$factory = Yii::$app->factory->getContainer();
 
 		$factory->set( 'modelElementService', 'modules\core\common\services\mappers\ModelElementService' );
+		$factory->set( 'modelBlockService', 'modules\core\common\services\mappers\ModelBlockService' );
 	}
 
 	/**

@@ -9,6 +9,7 @@ return [
 			'password' => 'Demo#Basic*60',
 			'charset' => 'utf8',
 			// Cache schema specific queries
+			// Disable it while doing DB designing
 			// The cache in backend/frontend runtime can be cleaned in case it's enabled and DB is changed
 			'enableSchemaCache' => true,
 			'schemaCache' => 'cache',

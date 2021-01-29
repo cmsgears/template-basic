@@ -1,8 +1,8 @@
 <?php
 
 $params = yii\helpers\ArrayHelper::merge(
-	require( __DIR__ . '/../../common/config/params.php' ),
-	require( __DIR__ . '/params.php' )
+	require __DIR__ . '/../../common/config/params.php',
+	require __DIR__ . '/params.php'
 );
 
 return [
@@ -90,7 +90,7 @@ return [
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
 				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial|colors|theme)>' => 'core/site/<action>',
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial|colors|theme)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers;
 
 // Yii Imports
@@ -9,8 +17,6 @@ use yii\web\NotFoundHttpException;
 
 // CMG Imports
 use cmsgears\forms\common\config\FormsGlobal;
-
-use cmsgears\core\common\behaviors\ActivityBehavior;
 
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
@@ -69,7 +75,9 @@ class FormController extends \cmsgears\core\admin\controllers\base\CrudControlle
 			'create' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Add' ] ],
 			'update' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Update' ] ],
 			'delete' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Delete' ] ],
+			'gallery' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Gallery' ] ],
 			'data' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Data' ] ],
+			'attributes' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Attributes' ] ],
 			'config' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Config' ] ],
 			'settings' => [ [ 'label' => 'Forms', 'url' => $this->returnUrl ], [ 'label' => 'Settings' ] ]
 		];
@@ -87,22 +95,17 @@ class FormController extends \cmsgears\core\admin\controllers\base\CrudControlle
 
 		$behaviors = parent::behaviors();
 
+		$behaviors[ 'rbac' ][ 'actions' ][ 'gallery' ] = [ 'permission' => $this->crudPermission ];
 		$behaviors[ 'rbac' ][ 'actions' ][ 'data' ] = [ 'permission' => $this->crudPermission ];
+		$behaviors[ 'rbac' ][ 'actions' ][ 'attributes' ] = [ 'permission' => $this->crudPermission ];
 		$behaviors[ 'rbac' ][ 'actions' ][ 'config' ] = [ 'permission' => $this->crudPermission ];
 		$behaviors[ 'rbac' ][ 'actions' ][ 'settings' ] = [ 'permission' => $this->crudPermission ];
 
 		$behaviors[ 'verbs' ][ 'actions' ][ 'gallery' ] = [ 'get' ];
 		$behaviors[ 'verbs' ][ 'actions' ][ 'data' ] = [ 'get', 'post' ];
+		$behaviors[ 'verbs' ][ 'actions' ][ 'attributes' ] = [ 'get', 'post' ];
 		$behaviors[ 'verbs' ][ 'actions' ][ 'config' ] = [ 'get', 'post' ];
 		$behaviors[ 'verbs' ][ 'actions' ][ 'settings' ] = [ 'get', 'post' ];
-
-		$behaviors[ 'activity' ] = [
-			'class' => ActivityBehavior::class,
-			'admin' => true,
-			'create' => [ 'create' ],
-			'update' => [ 'update' ],
-			'delete' => [ 'delete' ]
-		];
 
 		return $behaviors;
 	}
@@ -115,10 +118,11 @@ class FormController extends \cmsgears\core\admin\controllers\base\CrudControlle
 
 		$actions = parent::actions();
 
-		$actions[ 'gallery' ]	= [ 'class' => 'cmsgears\core\common\actions\regular\gallery\Browse' ];
-		$actions[ 'data' ]		= [ 'class' => 'cmsgears\core\common\actions\data\data\Form' ];
-		$actions[ 'config' ]	= [ 'class' => 'cmsgears\core\common\actions\data\config\Form' ];
-		$actions[ 'settings' ]	= [ 'class' => 'cmsgears\core\common\actions\data\setting\Form' ];
+		$actions[ 'gallery' ] = [ 'class' => 'cmsgears\core\common\actions\gallery\Manage' ];
+		$actions[ 'data' ] = [ 'class' => 'cmsgears\core\common\actions\data\data\Form' ];
+		$actions[ 'attributes' ] = [ 'class' => 'cmsgears\core\common\actions\data\attribute\Form' ];
+		$actions[ 'config' ] = [ 'class' => 'cmsgears\core\common\actions\data\config\Form' ];
+		$actions[ 'settings' ] = [ 'class' => 'cmsgears\core\common\actions\data\setting\Form' ];
 
 		return $actions;
 	}

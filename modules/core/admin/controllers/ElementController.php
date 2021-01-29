@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers;
 
 // Yii Imports
@@ -36,6 +44,7 @@ class ElementController extends \cmsgears\core\admin\controllers\base\ObjectData
 		$this->templateType = CoreGlobal::TYPE_ELEMENT;
 		$this->title		= 'Element';
 		$this->apixBase		= 'bcore/element';
+		$this->baseUrl		= 'element';
 
 		// Services
 		$this->modelService = Yii::$app->factory->get( 'elementService' );

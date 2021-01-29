@@ -38,7 +38,7 @@ $siteId	= Yii::$app->core->siteId;
 			<ul>
 				<li class='form <?= $child === 'form' ? 'active' : null ?>'><?= Html::a( "Forms", ['/bcore/form/all'] ) ?></li>
 				<li class='config <?= $child === 'config' ? 'active' : null ?>'><?= Html::a( "Configs", ['/forms/config/all'] ) ?></li>
-				<li class='template <?= $child === 'form-template' ? 'active' : null ?>'><?= Html::a( "Templates", ['/forms/form/template/all'] ) ?></li>
+				<li class='template <?= $child === 'template' ? 'active' : null ?>'><?= Html::a( "Templates", ['/forms/form/template/all'] ) ?></li>
 			</ul>
 		</div>
 	</div>

@@ -7,7 +7,7 @@ $settings = isset( $data->settings ) ? $data->settings : [];
 $defaultIncludes	= Yii::getAlias( '@breeze' ) . '/templates/cms/element/card/default/includes';
 $templateIncludes	= Yii::getAlias( '@templates' ) . '/core/element/card/social/includes';
 
-$buffer		= "$templateIncludes/buffer.php";
+$buffer		= "$defaultIncludes/buffer.php";
 $attributes	= "$templateIncludes/attributes.php";
 ?>
 <?php include "$defaultIncludes/styles.php"; ?>

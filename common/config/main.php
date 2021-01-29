@@ -72,6 +72,7 @@ return [
 			'multiSite' => false,
 			'subDirectory' => false,
 			'defaultSiteSlug' => 'main',
+			'softDelete' => true,
 			'provinceLabel' => 'State',
 			'regionLabel' => 'Province',
 			'zipLabel' => 'Postal Code'

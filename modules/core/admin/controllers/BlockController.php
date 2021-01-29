@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers;
 
 // Yii Imports
@@ -36,6 +44,7 @@ class BlockController extends \cmsgears\core\admin\controllers\base\ObjectDataCo
 		$this->templateType = CoreGlobal::TYPE_BLOCK;
 		$this->title		= 'Block';
 		$this->apixBase		= 'bcore/block';
+		$this->baseUrl		= 'block';
 
 		// Services
 		$this->modelService = Yii::$app->factory->get( 'blockService' );

@@ -3,6 +3,8 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatCssCommon' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.renameTask( 'concat', 'concatCssPrivate' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatCssChild' );
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -26,8 +28,8 @@ module.exports = function( grunt ) {
 					loadPath: [ '../../../../../../projects-vc/css/cmt-ui/breeze/src/scss', '../../../../../../projects-vc/css/cmt-ui/breeze-templates/src/scss' ]
 				},
 				files: {
-					'../../../backend/web/styles/pubazxrs-20200401-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
-					'../../../backend/web/styles/prvazxrs-20200401-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
+					'../../../backend/web/styles/pubazxrs-20200410-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
+					'../../../backend/web/styles/prvazxrs-20200410-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -42,7 +44,19 @@ module.exports = function( grunt ) {
 					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-brand.min.css',
 					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-currency.min.css'
 				],
-        		dest: '../../../backend/web/styles/cmnazxrs-20200401-src.css'
+        		dest: '../../../backend/web/styles/cmnazxrs-20200410-src.css'
+      		}
+    	},
+        concatCssPrivate: {
+      		options: {
+        		separator: '\n\n'
+      		},
+      		dist: {
+        		src: [
+					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
+					'../../../backend/web/styles/prvazxrs-20200410-src.css'
+				],
+        		dest: '../../../backend/web/styles/prvazxrs-20200410-src.css'
       		}
     	},
         concatCssChild: {
@@ -53,7 +67,7 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../themes/adminchild/resources/styles/main.css'
 				],
-        		dest: '../../../backend/web/styles/chdazxrs-20200401-src.css'
+        		dest: '../../../backend/web/styles/chdazxrs-20200410-src.css'
       		}
     	},
         concatJsCommon: {
@@ -91,7 +105,7 @@ module.exports = function( grunt ) {
 
 					'../../../themes/admin/resources/scripts/apps/core/controllers/site.js'
 				],
-        		dest: '../../../backend/web/scripts/cmnazxrs-20200401-src.js'
+        		dest: '../../../backend/web/scripts/cmnazxrs-20200410-src.js'
       		}
     	},
         concatJsPublic: {
@@ -103,7 +117,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/main.js',
 					'../../../themes/admin/resources/scripts/search.js'
 				],
-        		dest: '../../../backend/web/scripts/pubazxrs-20200401-src.js'
+        		dest: '../../../backend/web/scripts/pubazxrs-20200410-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -112,6 +126,8 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
+					'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
+					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.full.min.js',
 					'../../../vendor/bower-asset/moment/min/moment.min.js',
 
 					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/address.js',
@@ -157,7 +173,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/popups.js',
 					'../../../themes/admin/resources/scripts/maps.js'
 				],
-        		dest: '../../../backend/web/scripts/prvazxrs-20200401-src.js'
+        		dest: '../../../backend/web/scripts/prvazxrs-20200410-src.js'
       		}
     	},
         concatJsChild: {
@@ -173,9 +189,10 @@ module.exports = function( grunt ) {
 					'../../../themes/adminchild/resources/scripts/apps/hr/base.js',
 					'../../../themes/adminchild/resources/scripts/apps/hr/controllers/application.js',
 
-					'../../../themes/adminchild/resources/scripts/main.js'
+					'../../../themes/adminchild/resources/scripts/main.js',
+					'../../../themes/adminchild/resources/scripts/reports.js'
 				],
-        		dest: '../../../backend/web/scripts/chdazxrs-20200401-src.js'
+        		dest: '../../../backend/web/scripts/chdazxrs-20200410-src.js'
       		}
     	},
     	cssmin: {
@@ -184,10 +201,10 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'../../../backend/web/styles/cmnazxrs-20200401.css': [ '../../../backend/web/styles/cmnazxrs-20200401-src.css' ],
-	          		'../../../backend/web/styles/pubazxrs-20200401.css': [ '../../../backend/web/styles/pubazxrs-20200401-src.css' ],
-					'../../../backend/web/styles/prvazxrs-20200401.css': [ '../../../backend/web/styles/prvazxrs-20200401-src.css' ],
-					'../../../backend/web/styles/chdazxrs-20200401.css': [ '../../../backend/web/styles/chdazxrs-20200401-src.css' ]
+					'../../../backend/web/styles/cmnazxrs-20200410.css': [ '../../../backend/web/styles/cmnazxrs-20200410-src.css' ],
+	          		'../../../backend/web/styles/pubazxrs-20200410.css': [ '../../../backend/web/styles/pubazxrs-20200410-src.css' ],
+					'../../../backend/web/styles/prvazxrs-20200410.css': [ '../../../backend/web/styles/prvazxrs-20200410-src.css' ],
+					'../../../backend/web/styles/chdazxrs-20200410.css': [ '../../../backend/web/styles/chdazxrs-20200410-src.css' ]
 	        	}
       		}
     	},
@@ -197,10 +214,10 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-	          		'../../../backend/web/scripts/cmnazxrs-20200401.js': [ '../../../backend/web/scripts/cmnazxrs-20200401-src.js' ],
-					'../../../backend/web/scripts/pubazxrs-20200401.js': [ '../../../backend/web/scripts/pubazxrs-20200401-src.js' ],
-					'../../../backend/web/scripts/prvazxrs-20200401.js': [ '../../../backend/web/scripts/prvazxrs-20200401-src.js' ],
-					'../../../backend/web/scripts/chdazxrs-20200401.js': [ '../../../backend/web/scripts/chdazxrs-20200401-src.js' ]
+	          		'../../../backend/web/scripts/cmnazxrs-20200410.js': [ '../../../backend/web/scripts/cmnazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/pubazxrs-20200410.js': [ '../../../backend/web/scripts/pubazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/prvazxrs-20200410.js': [ '../../../backend/web/scripts/prvazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/chdazxrs-20200410.js': [ '../../../backend/web/scripts/chdazxrs-20200410-src.js' ]
 	        	}
       		}
     	},
@@ -218,5 +235,5 @@ module.exports = function( grunt ) {
 		}
     });
 
-    grunt.registerTask( 'default', [ 'sass', 'concatCssCommon', 'concatCssChild', 'concatJsCommon', 'concatJsPublic', 'concatJsPrivate', 'concatJsChild', 'cssmin', 'uglify', 'copy' ] );
+    grunt.registerTask( 'default', [ 'sass', 'concatCssCommon', 'concatCssPrivate', 'concatCssChild', 'concatJsCommon', 'concatJsPublic', 'concatJsPrivate', 'concatJsChild', 'cssmin', 'uglify', 'copy' ] );
 };

@@ -19,7 +19,7 @@ use cmsgears\core\common\utilities\DateUtil;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
+class m200413_031480_forms extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -61,10 +61,10 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 		$site	= $this->site;
 		$master	= $this->master;
 
-		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'backend', 'frontend', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			//[ 108001, $site->id, $master->id, $master->id, 'test', null, 'test','','jpg','banner',0.1702,1500,'image',NULL,'2018-06-01/banner/test.jpg','2018-06-01/banner/test-medium.jpg', '2018-06-01/banner/test-small.jpg', '2018-06-01/banner/test-thumb.jpg', '2018-06-01/banner/test-pl.jpg', '2018-06-01/banner/test-small-pl.jpg', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
+			//[ 108001, $site->id, $master->id, $master->id, 'test', NULL, 'test', '', 'jpg', 'banner', 0.123, 1500, 'image', NULL, '2020-08-11/banner/test.jpg', '2020-08-11/banner/test-medium.jpg', '2020-08-11/banner/test-small.jpg', '2020-08-11/banner/test-thumb.jpg', '2020-08-11/banner/test-pl.jpg', '2020-08-11/banner/test-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
@@ -156,7 +156,7 @@ class m181021_031480_forms extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181021_031480_forms will be deleted with m160621_014408_core.\n";
+		echo "m200413_031480_forms will be deleted with m160621_014408_core.\n";
 	}
 
 }

@@ -8,7 +8,7 @@ use cmsgears\core\common\utilities\DateUtil;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
+class m200411_015810_notify extends \cmsgears\core\common\base\Migration {
 
 	// Public variables
 
@@ -55,7 +55,7 @@ class m181018_015810_notify extends \cmsgears\core\common\base\Migration {
 
     public function down() {
 
-        echo "m181018_015810_notify will be deleted with m160621_014408_core.\n";
+        echo "m200411_015810_notify will be deleted with m160621_014408_core.\n";
 
         return true;
     }

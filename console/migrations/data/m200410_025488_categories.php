@@ -3,13 +3,14 @@
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 use cmsgears\core\common\models\resources\Category;
+use cmsgears\core\common\models\resources\Option;
 
 use cmsgears\core\common\utilities\DateUtil;
 
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
+class m200410_025488_categories extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -60,10 +61,10 @@ class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
 
 		//$test	= Category::findBySlugType( 'test', CoreGlobal::TYPE_OPTION_GROUP );
 
-		$optionColumns = [ 'id', 'categoryId', 'name', 'value', 'icon', 'active', 'input', 'htmlOptions', 'content', 'data' ];
+		$optionColumns = [ 'id', 'categoryId', 'name', 'value', 'icon', 'active', 'order', 'input', 'htmlOptions', 'content', 'data' ];
 
 		$options = [
-			//[ 100001, $test->id, 'CCTV', 'CCTV', NULL, 1, 0, NULL, NULL, NULL ]
+			//[ 100001, $test->id, 'Test', 'Test', NULL, 1, 0, 0, NULL, NULL, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_option', $optionColumns, $options );
@@ -71,7 +72,7 @@ class m181017_025488_categories extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181017_025488_categories will be deleted with m160621_014408_core.\n";
+		echo "m200410_025488_categories will be deleted with m160621_014408_core.\n";
 	}
 
 }

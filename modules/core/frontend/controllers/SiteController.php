@@ -51,6 +51,7 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 
 		$behaviours	= parent::behaviors();
 
+		$behaviours[ 'verbs' ][ 'actions' ][ 'about-us' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'terms' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'privacy' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'faqs' ] = [ 'get' ];
@@ -66,6 +67,13 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 	// CMG parent classes --------------------
 
 	// SiteController ------------------------
+
+	public function actionAboutUs() {
+
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
+
+		return $this->render( 'about-us' );
+	}
 
 	public function actionTerms() {
 

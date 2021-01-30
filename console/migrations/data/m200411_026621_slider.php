@@ -8,7 +8,7 @@ use cmsgears\core\common\utilities\DateUtil;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181018_026621_slider extends \cmsgears\core\common\base\Migration {
+class m200411_026621_slider extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -45,14 +45,14 @@ class m181018_026621_slider extends \cmsgears\core\common\base\Migration {
 		$site	= $this->site;
 		$master	= $this->master;
 
-		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'backend', 'frontend', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+		$columns = [ 'id', 'siteId', 'createdBy', 'modifiedBy', 'name', 'code', 'title', 'description', 'extension', 'directory', 'size', 'visibility', 'type', 'storage', 'url', 'medium', 'small', 'thumb', 'placeholder', 'smallPlaceholder', 'ogg', 'webm', 'caption', 'altText', 'link', 'shared', 'srcset', 'sizes', 'createdAt', 'modifiedAt', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
 
 		$files = [
-			[ 102001, $site->id, $master->id, $master->id, 'slide-1', NULL, 'Slide 1', '', 'jpg', 'gallery', 0.1214, 1500, 'image', NULL, '2020-08-11/gallery/slide-1.jpg', '2020-08-11/gallery/slide-1-medium.jpg', '2020-08-11/gallery/slide-1-small.jpg', '2020-08-11/gallery/slide-1-thumb.jpg', '2020-08-11/gallery/slide-1-pl.jpg', '2020-08-11/gallery/slide-1-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
-			[ 102002, $site->id, $master->id, $master->id, 'slide-2', NULL, 'Slide 2', '', 'jpg', 'gallery', 0.1651, 1500, 'image', NULL, '2020-08-11/gallery/slide-2.jpg', '2020-08-11/gallery/slide-2-medium.jpg', '2020-08-11/gallery/slide-2-small.jpg', '2020-08-11/gallery/slide-2-thumb.jpg', '2020-08-11/gallery/slide-2-pl.jpg', '2020-08-11/gallery/slide-2-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
-			[ 102003, $site->id, $master->id, $master->id, 'slide-3', NULL, 'Slide 3', '', 'jpg', 'gallery', 0.278, 1500, 'image', NULL, '2020-08-11/gallery/slide-3.jpg', '2020-08-11/gallery/slide-3-medium.jpg', '2020-08-11/gallery/slide-3-small.jpg', '2020-08-11/gallery/slide-3-thumb.jpg', '2020-08-11/gallery/slide-3-pl.jpg', '2020-08-11/gallery/slide-3-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
-			[ 102004, $site->id, $master->id, $master->id, 'slide-4', NULL, 'Slide 4', '', 'jpg', 'gallery', 0.4088, 1500, 'image', NULL, '2020-08-11/gallery/slide-4.jpg', '2020-08-11/gallery/slide-4-medium.jpg', '2020-08-11/gallery/slide-4-small.jpg', '2020-08-11/gallery/slide-4-thumb.jpg', '2020-08-11/gallery/slide-4-pl.jpg', '2020-08-11/gallery/slide-4-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
-			[ 102005, $site->id, $master->id, $master->id, 'slide-5', NULL, 'Slide 5', '', 'jpg', 'gallery', 0.8066, 1500, 'image', NULL, '2020-08-11/gallery/slide-5.jpg', '2020-08-11/gallery/slide-5-medium.jpg', '2020-08-11/gallery/sliden-5-small.jpg', '2020-08-11/gallery/slide-5-thumb.jpg', '2020-08-11/gallery/slide-5-pl.jpg', '2020-08-11/gallery/slide-5-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
+			[ 102001, $site->id, $master->id, $master->id, 'slide-1', NULL, 'Slide 1', '', 'jpg', 'gallery', 0.1214, 1500, 'image', NULL, '2020-08-11/gallery/slide-1.jpg', '2020-08-11/gallery/slide-1-medium.jpg', '2020-08-11/gallery/slide-1-small.jpg', '2020-08-11/gallery/slide-1-thumb.jpg', '2020-08-11/gallery/slide-1-pl.jpg', '2020-08-11/gallery/slide-1-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
+			[ 102002, $site->id, $master->id, $master->id, 'slide-2', NULL, 'Slide 2', '', 'jpg', 'gallery', 0.1651, 1500, 'image', NULL, '2020-08-11/gallery/slide-2.jpg', '2020-08-11/gallery/slide-2-medium.jpg', '2020-08-11/gallery/slide-2-small.jpg', '2020-08-11/gallery/slide-2-thumb.jpg', '2020-08-11/gallery/slide-2-pl.jpg', '2020-08-11/gallery/slide-2-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
+			[ 102003, $site->id, $master->id, $master->id, 'slide-3', NULL, 'Slide 3', '', 'jpg', 'gallery', 0.278, 1500, 'image', NULL, '2020-08-11/gallery/slide-3.jpg', '2020-08-11/gallery/slide-3-medium.jpg', '2020-08-11/gallery/slide-3-small.jpg', '2020-08-11/gallery/slide-3-thumb.jpg', '2020-08-11/gallery/slide-3-pl.jpg', '2020-08-11/gallery/slide-3-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
+			[ 102004, $site->id, $master->id, $master->id, 'slide-4', NULL, 'Slide 4', '', 'jpg', 'gallery', 0.4088, 1500, 'image', NULL, '2020-08-11/gallery/slide-4.jpg', '2020-08-11/gallery/slide-4-medium.jpg', '2020-08-11/gallery/slide-4-small.jpg', '2020-08-11/gallery/slide-4-thumb.jpg', '2020-08-11/gallery/slide-4-pl.jpg', '2020-08-11/gallery/slide-4-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ],
+			[ 102005, $site->id, $master->id, $master->id, 'slide-5', NULL, 'Slide 5', '', 'jpg', 'gallery', 0.8066, 1500, 'image', NULL, '2020-08-11/gallery/slide-5.jpg', '2020-08-11/gallery/slide-5-medium.jpg', '2020-08-11/gallery/sliden-5-small.jpg', '2020-08-11/gallery/slide-5-thumb.jpg', '2020-08-11/gallery/slide-5-pl.jpg', '2020-08-11/gallery/slide-5-small-pl.jpg', NULL, NULL, NULL, NULL, NULL, 0, '1920,1152,576', '(max-width: 1920px) 100vw, 1920px', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, 0, NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
@@ -86,7 +86,7 @@ class m181018_026621_slider extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181018_026621_slider will be deleted with m160621_014408_core.\n";
+		echo "m200411_026621_slider will be deleted with m160621_014408_core.\n";
 	}
 
 }

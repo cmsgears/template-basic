@@ -6,7 +6,7 @@ use cmsgears\core\common\models\entities\User;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181017_021468_world extends \cmsgears\core\common\base\Migration {
+class m200410_021468_world extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -37,7 +37,7 @@ class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 
 		$this->insertProvinces();
 
-		$this->insertDistricts();
+		$this->insertRegions();
 	}
 
 	private function insertCountries() {
@@ -513,7 +513,7 @@ class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 		$this->batchInsert( $this->cmgPrefix . 'core_province', $columns, $provinces );
 	}
 
-	private function insertDistricts() {
+	private function insertRegions() {
 
 		$columns = [ 'id', 'countryId', 'provinceId', 'code', 'iso', 'name', 'title' ];
 
@@ -564,7 +564,7 @@ class m181017_021468_world extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181017_021468_world will be deleted with m160621_014408_core.\n";
+		echo "m200410_021468_world will be deleted with m160621_014408_core.\n";
 	}
 
 }

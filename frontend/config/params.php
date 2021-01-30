@@ -42,6 +42,10 @@ $params = [
 			"name" => "Testimonial", "summary" => "Testimonial", "description" => "Testimonial",
 			"keywords" => "Testimonial", "robot" => "noindex,follow"
 		],
+		'about-us' => [
+			"name" => "About Us", "summary" => "About Us", "description" => "About Us",
+			"keywords" => "About Us", "robot" => "noindex,follow"
+		],
 		'terms' => [
 			"name" => "Terms & Conditions", "summary" => "Terms & Conditions", "description" => "Terms & Conditions",
 			"keywords" => "Terms, Conditions", "robot" => "noindex,follow"

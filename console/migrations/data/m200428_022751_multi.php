@@ -20,7 +20,7 @@ use cmsgears\core\common\utilities\DateUtil;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
+class m200428_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	// Public Variables
 
@@ -120,7 +120,7 @@ class m181028_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	public function down() {
 
-		echo "m181028_022751_multi will be deleted with m160621_014408_core.\n";
+		echo "m200428_022751_multi will be deleted with m160621_014408_core.\n";
 	}
 
 }

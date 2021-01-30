@@ -37,8 +37,6 @@ class ElementController extends \cmsgears\core\admin\controllers\base\ObjectData
 		parent::init();
 
 		// Config
-		$this->backend		= true;
-		$this->frontend		= false;
 		$this->shared		= true;
 		$this->type			= CoreGlobal::TYPE_ELEMENT;
 		$this->templateType = CoreGlobal::TYPE_ELEMENT;

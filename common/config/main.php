@@ -70,6 +70,7 @@ return [
 			'activities' => true,
 			'siteConfigAll' => true,
 			'multiSite' => false,
+			'autoSiteMember' => false,
 			'subDirectory' => false,
 			'defaultSiteSlug' => 'main',
 			'softDelete' => true,
@@ -101,7 +102,7 @@ return [
 		'pluginManager' => [
 			'class' => 'cmsgears\core\common\components\PluginManager',
 			'plugins' => [
-				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [ CoreGlobal::TYPE_FORM ] ],
+				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [] ],
 				'geoSeo' => [ 'class' => 'cmsgears\seo\plugins\GeoSeo', 'modelTypes' => [] ],
 				'advancedSeo' => [ 'class' => 'cmsgears\seo\plugins\AdvancedSeo', 'modelTypes' => [] ]
 			]
@@ -110,7 +111,8 @@ return [
 			'class' => 'cmsgears\notify\common\components\EventManager'
 		],
 		'smsManager' => [
-			'class' => 'modules\core\common\components\SmsManager'
+			//'class' => 'modules\sms\common\components\SmsManager'
+			'class' => 'cmsgears\sms\common\components\Msg91Manager'
 		],
 		// CMG Modules - Forms
 		'forms' => [
@@ -164,6 +166,10 @@ return [
 		],
 		'snsConnectMailer' => [
 			'class' => 'cmsgears\social\connect\common\components\Mailer'
+		],
+		// CMG Modules - Sms
+		'sms' => [
+			'class' => 'cmsgears\sms\common\components\Sms'
 		],
 		// CMG Plugins
 		'fileManager' => [

@@ -37,8 +37,6 @@ class BlockController extends \cmsgears\core\admin\controllers\base\ObjectDataCo
 		parent::init();
 
 		// Config
-		$this->backend		= true;
-		$this->frontend		= false;
 		$this->shared		= true;
 		$this->type			= CoreGlobal::TYPE_BLOCK;
 		$this->templateType = CoreGlobal::TYPE_BLOCK;

@@ -1,9 +1,4 @@
 <?php
-// CMG Imports
-use cmsgears\core\frontend\config\SiteProperties;
-
-use cmsgears\core\common\utilities\CodeGenUtil;
-
 // Media --------------------
 
 $texture		= isset( $settings->texture ) ? $settings->texture : false;

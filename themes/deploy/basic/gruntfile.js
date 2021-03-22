@@ -1,7 +1,7 @@
 module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatFa' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatCssCommon' );
@@ -13,13 +13,13 @@ module.exports = function( grunt ) {
 	grunt.renameTask( 'concat', 'concatCssPrivate' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatJsLazy' );
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatJsCommon' );
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatJsLanding' );
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatJsPublic' );
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatJsPrivate' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
@@ -27,7 +27,6 @@ module.exports = function( grunt ) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON( 'package.json' ),
-
 		sass: {
 			dist: {
 				options: {
@@ -35,9 +34,9 @@ module.exports = function( grunt ) {
 					loadPath: [ '../../../../../../projects-vc/css/cmt-ui/breeze/src/scss', '../../../../../../projects-vc/css/cmt-ui/breeze-templates/src/scss' ]
 				},
 				files: {
-					'../../../frontend/web/basic/ladcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/landing.scss',
-					'../../../frontend/web/basic/pubcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/public.scss',
-					'../../../frontend/web/basic/prvcmgbi-20190405-src.css': '../../../themes/basic/resources/styles/scss/private.scss'
+					'../../../frontend/web/basic/ladcmgbi-20200401-src.css': '../../../themes/basic/resources/styles/scss/landing.scss',
+					'../../../frontend/web/basic/pubcmgbi-20200401-src.css': '../../../themes/basic/resources/styles/scss/public.scss',
+					'../../../frontend/web/basic/prvcmgbi-20200401-src.css': '../../../themes/basic/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -50,7 +49,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/styles/fixes/font-fix-fa.css',
 					'../../../vendor/bower-asset/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css'
 				],
-        		dest: '../../../frontend/web/basic/fawcmgbi-20190405-src.css'
+        		dest: '../../../frontend/web/basic/fawcmgbi-20200401-src.css'
       		}
     	},
         concatCssCommon: {
@@ -61,12 +60,14 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../themes/basic/resources/styles/fixes/font-fix-breeze.css',
 					'../../../vendor/bower-asset/animate.css/animate.min.css',
-					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-core.min.css',
-					//'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-currency.min.css',
-					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.css',
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-core.min.css',
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-brand.min.css',
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-currency.min.css',
+					'../../../vendor/bower-asset/chart.js/dist/Chart.min.css',
+					'../../../vendor/bower-asset/aos/dist/aos.css',
 					'../../../vendor/bower-asset/intl-tel-input/build/css/intlTelInput.min.css'
 				],
-        		dest: '../../../frontend/web/basic/cmncmgbi-20190405-src.css'
+        		dest: '../../../frontend/web/basic/cmncmgbi-20200401-src.css'
       		}
     	},
         concatCssLanding: {
@@ -75,9 +76,9 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../frontend/web/basic/ladcmgbi-20190405-src.css'
+					'../../../frontend/web/basic/ladcmgbi-20200401-src.css'
 				],
-        		dest: '../../../frontend/web/basic/ladcmgbi-20190405-src.css'
+        		dest: '../../../frontend/web/basic/ladcmgbi-20200401-src.css'
       		}
     	},
         concatCssPublic: {
@@ -87,9 +88,9 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
-					'../../../frontend/web/basic/pubcmgbi-20190405-src.css'
+					'../../../frontend/web/basic/pubcmgbi-20200401-src.css'
 				],
-        		dest: '../../../frontend/web/basic/pubcmgbi-20190405-src.css'
+        		dest: '../../../frontend/web/basic/pubcmgbi-20200401-src.css'
       		}
     	},
         concatCssPrivate: {
@@ -99,10 +100,10 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
-					'../../../vendor/bower-asset/fullcalendar/dist/fullcalendar.min.css',
-					'../../../frontend/web/basic/prvcmgbi-20190405-src.css'
+					'../../../themes/assets/vendor/fullcalendar/lib/main.min.css',
+					'../../../frontend/web/basic/prvcmgbi-20200401-src.css'
 				],
-        		dest: '../../../frontend/web/basic/prvcmgbi-20190405-src.css'
+        		dest: '../../../frontend/web/basic/prvcmgbi-20200401-src.css'
       		}
     	},
         concatJsLazy: {
@@ -111,9 +112,9 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../vendor/bower-asset/cmt-velocity/src/solo/lazy.js'
+					'../../../vendor/cmgtools/velocity/src/solo/lazy.js'
 				],
-        		dest: '../../../frontend/web/basic/lzycmgbi-20190405-src.js'
+        		dest: '../../../frontend/web/basic/lzycmgbi-20200401-src.js'
       		}
     	},
         concatJsCommon: {
@@ -129,27 +130,29 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/imagesloaded/imagesloaded.pkgd.min.js',
 					'../../../vendor/bower-asset/handlebars/handlebars.min.js',
 					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-					//'../../../vendor/bower-asset/nouislider/distribute/nouislider.min.js',
 					//'../../../vendor/bower-asset/progressbar.js/dist/progressbar.min.js',
 					'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
+					'../../../vendor/bower-asset/aos/dist/aos.js',
 					'../../../vendor/bower-asset/intl-tel-input/build/js/utils.js',
 					'../../../vendor/bower-asset/intl-tel-input/build/js/intlTelInput-jquery.min.js',
-					'../../../vendor/bower-asset/cmt-velocity/dist/velocity.js',
+					'../../../vendor/cmgtools/velocity/dist/velocity.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/grid.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/autoload.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/site.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/province.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/region.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/city.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/comment.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/grid.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/autoload.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/follower.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/site.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/province.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/region.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/city.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/comment.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/follower.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/controllers/form.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/controllers/form.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/controllers/notification.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/basic/resources/scripts/templates/public.js',
 
@@ -161,7 +164,7 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/apps/core/autoload.js',
 					'../../../themes/basic/resources/scripts/apps/core/controllers/site.js'
 				],
-        		dest: '../../../frontend/web/basic/cmncmgbi-20190405-src.js'
+        		dest: '../../../frontend/web/basic/cmncmgbi-20200401-src.js'
       		}
     	},
         concatJsLanding: {
@@ -171,11 +174,12 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../themes/basic/resources/scripts/main.js',
+					'../../../themes/basic/resources/scripts/landing.js',
 					'../../../themes/basic/resources/scripts/search.js',
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/ladcmgbi-20190405-src.js'
+        		dest: '../../../frontend/web/basic/ladcmgbi-20200401-src.js'
       		}
     	},
         concatJsPublic: {
@@ -187,11 +191,12 @@ module.exports = function( grunt ) {
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.full.min.js',
 
 					'../../../themes/basic/resources/scripts/main.js',
+					'../../../themes/basic/resources/scripts/public.js',
 					'../../../themes/basic/resources/scripts/search.js',
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/pubcmgbi-20190405-src.js'
+        		dest: '../../../frontend/web/basic/pubcmgbi-20200401-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -202,26 +207,32 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.full.min.js',
 					'../../../vendor/bower-asset/moment/min/moment.min.js',
-					'../../../vendor/bower-asset/fullcalendar/dist/fullcalendar.min.js',
+					'../../../themes/assets/vendor/fullcalendar/lib/main/fullcalendar.min.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/data.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/social.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/gallery.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/mapper.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/address.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/data.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/file.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/gallery.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/location.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/mapper.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/meta.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/model.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/social.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/user.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/main.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/address.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/data.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/file.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/gallery.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/location.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/mapper.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/meta.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/model.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/social.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/user.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/location.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/file.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/meta.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/model.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/user.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/main.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/location.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/file.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/meta.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/model.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/user.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/basic/resources/scripts/templates/private.js',
 
@@ -234,11 +245,12 @@ module.exports = function( grunt ) {
 					'../../../themes/basic/resources/scripts/apps/core/controllers/user.js',
 
 					'../../../themes/basic/resources/scripts/main.js',
+					'../../../themes/basic/resources/scripts/private.js',
 					'../../../themes/basic/resources/scripts/search.js',
 					'../../../themes/basic/resources/scripts/sliders.js',
 					'../../../themes/basic/resources/scripts/popups.js'
 				],
-        		dest: '../../../frontend/web/basic/prvcmgbi-20190405-src.js'
+        		dest: '../../../frontend/web/basic/prvcmgbi-20200401-src.js'
       		}
     	},
     	cssmin: {
@@ -247,11 +259,11 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'../../../frontend/web/basic/fawcmgbi-20190405.css': [ '../../../frontend/web/basic/fawcmgbi-20190405-src.css' ],
-					'../../../frontend/web/basic/cmncmgbi-20190405.css': [ '../../../frontend/web/basic/cmncmgbi-20190405-src.css' ],
-	          		'../../../frontend/web/basic/ladcmgbi-20190405.css': [ '../../../frontend/web/basic/ladcmgbi-20190405-src.css' ],
-					'../../../frontend/web/basic/pubcmgbi-20190405.css': [ '../../../frontend/web/basic/pubcmgbi-20190405-src.css' ],
-					'../../../frontend/web/basic/prvcmgbi-20190405.css': [ '../../../frontend/web/basic/prvcmgbi-20190405-src.css' ]
+					'../../../frontend/web/basic/fawcmgbi-20200401.css': [ '../../../frontend/web/basic/fawcmgbi-20200401-src.css' ],
+					'../../../frontend/web/basic/cmncmgbi-20200401.css': [ '../../../frontend/web/basic/cmncmgbi-20200401-src.css' ],
+	          		'../../../frontend/web/basic/ladcmgbi-20200401.css': [ '../../../frontend/web/basic/ladcmgbi-20200401-src.css' ],
+					'../../../frontend/web/basic/pubcmgbi-20200401.css': [ '../../../frontend/web/basic/pubcmgbi-20200401-src.css' ],
+					'../../../frontend/web/basic/prvcmgbi-20200401.css': [ '../../../frontend/web/basic/prvcmgbi-20200401-src.css' ]
 	        	}
       		}
     	},
@@ -261,22 +273,23 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-					'../../../frontend/web/basic/lzycmgbi-20190405.js': [ '../../../frontend/web/basic/lzycmgbi-20190405-src.js' ],
-	          		'../../../frontend/web/basic/cmncmgbi-20190405.js': [ '../../../frontend/web/basic/cmncmgbi-20190405-src.js' ],
-					'../../../frontend/web/basic/ladcmgbi-20190405.js': [ '../../../frontend/web/basic/ladcmgbi-20190405-src.js' ],
-					'../../../frontend/web/basic/pubcmgbi-20190405.js': [ '../../../frontend/web/basic/pubcmgbi-20190405-src.js' ],
-					'../../../frontend/web/basic/prvcmgbi-20190405.js': [ '../../../frontend/web/basic/prvcmgbi-20190405-src.js' ]
+	          		'../../../frontend/web/basic/lzycmgbi-20200401.js': [ '../../../frontend/web/basic/lzycmgbi-20200401-src.js' ],
+					'../../../frontend/web/basic/cmncmgbi-20200401.js': [ '../../../frontend/web/basic/cmncmgbi-20200401-src.js' ],
+					'../../../frontend/web/basic/ladcmgbi-20200401.js': [ '../../../frontend/web/basic/ladcmgbi-20200401-src.js' ],
+					'../../../frontend/web/basic/pubcmgbi-20200401.js': [ '../../../frontend/web/basic/pubcmgbi-20200401-src.js' ],
+					'../../../frontend/web/basic/prvcmgbi-20200401.js': [ '../../../frontend/web/basic/prvcmgbi-20200401-src.js' ]
 	        	}
       		}
     	},
 		copy: {
 			main: {
 				files: [
-					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/basic/resources/fonts/opensans/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/frontend/web/fonts/opensans/', filter: 'isFile' },
-					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/cmt-breeze-icons/dist/fonts/breeze/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/frontend/web/fonts/breeze/', filter: 'isFile' },
-					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/vendor/bower-asset/fontawesome/web-fonts-with-css/webfonts/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/frontend/web/webfonts/', filter: 'isFile' },
-					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/basic/resources/images/basic/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/frontend/web/images/basic/', filter: 'isFile' },
-					{ expand: true, cwd: 'e:/development/projects-vc/php/basicdemo/themes/basic/resources/images/basic/icons/', src: ['**'], dest: 'e:/development/projects-vc/php/basicdemo/frontend/web/images/basic/icons/', filter: 'isFile' }
+					{ expand: true, cwd: '../../../themes/basic/resources/fonts/opensans/', src: ['**'], dest: '../../../frontend/web/fonts/opensans/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../vendor/cmgtools/breeze-icons/dist/fonts/breeze/', src: ['**'], dest: '../../../frontend/web/fonts/breeze/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../vendor/bower-asset/fontawesome/web-fonts-with-css/webfonts/', src: ['**'], dest: '../../../frontend/web/webfonts/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../vendor/bower-asset/intl-tel-input/build/img/', src: ['**'], dest: '../../../frontend/web/img/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../themes/basic/resources/images/basic/', src: ['**'], dest: '../../../frontend/web/images/basic/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../themes/basic/resources/images/basic/icons/', src: ['**'], dest: '../../../frontend/web/images/basic/icons/', filter: 'isFile' }
 				]
 			}
 		}

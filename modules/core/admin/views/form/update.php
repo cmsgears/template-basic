@@ -23,7 +23,7 @@ $apixBase		= $this->context->apixBase;
 Editor::widget();
 ?>
 <div class="box-crud-wrap row">
-	<div class="box-crud-wrap-main">
+	<div class="box-crud-wrap-main colf colf3x2">
 		<?php $form = ActiveForm::begin( [ 'id' => 'frm-form', 'options' => [ 'class' => 'form' ] ] ); ?>
 		<div class="box box-crud">
 			<div class="box-header">
@@ -32,10 +32,13 @@ Editor::widget();
 			<div class="box-content-wrap frm-split-40-60">
 				<div class="box-content">
 					<div class="row">
-						<div class="col col2">
+						<div class="col col3">
 							<?= $form->field( $model, 'name' ) ?>
 						</div>
-						<div class="col col2">
+						<div class="col col3">
+							<?= $form->field( $model, 'slug' ) ?>
+						</div>
+						<div class="col col3">
 							<?= $form->field( $model, 'title' ) ?>
 						</div>
 					</div>
@@ -166,5 +169,8 @@ Editor::widget();
 			</div>
 		</div>
 		<div class="filler-height filler-height-medium"></div>
+	</div>
+	<div class="box-crud-wrap-sidebar colf colf3">
+
 	</div>
 </div>

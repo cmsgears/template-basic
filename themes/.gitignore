@@ -1,4 +1,5 @@
 # Keep CSS and JS vendors
+!assets/vendor/
 !admin/resources/scripts/vendor/
 !admin/resources/styles/vendor/
 !basic/resources/scripts/vendor/

@@ -1,3 +1,4 @@
-# Ignore sass cache and node module files
-deploy/.sass-cache/
-deploy/node_modules/
+# Ignore sass cache files
+.sass-cache/
+resources/.sass-cache/
+resources/styles/scss/.sass-cache/

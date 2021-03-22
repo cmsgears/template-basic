@@ -1,8 +1,8 @@
 <?php
 
-$params = yii\helpers\ArrayHelper::merge(
-    require( __DIR__ . '/../../common/config/params.php' ),
-    require( __DIR__ . '/params.php' )
+$params = array_merge(
+    require __DIR__ . '/../../common/config/params.php',
+    require __DIR__ . '/params.php'
 );
 
 return [
@@ -13,9 +13,10 @@ return [
 	'bootstrap' => [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
-		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory',
+		'snsConnect', 'snsConnectFactory',
 		'foxSlider',
-		'bcoreFactory'
+		'basicCoreFactory'
 	],
     'modules' => [
         'core' => [
@@ -43,11 +44,13 @@ return [
             'class' => 'modules\core\admin\Module'
         ]
     ],
-    'components' => [
+	'components' => [
 		'view' => [
 			'theme' => [
 				'class' => 'themes\admin\Theme',
-				'childs' => [ 'themes\adminchild\Theme' ]
+				'childs' => [
+					'themes\adminchild\Theme'
+				]
 			]
 		],
 		'request' => [
@@ -57,7 +60,10 @@ return [
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-basic-admin', 'httpOnly' => true ]
+			'identityCookie' => [
+				'name' => '_identity-basic-admin',
+				'httpOnly' => true
+			]
 		],
 		'session' => [
 			'name' => 'basic-admin'
@@ -85,7 +91,7 @@ return [
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
-				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
+				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account|colors|theme)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

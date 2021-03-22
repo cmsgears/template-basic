@@ -4,6 +4,9 @@ call ../../yii migrate/up --migrationPath=@cmsgears/module-newsletter/migrations
 call ../../yii migrate/up --migrationPath=@cmsgears/module-notify/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@cmsgears/plugin-file-manager/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@cmsgears/plugin-social-meta/migrations --interactive=0
+call ../../yii migrate/up --migrationPath=@cmsgears/plugin-google-api/migrations --interactive=0
+call ../../yii migrate/up --migrationPath=@cmsgears/plugin-google-analytics/migrations --interactive=0
+call ../../yii migrate/up --migrationPath=@cmsgears/plugin-google-maps/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@foxslider/cmg-plugin/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@cmsgears/module-sns-connect/migrations --interactive=0
 call ../../yii migrate/up --migrationPath=@cmsgears/module-sms/migrations/msg91 --interactive=0

@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers\block;
 
 // Yii Imports
@@ -48,7 +56,11 @@ class TemplateController extends \cmsgears\core\admin\controllers\base\TemplateC
 			'all' => [ [ 'label' => 'Block Templates' ] ],
 			'create' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Add' ] ],
 			'update' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Update' ] ],
-			'delete' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Delete' ] ]
+			'delete' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Delete' ] ],
+			'data' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Data' ] ],
+			'attributes' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Attributes' ] ],
+			'config' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Config' ] ],
+			'settings' => [ [ 'label' => 'Block Templates', 'url' => $this->returnUrl ], [ 'label' => 'Settings' ] ]
 		];
 	}
 

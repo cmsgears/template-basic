@@ -2,12 +2,10 @@
 // Yii Imports
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-
 // CMG Imports
 use cmsgears\core\frontend\config\SiteProperties;
 
 use cmsgears\core\common\utilities\CodeGenUtil;
-
 // Basic Imports
 use widgets\element\ElementWidget;
 

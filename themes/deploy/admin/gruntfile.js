@@ -3,6 +3,8 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatCssCommon' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.renameTask( 'concat', 'concatCssPrivate' );
  	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.renameTask( 'concat', 'concatCssChild' );
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -26,8 +28,8 @@ module.exports = function( grunt ) {
 					loadPath: [ '../../../../../../projects-vc/css/cmt-ui/breeze/src/scss', '../../../../../../projects-vc/css/cmt-ui/breeze-templates/src/scss' ]
 				},
 				files: {
-					'../../../backend/web/styles/pubazxrs-20190405-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
-					'../../../backend/web/styles/prvazxrs-20190405-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
+					'../../../backend/web/styles/pubazxrs-20200410-src.css': '../../../themes/admin/resources/styles/scss/public.scss',
+					'../../../backend/web/styles/prvazxrs-20200410-src.css': '../../../themes/admin/resources/styles/scss/private.scss'
 				}
 			}
 		},
@@ -38,10 +40,23 @@ module.exports = function( grunt ) {
       		dist: {
         		src: [
 					'../../../vendor/bower-asset/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css',
-					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-core.min.css',
-					'../../../vendor/bower-asset/cmt-breeze-icons/dist/css/breeze-icons-currency.min.css'
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-core.min.css',
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-brand.min.css',
+					'../../../vendor/cmgtools/breeze-icons/dist/css/breeze-icons-currency.min.css'
 				],
-        		dest: '../../../backend/web/styles/cmnazxrs-20190405-src.css'
+        		dest: '../../../backend/web/styles/cmnazxrs-20200410-src.css'
+      		}
+    	},
+        concatCssPrivate: {
+      		options: {
+        		separator: '\n\n'
+      		},
+      		dist: {
+        		src: [
+					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.min.css',
+					'../../../backend/web/styles/prvazxrs-20200410-src.css'
+				],
+        		dest: '../../../backend/web/styles/prvazxrs-20200410-src.css'
       		}
     	},
         concatCssChild: {
@@ -52,7 +67,7 @@ module.exports = function( grunt ) {
         		src: [
 					'../../../themes/adminchild/resources/styles/main.css'
 				],
-        		dest: '../../../backend/web/styles/chdazxrs-20190405-src.css'
+        		dest: '../../../backend/web/styles/chdazxrs-20200410-src.css'
       		}
     	},
         concatJsCommon: {
@@ -64,22 +79,23 @@ module.exports = function( grunt ) {
 					//'../../../vendor/bower-asset/jquery/dist/jquery.min.js',
 					'../../../vendor/bower-asset/jquery-ui/jquery-ui.min.js',
 					'../../../vendor/foxslider/cmg-plugin/widgets/resources/scripts/foxslider-core.js',
+					//'../../../vendor/bower-asset/conditionizr/dist/conditionizr.min.js',
+					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
 					'../../../vendor/bower-asset/imagesloaded/imagesloaded.pkgd.min.js',
 					'../../../vendor/bower-asset/handlebars/handlebars.min.js',
-					'../../../vendor/bower-asset/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-					'../../../vendor/bower-asset/cmt-velocity/dist/velocity.js',
+					'../../../vendor/cmgtools/velocity/dist/velocity.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/grid.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/autoload.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/site.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/province.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/region.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/city.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/comment.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/grid.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/autoload.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/site.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/province.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/region.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/city.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/comment.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/forms/controllers/form.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/forms/controllers/form.js',
 
 					'../../../themes/admin/resources/scripts/templates/public.js',
 
@@ -89,7 +105,7 @@ module.exports = function( grunt ) {
 
 					'../../../themes/admin/resources/scripts/apps/core/controllers/site.js'
 				],
-        		dest: '../../../backend/web/scripts/cmnazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/cmnazxrs-20200410-src.js'
       		}
     	},
         concatJsPublic: {
@@ -101,7 +117,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/main.js',
 					'../../../themes/admin/resources/scripts/search.js'
 				],
-        		dest: '../../../backend/web/scripts/pubazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/pubazxrs-20200410-src.js'
       		}
     	},
         concatJsPrivate: {
@@ -110,27 +126,34 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/data.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/social.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/gallery.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/mapper.js',
+					'../../../vendor/bower-asset/chart.js/dist/Chart.min.js',
+					'../../../vendor/bower-asset/datetimepicker/build/jquery.datetimepicker.full.min.js',
+					'../../../vendor/bower-asset/moment/min/moment.min.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/location.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/file.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/meta.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/model.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/services/user.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/main.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/address.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/location.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/file.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/meta.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/model.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/core/controllers/user.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/address.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/data.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/file.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/gallery.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/location.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/mapper.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/meta.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/model.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/social.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/services/user.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/main.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/address.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/data.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/file.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/gallery.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/location.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/mapper.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/meta.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/model.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/social.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/core/controllers/user.js',
 
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/base.js',
-					'../../../vendor/bower-asset/cmt-velocity-apps/src/apps/notify/controllers/notification.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/base.js',
+					'../../../vendor/cmgtools/velocity-apps/src/apps/notify/controllers/notification.js',
 
 					'../../../themes/admin/resources/scripts/templates/private.js',
 
@@ -142,6 +165,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/apps/core/controllers/main.js',
 					'../../../themes/admin/resources/scripts/apps/core/controllers/user.js',
 					'../../../themes/admin/resources/scripts/apps/core/controllers/admin.js',
+					'../../../themes/admin/resources/scripts/apps/notify/base.js',
 
 					'../../../themes/admin/resources/scripts/main.js',
 					'../../../themes/admin/resources/scripts/search.js',
@@ -149,7 +173,7 @@ module.exports = function( grunt ) {
 					'../../../themes/admin/resources/scripts/popups.js',
 					'../../../themes/admin/resources/scripts/maps.js'
 				],
-        		dest: '../../../backend/web/scripts/prvazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/prvazxrs-20200410-src.js'
       		}
     	},
         concatJsChild: {
@@ -158,9 +182,17 @@ module.exports = function( grunt ) {
       		},
       		dist: {
         		src: [
-					'../../../themes/adminchild/resources/scripts/main.js'
+					'../../../themes/adminchild/resources/scripts/apps/project/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/project/controllers/project.js',
+					'../../../themes/adminchild/resources/scripts/apps/crm/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/crm/controllers/user.js',
+					'../../../themes/adminchild/resources/scripts/apps/hr/base.js',
+					'../../../themes/adminchild/resources/scripts/apps/hr/controllers/application.js',
+
+					'../../../themes/adminchild/resources/scripts/main.js',
+					'../../../themes/adminchild/resources/scripts/reports.js'
 				],
-        		dest: '../../../backend/web/scripts/chdazxrs-20190405-src.js'
+        		dest: '../../../backend/web/scripts/chdazxrs-20200410-src.js'
       		}
     	},
     	cssmin: {
@@ -169,10 +201,10 @@ module.exports = function( grunt ) {
 			},
       		target: {
 	        	files: {
-					'../../../backend/web/styles/cmnazxrs-20190405.css': [ '../../../backend/web/styles/cmnazxrs-20190405-src.css' ],
-	          		'../../../backend/web/styles/pubazxrs-20190405.css': [ '../../../backend/web/styles/pubazxrs-20190405-src.css' ],
-					'../../../backend/web/styles/prvazxrs-20190405.css': [ '../../../backend/web/styles/prvazxrs-20190405-src.css' ],
-					'../../../backend/web/styles/chdazxrs-20190405.css': [ '../../../backend/web/styles/chdazxrs-20190405-src.css' ]
+					'../../../backend/web/styles/cmnazxrs-20200410.css': [ '../../../backend/web/styles/cmnazxrs-20200410-src.css' ],
+	          		'../../../backend/web/styles/pubazxrs-20200410.css': [ '../../../backend/web/styles/pubazxrs-20200410-src.css' ],
+					'../../../backend/web/styles/prvazxrs-20200410.css': [ '../../../backend/web/styles/prvazxrs-20200410-src.css' ],
+					'../../../backend/web/styles/chdazxrs-20200410.css': [ '../../../backend/web/styles/chdazxrs-20200410-src.css' ]
 	        	}
       		}
     	},
@@ -182,10 +214,10 @@ module.exports = function( grunt ) {
 			},
       		main_target: {
 	        	files: {
-	          		'../../../backend/web/scripts/cmnazxrs-20190405.js': [ '../../../backend/web/scripts/cmnazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/pubazxrs-20190405.js': [ '../../../backend/web/scripts/pubazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/prvazxrs-20190405.js': [ '../../../backend/web/scripts/prvazxrs-20190405-src.js' ],
-					'../../../backend/web/scripts/chdazxrs-20190405.js': [ '../../../backend/web/scripts/chdazxrs-20190405-src.js' ]
+	          		'../../../backend/web/scripts/cmnazxrs-20200410.js': [ '../../../backend/web/scripts/cmnazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/pubazxrs-20200410.js': [ '../../../backend/web/scripts/pubazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/prvazxrs-20200410.js': [ '../../../backend/web/scripts/prvazxrs-20200410-src.js' ],
+					'../../../backend/web/scripts/chdazxrs-20200410.js': [ '../../../backend/web/scripts/chdazxrs-20200410-src.js' ]
 	        	}
       		}
     	},
@@ -194,7 +226,7 @@ module.exports = function( grunt ) {
 				files: [
 					{ expand: true, cwd: '../../../themes/admin/resources/fonts/clearsans/', src: ['**'], dest: '../../../backend/web/fonts/clearsans/', filter: 'isFile' },
 					{ expand: true, cwd: '../../../themes/admin/resources/fonts/opensans/', src: ['**'], dest: '../../../backend/web/fonts/opensans/', filter: 'isFile' },
-					{ expand: true, cwd: '../../../vendor/bower-asset/cmt-breeze-icons/dist/fonts/breeze/', src: ['**'], dest: '../../../backend/web/fonts/breeze/', filter: 'isFile' },
+					{ expand: true, cwd: '../../../vendor/cmgtools/breeze-icons/dist/fonts/breeze/', src: ['**'], dest: '../../../backend/web/fonts/breeze/', filter: 'isFile' },
 					{ expand: true, cwd: '../../../vendor/bower-asset/fontawesome/web-fonts-with-css/webfonts/', src: ['**'], dest: '../../../backend/web/webfonts/', filter: 'isFile' },
 					{ expand: true, cwd: '../../../themes/admin/resources/images/', src: ['**'], dest: '../../../backend/web/images/', filter: 'isFile' },
 					{ expand: true, cwd: '../../../themes/admin/resources/images/icons/', src: ['**'], dest: '../../../backend/web/images/icons/', filter: 'isFile' }
@@ -203,5 +235,5 @@ module.exports = function( grunt ) {
 		}
     });
 
-    grunt.registerTask( 'default', [ 'sass', 'concatCssCommon', 'concatCssChild', 'concatJsCommon', 'concatJsPublic', 'concatJsPrivate', 'concatJsChild', 'cssmin', 'uglify', 'copy' ] );
+    grunt.registerTask( 'default', [ 'sass', 'concatCssCommon', 'concatCssPrivate', 'concatCssChild', 'concatJsCommon', 'concatJsPublic', 'concatJsPrivate', 'concatJsChild', 'cssmin', 'uglify', 'copy' ] );
 };

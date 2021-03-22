@@ -1,8 +1,8 @@
 <?php
 
 $params = yii\helpers\ArrayHelper::merge(
-	require( __DIR__ . '/../../common/config/params.php' ),
-	require( __DIR__ . '/params.php' )
+	require __DIR__ . '/../../common/config/params.php',
+	require __DIR__ . '/params.php'
 );
 
 return [
@@ -16,9 +16,10 @@ return [
 	'bootstrap' => [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'breeze',
-		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory',
+		'snsConnect', 'snsConnectFactory',
 		'foxSlider',
-		'bcoreFactory'
+		'basicCoreFactory'
 	],
 	'modules' => [
 		'core' => [
@@ -53,7 +54,10 @@ return [
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-basic-site', 'httpOnly' => true ]
+			'identityCookie' => [
+				'name' => '_identity-basic-site',
+				'httpOnly' => true
+			]
 		],
 		'session' => [
 			'name' => 'basic-site'
@@ -86,7 +90,8 @@ return [
 				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
 				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial|terms|privacy|faqs)>' => 'core/site/<action>'
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial|colors|theme)>' => 'core/site/<action>',
+				'<action:(about-us|terms|privacy|faqs|help)>' => 'core/site/<action>'
 			]
 		],
 		'core' => [

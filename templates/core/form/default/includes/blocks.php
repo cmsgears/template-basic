@@ -17,7 +17,7 @@ $blockType = !empty( $settings->blockType ) ? $settings->blockType : null;
 
 				$blocks = Yii::$app->factory->get( 'blockService' )->getActiveByType( $blockType );
 			}
-
+			
 			foreach( $blocks as $block ) {
 		?>
 				<?= BlockWidget::widget( [ 'model' => $block ] ) ?>

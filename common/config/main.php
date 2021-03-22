@@ -63,15 +63,19 @@ return [
 			],
 			'rbacFilters' => [
 				'discover' => 'cmsgears\core\common\filters\DiscoverFilter',
-				'owner' => 'cmsgears\core\common\filters\OwnerFilter'
+				'owner' => 'cmsgears\core\common\filters\OwnerFilter',
+				'belongsToUser' => 'cmsgears\core\common\filters\BelongsToUserFilter'
 			],
 			'notifications' => true,
+			'activities' => true,
 			'siteConfigAll' => true,
 			'multiSite' => false,
+			'autoSiteMember' => false,
 			'subDirectory' => false,
 			'defaultSiteSlug' => 'main',
+			'softDelete' => true,
 			'provinceLabel' => 'State',
-			'regionLabel' => 'District',
+			'regionLabel' => 'Province',
 			'zipLabel' => 'Postal Code'
 		],
 		'coreFactory' => [
@@ -98,7 +102,9 @@ return [
 		'pluginManager' => [
 			'class' => 'cmsgears\core\common\components\PluginManager',
 			'plugins' => [
-				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [ CoreGlobal::TYPE_FORM ] ]
+				'basicSeo' => [ 'class' => 'cmsgears\seo\plugins\BasicSeo', 'modelTypes' => [] ],
+				'geoSeo' => [ 'class' => 'cmsgears\seo\plugins\GeoSeo', 'modelTypes' => [] ],
+				'advancedSeo' => [ 'class' => 'cmsgears\seo\plugins\AdvancedSeo', 'modelTypes' => [] ]
 			]
 		],
 		'eventManager' => [
@@ -180,7 +186,7 @@ return [
 			'class' => 'foxslider\common\components\Core'
 		],
 		// Basic
-		'bcoreFactory' => [
+		'basicCoreFactory' => [
 			'class' => 'modules\core\common\components\Factory'
 		]
 	]

@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers;
 
 // Yii Imports
@@ -8,7 +16,7 @@ use yii\helpers\Url;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class BlockController extends \cmsgears\core\admin\controllers\base\ObjectController {
+class BlockController extends \cmsgears\core\admin\controllers\base\ObjectDataController {
 
 	// Variables ---------------------------------------------------
 
@@ -29,10 +37,12 @@ class BlockController extends \cmsgears\core\admin\controllers\base\ObjectContro
 		parent::init();
 
 		// Config
+		$this->shared		= true;
 		$this->type			= CoreGlobal::TYPE_BLOCK;
 		$this->templateType = CoreGlobal::TYPE_BLOCK;
 		$this->title		= 'Block';
 		$this->apixBase		= 'bcore/block';
+		$this->baseUrl		= 'block';
 
 		// Services
 		$this->modelService = Yii::$app->factory->get( 'blockService' );
@@ -54,9 +64,10 @@ class BlockController extends \cmsgears\core\admin\controllers\base\ObjectContro
 			'update' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Update' ] ],
 			'delete' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Delete' ] ],
 			'gallery' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Gallery' ] ],
-			'data' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Data' ] ],
-			'config' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Config' ] ],
-			'settings' => [ [ 'label' => 'Blocks', 'url' => $this->returnUrl ], [ 'label' => 'Settings' ] ]
+			'data' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Data' ] ],
+			'attributes' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Attributes' ] ],
+			'config' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Config' ] ],
+			'settings' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Settings' ] ]
 		];
 	}
 

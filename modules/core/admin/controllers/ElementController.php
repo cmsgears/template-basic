@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers;
 
 // Yii Imports
@@ -8,7 +16,7 @@ use yii\helpers\Url;
 // Basic Imports
 use modules\core\common\config\CoreGlobal;
 
-class ElementController extends \cmsgears\core\admin\controllers\base\ObjectController {
+class ElementController extends \cmsgears\core\admin\controllers\base\ObjectDataController {
 
 	// Variables ---------------------------------------------------
 
@@ -29,10 +37,12 @@ class ElementController extends \cmsgears\core\admin\controllers\base\ObjectCont
 		parent::init();
 
 		// Config
+		$this->shared		= true;
 		$this->type			= CoreGlobal::TYPE_ELEMENT;
 		$this->templateType = CoreGlobal::TYPE_ELEMENT;
 		$this->title		= 'Element';
-		$this->apixBase		= 'bcore/block';
+		$this->apixBase		= 'bcore/element';
+		$this->baseUrl		= 'element';
 
 		// Services
 		$this->modelService = Yii::$app->factory->get( 'elementService' );
@@ -55,6 +65,7 @@ class ElementController extends \cmsgears\core\admin\controllers\base\ObjectCont
 			'delete' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Delete' ] ],
 			'gallery' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Gallery' ] ],
 			'data' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Data' ] ],
+			'attributes' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Attributes' ] ],
 			'config' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Config' ] ],
 			'settings' => [ [ 'label' => 'Elements', 'url' => $this->returnUrl ], [ 'label' => 'Settings' ] ]
 		];

@@ -1,5 +1,16 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\frontend\controllers;
+
+// Yii Imports
+use Yii;
 
 // CMG Imports
 use cmsgears\core\frontend\config\CoreGlobalWeb;
@@ -40,9 +51,11 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 
 		$behaviours	= parent::behaviors();
 
+		$behaviours[ 'verbs' ][ 'actions' ][ 'about-us' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'terms' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'privacy' ] = [ 'get' ];
 		$behaviours[ 'verbs' ][ 'actions' ][ 'faqs' ] = [ 'get' ];
+		$behaviours[ 'verbs' ][ 'actions' ][ 'help' ] = [ 'get' ];
 
 		return $behaviours;
 	}
@@ -54,6 +67,13 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 	// CMG parent classes --------------------
 
 	// SiteController ------------------------
+
+	public function actionAboutUs() {
+
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
+
+		return $this->render( 'about-us' );
+	}
 
 	public function actionTerms() {
 
@@ -73,70 +93,30 @@ class SiteController extends \cmsgears\core\frontend\controllers\SiteController 
 
 		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
 
-		return $this->render( 'faqs' );
+		$faqs = Yii::$app->params[ 'faqs' ];
+
+		return $this->render( 'faqs', [
+			'faqs' => $faqs
+		]);
+	}
+
+	public function actionHelp() {
+
+		$this->layout = CoreGlobalWeb::LAYOUT_PUBLIC;
+
+		$help = Yii::$app->params[ 'help' ];
+
+		return $this->render( 'help', [
+			'help' => $help
+		]);
 	}
 
 	private function setPageData( $action ) {
 
-		$store = [
-			'index' => [
-				"name" => "Home", "summary" => "The home page", "description" => "The home page",
-				"keywords" => "Home", "robot" => "noindex,follow"
-			],
-			'login' => [
-				"name" => "Login", "summary" => "Login", "description" => "Login",
-				"keywords" => "Login", "robot" => "noindex,follow"
-			],
-			'register' => [
-				"name" => "Register", "summary" => "Register", "description" => "Register",
-				"keywords" => "Register", "robot" => "noindex,follow"
-			],
-			'confirm-account' => [
-				"name" => "Confirm Account", "summary" => "Confirm Account", "description" => "Confirm Account",
-				"keywords" => "Confirm Account", "robot" => "noindex,follow"
-			],
-			'activate-account' => [
-				"name" => "Activate Account", "summary" => "Activate Account", "description" => "Activate Account",
-				"keywords" => "Activate Account", "robot" => "noindex,follow"
-			],
-			'forgot-password' => [
-				"name" => "Forgot Password", "summary" => "Forgot Password", "description" => "Forgot Password",
-				"keywords" => "Forgot Password", "robot" => "noindex,follow"
-			],
-			'reset-password' => [
-				"name" => "Reset Password", "summary" => "Reset Password", "description" => "Reset Password",
-				"keywords" => "Reset Password", "robot" => "noindex,follow"
-			],
-			'reset-password-otp' => [
-				"name" => "Reset Password OTP", "summary" => "Reset Password OTP", "description" => "Reset Password OTP",
-				"keywords" => "Reset Password OTP", "robot" => "noindex,follow"
-			],
-			'feedback' => [
-				"name" => "Feedback", "summary" => "Feedback", "description" => "Feedback",
-				"keywords" => "Feedback", "robot" => "noindex,follow"
-			],
-			'testimonial' => [
-				"name" => "Testimonial", "summary" => "Testimonial", "description" => "Testimonial",
-				"keywords" => "Testimonial", "robot" => "noindex,follow"
-			],
-			'terms' => [
-				"name" => "Terms & Conditions", "summary" => "Terms & Conditions", "description" => "Terms & Conditions",
-				"keywords" => "Terms, Conditions", "robot" => "noindex,follow"
-			],
-			'privacy' => [
-				"name" => "Privacy Policy", "summary" => "Privacy Policy", "description" => "Privacy Policy",
-				"keywords" => "Privacy, Policy", "robot" => "noindex,follow"
-			],
-			'privacy' => [
-				"name" => "FAQs", "summary" => "FAQs", "description" => "FAQs",
-				"keywords" => "FAQs", "robot" => "noindex,follow"
-			]
-		];
-
-		if( isset( $store[ $action->id ] ) ) {
+		if( isset( Yii::$app->params[ 'pageContent' ][ $action->id ] ) ) {
 
 			$model	= new Carrier();
-			$data	= (object) $store[ $action->id ];
+			$data	= (object) Yii::$app->params[ 'pageContent' ][ $action->id ];
 
 			$model->data = '{ "plugins": { "seo": ' . json_encode( $data ) . ' } }';
 

@@ -1,15 +1,8 @@
 <?php
-
 // Ensures that openssl is installed and configured properly
 if ( !extension_loaded( 'openssl' ) ) {
 
 	die( 'The OpenSSL PHP extension is required by Yii2.' );
-}
-
-// Ensures that mcrypt is installed and configured properly
-if ( !extension_loaded( 'mcrypt' ) ) {
-
-	die( 'The mcrypt PHP extension is required by Yii2.' );
 }
 
 // Read available applications from the environments index
@@ -17,7 +10,7 @@ $root		= str_replace( '\\', '/', __DIR__ );
 $envs		= require( "$root/environments/index.php" );
 $envNames	= array_keys( $envs );
 
-$envName	= null;
+$envName = null;
 
 echo "Yii Application Initialization Tool\n\n";
 
@@ -50,7 +43,7 @@ switch( $envName ) {
 	}
 	case 'prod': {
 
-		$envName	= "Production";
+		$envName = "Production";
 
 		break;
 	}
@@ -172,15 +165,16 @@ function setExecutable( $root, $paths ) {
 
 function setCookieValidationKey( $root, $paths ) {
 
-	foreach ( $paths as $file ) {
+	foreach( $paths as $file ) {
 
 		echo "	 generate cookie validation key in $file\n";
 
-		$file		= $root . '/' . $file;
-		$length		= 32;
-		$bytes		= mcrypt_create_iv( $length, MCRYPT_DEV_URANDOM );
-		$key		= strtr( substr( base64_encode( $bytes ), 0, $length ), '+/=', '_-.' );
-		$content	= preg_replace( '/(("|\')cookieValidationKey("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents( $file ) );
+		$file	= $root . '/' . $file;
+		$length	= 32;
+        $bytes	= openssl_random_pseudo_bytes( $length );
+        $key	= strtr( substr( base64_encode( $bytes ), 0, $length ), '+/=', '_-.' );
+
+        $content = preg_replace( '/(("|\')cookieValidationKey("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents( $file ) );
 
 		file_put_contents( $file, $content );
 	}

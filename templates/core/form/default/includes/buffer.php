@@ -25,7 +25,7 @@ $split4060		= isset( $settings->split4060 ) ? $settings->split4060 : true;
 					'activeForm' => $activeForm, 'captchaAction' => $formCaptchaAction,
 					'wrapCaptcha' => $wrapCaptcha, 'wrapActions' => $wrapActions,
 					'labels' => $labels, 'split4060' => $split4060
-				]) ?>
+				])?>
 
 			<?php ActiveForm::end(); ?>
 		<?php } ?>

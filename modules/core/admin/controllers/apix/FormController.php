@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace modules\core\admin\controllers\apix;
 
 // Yii Imports
@@ -6,6 +14,8 @@ use Yii;
 use yii\filters\VerbFilter;
 
 // CMG Imports
+use modules\core\common\config\CoreGlobal;
+
 use cmsgears\forms\common\config\FormsGlobal;
 
 use cmsgears\core\common\behaviors\ActivityBehavior;
@@ -15,7 +25,7 @@ use cmsgears\core\common\behaviors\ActivityBehavior;
  *
  * @since 1.0.0
  */
-class FormController extends \cmsgears\core\admin\controllers\base\Controller {
+class FormController extends \cmsgears\core\admin\controllers\apix\base\Controller {
 
 	// Variables ---------------------------------------------------
 
@@ -54,6 +64,8 @@ class FormController extends \cmsgears\core\admin\controllers\base\Controller {
 			'rbac' => [
 				'class' => Yii::$app->core->getRbacFilterClass(),
 				'actions' => [
+					// Searching
+					'auto-search' => [ 'permission' => CoreGlobal::PERM_ADMIN ],
 					// Elements
 					'assign-element' => [ 'permission' => $this->crudPermission ],
 					'remove-element' => [ 'permission' => $this->crudPermission ],
@@ -103,15 +115,15 @@ class FormController extends \cmsgears\core\admin\controllers\base\Controller {
 			// Searching
 			'auto-search' => [ 'class' => 'cmsgears\core\common\actions\content\AutoSearch' ],
 			// Elements
-			'assign-element' => [ 'class' => 'cmsgears\core\common\actions\object\Assign' ],
-			'remove-element' => [ 'class' => 'cmsgears\core\common\actions\object\Remove' ],
+			'assign-element' => [ 'class' => 'cmsgears\core\common\actions\objectdata\mapper\Assign' ],
+			'remove-element' => [ 'class' => 'cmsgears\core\common\actions\objectdata\mapper\Remove' ],
 			// Blocks
-			'assign-block' => [ 'class' => 'cmsgears\core\common\actions\object\Assign' ],
-			'remove-block' => [ 'class' => 'cmsgears\core\common\actions\object\Remove' ],
+			'assign-block' => [ 'class' => 'cmsgears\core\common\actions\objectdata\mapper\Assign' ],
+			'remove-block' => [ 'class' => 'cmsgears\core\common\actions\objectdata\mapper\Remove' ],
 			// Plugins
-			'plugin' => [ 'class' => 'cmsgears\core\common\actions\plugin\AdminForms' ],
+			'plugin' => [ 'class' => 'cmsgears\core\common\actions\plugin\ModelData' ],
 			// Model
-			'bulk' => [ 'class' => 'cmsgears\core\common\actions\grid\Bulk' ],
+			'bulk' => [ 'class' => 'cmsgears\core\common\actions\grid\Bulk', 'admin' => true ],
 			'generic' => [ 'class' => 'cmsgears\core\common\actions\grid\Generic' ],
 			'delete' => [ 'class' => 'cmsgears\core\common\actions\grid\Delete' ]
 		];

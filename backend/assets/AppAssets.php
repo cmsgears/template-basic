@@ -1,11 +1,6 @@
 <?php
 namespace backend\assets;
 
-/**
- * The main asset bundle of backend application.
- *
- * @since 1.0.0
- */
 class AppAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
@@ -14,6 +9,7 @@ class AppAssets extends \yii\web\AssetBundle {
 
 	// Public -----------------
 
+	// Assets
 	public $basePath	= '@webroot';
 	public $baseUrl		= '@web';
 
@@ -29,7 +25,7 @@ class AppAssets extends \yii\web\AssetBundle {
 
 	// Load dependencies first
 	public $depends = [
-		'cmsgears\assets\jquery\Jquery'
+		//'cmsgears\core\common\assets\YiiAsset'
 	];
 
 	// Protected --------------

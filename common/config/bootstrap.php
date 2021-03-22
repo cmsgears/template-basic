@@ -6,6 +6,7 @@ Yii::setAlias( '@templates', dirname( dirname( __DIR__ ) ) . '/templates' );
 Yii::setAlias( '@themes', dirname( dirname( __DIR__ ) ) . '/themes' );
 Yii::setAlias( '@widgets', dirname( dirname( __DIR__ ) ) . '/widgets' );
 Yii::setAlias( '@uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
+Yii::setAlias( '@cmgtools', dirname( dirname( __DIR__ ) ) . '/vendor/cmgtools' );
 
 // Applications
 Yii::setAlias( '@console', dirname( dirname( __DIR__ ) ) . '/console' );

@@ -23,7 +23,7 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 
 	// Public -----------------
 
-	public $options = [ 'class' => 'block' ];
+	public $options = [ 'class' => 'cmt-block block' ];
 
 	// Background
 	public $bkg			= false;
@@ -34,10 +34,16 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $bkgClass	= null;
 	public $bkgVideo	= false;
 	public $bkgVideoSrc	= null;
+	public $bkgHeader	= false;
 
 	// Texture
 	public $texture			= false;
 	public $textureClass	= null;
+
+	// Max Cover
+	public $maxCover		= false;
+	public $maxCoverClass	= null;
+	public $maxCoverContent	= null;
 
 	// Block Header
 	public $header			= false;
@@ -47,15 +53,15 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $headerTitle		= null;
 	public $headerInfo		= null;
 	public $headerContent	= null;
+	public $headerClass		= null;
 
-	// Content
+	// Block Content
 	public $content			= false;
 	public $contentTitle	= null;
 	public $contentInfo		= null;
 	public $contentSummary	= null;
 	public $contentData		= null;
-
-	public $maxCover = false;
+	public $contentRaw		= null;
 
 	public $contentClass		= null;
 	public $contentDataClass	= null;
@@ -76,12 +82,17 @@ class BlockWidget extends \cmsgears\core\common\base\ObjectWidget {
 	public $metaWrapClass = null;
 
 	// Block Elements
-	public $elements		= false;
-	public $elementType		= null;
+	public $elements	= false;
+	public $elementType	= null;
 
+	// Elements Wrapper
 	public $boxWrapClass	= null;
 	public $boxWrapper		= null;
 	public $boxClass		= null;
+
+	// Purifier
+	public $purifySummary = true;
+	public $purifyContent = true;
 
 	// Protected --------------
 

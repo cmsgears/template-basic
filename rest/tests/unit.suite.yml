@@ -1,6 +1,7 @@
-class_name: UnitTester
-bootstrap: false
+suite_namespace: rest\tests\unit
+actor: UnitTester
 modules:
     enabled:
         - Yii2:
-            part: fixtures
+            part: [orm, email, fixtures]
+        - Asserts

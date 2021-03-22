@@ -7,7 +7,7 @@ $slideUrl		= $slide->url;
 $slideDesc		= $slide->description;
 $slideContent	= $slide->content;
 
-$slideTexture	= isset( $widget->slideTexture ) ? "<div class=\"$widget->slideTexture\"></div>" : null;
+$slideTexture	= isset( $texture ) ? "<div class=\"{$texture}\"></div>" : null;
 $content		= "<div class=\"wrap-slide-content\">";
 
 if( isset( $slideImage ) ) {
@@ -74,15 +74,13 @@ if( isset( $slideImage ) ) {
 			<?= $content ?>
 				<?= $slideTexture ?>
 				<div class="slide-content">
-					<div class="fxs-header">
-						<?= $slideTitle ?>
-						<?= $slideDesc ?>
-					</div>
-					<div class="fxs-content">
-						<?= $imageDesc ?>
+					<div class="fxs-content reader">
+						<div class="slide-title"><?= $slideTitle ?></div>
+						<div class="slide-desc"><?= $slideDesc ?></div>
+						<div class="image-desc"><?= $imageDesc ?></div>
+						<div class="slide-text"><?= $slideContent ?></div>
 					</div>
 				</div>
-				<?= $slideContent ?>
 			</div>
 		</a>
 	</div>
@@ -91,15 +89,13 @@ if( isset( $slideImage ) ) {
 		<?= $content ?>
 			<?= $slideTexture ?>
 			<div class="slide-content">
-				<div class="fxs-header">
-					<?= $slideTitle ?>
-					<?= $slideDesc ?>
-				</div>
-				<div class="fxs-content">
-					<?= $imageDesc ?>
+				<div class="fxs-content reader">
+					<div class="slide-title"><?= $slideTitle ?></div>
+					<div class="slide-desc"><?= $slideDesc ?></div>
+					<div class="image-desc"><?= $imageDesc ?></div>
+					<div class="slide-text"><?= $slideContent ?></div>
 				</div>
 			</div>
-			<?= $slideContent ?>
 		</div>
 	</div>
 <?php } ?>

@@ -11,7 +11,7 @@ $apixBase		= $this->context->apixBase;
 $baseUrl		= $this->context->baseUrl;
 
 // View Templates
-$moduleTemplates	= '@cmsgears/module-cms/admin/views/templates';
+$moduleTemplates	= '@modules/core/admin/views/templates';
 $themeTemplates		= '@themes/admin/views/templates';
 ?>
 <?= DataGrid::widget([

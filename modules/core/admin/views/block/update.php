@@ -12,8 +12,8 @@ use cmsgears\files\widgets\VideoUploader;
 use cmsgears\icons\widgets\IconChooser;
 use cmsgears\icons\widgets\TextureChooser;
 
-use cmsgears\widgets\elements\mappers\ElementSuggest;
-use cmsgears\widgets\elements\mappers\WidgetSuggest;
+// Basic Imports
+use widgets\element\ElementSuggest;
 
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Update Block | ' . $coreProperties->getSiteTitle();
@@ -109,22 +109,29 @@ Editor::widget();
 			</div>
 			<div class="box-content">
 				<div class="box-content">
-					<div class="row max-cols-50 padding padding-small-v">
-						<div class="col col12x4">
+					<div class="row padding padding-small-v">
+						<div class="col col12x3">
 							<label>Avatar</label>
 							<?= AvatarUploader::widget([
 								'model' => $avatar, 'clearAction' => true,
 								'clearActionUrl' => "$apixBase/clear-avatar?slug=$model->slug&type=$model->type"
 							])?>
 						</div>
-						<div class="col col12x4">
+						<div class="col col12x3">
 							<label>Banner</label>
 							<?= ImageUploader::widget([
 								'model' => $banner, 'clearAction' => true,
 								'clearActionUrl' => "$apixBase/clear-banner?slug=$model->slug&type=$model->type"
 							])?>
 						</div>
-						<div class="col col12x4">
+						<div class="col col12x3">
+							<label>Mobile Banner</label>
+							<?= ImageUploader::widget([
+								'model' => $mbanner, 'modelClass' => 'MobileBanner', 'clearAction' => true,
+								'clearActionUrl' => "$apixBase/clear-mbanner?slug=$model->slug&type=$model->type"
+							])?>
+						</div>
+						<div class="col col12x3">
 							<label>Video</label>
 							<?= VideoUploader::widget([
 								'model' => $video, 'clearAction' => true,
@@ -174,19 +181,6 @@ Editor::widget();
 						'model' => $model,
 						'mapActionUrl' => "$apixBase/assign-element?slug=$model->slug&type=$model->type",
 						'deleteActionUrl' => "$apixBase/remove-element?slug=$model->slug&type=$model->type"
-					])?>
-				</div>
-			</div>
-			<div class="colf colf15"></div>
-			<div class="box box-crud colf colf15x7">
-				<div class="box-header">
-					<div class="box-header-title">Widgets</div>
-				</div>
-				<div class="box-content padding padding-small">
-					<?= WidgetSuggest::widget([
-						'model' => $model,
-						'mapActionUrl' => "$apixBase/assign-widget?slug=$model->slug&type=$model->type",
-						'deleteActionUrl' => "$apixBase/remove-widget?slug=$model->slug&type=$model->type"
 					])?>
 				</div>
 			</div>

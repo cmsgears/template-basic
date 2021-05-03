@@ -59,6 +59,9 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 					// Banner
 					'assign-banner' => [ 'permission' => $this->crudPermission ],
 					'clear-banner' => [ 'permission' => $this->crudPermission ],
+					// Mobile Banner
+					'assign-mbanner' => [ 'permission' => $this->crudPermission ],
+					'clear-mbanner' => [ 'permission' => $this->crudPermission ],
 					// Video
 					'assign-video' => [ 'permission' => $this->crudPermission ],
 					'clear-video' => [ 'permission' => $this->crudPermission ],
@@ -93,6 +96,9 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 					// Banner
 					'assign-banner' => [ 'post' ],
 					'clear-banner' => [ 'post' ],
+					// Mobile Banner
+					'assign-mbanner' => [ 'post' ],
+					'clear-mbanner' => [ 'post' ],
 					// Video
 					'assign-video' => [ 'post' ],
 					'clear-video' => [ 'post' ],
@@ -132,6 +138,9 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 			// Banner
 			'assign-banner' => [ 'class' => 'cmsgears\core\common\actions\content\banner\Assign' ],
 			'clear-banner' => [ 'class' => 'cmsgears\core\common\actions\content\banner\Clear' ],
+			// Mobile Banner
+			'assign-mbanner' => [ 'class' => 'cmsgears\core\common\actions\content\mbanner\Assign' ],
+			'clear-mbanner' => [ 'class' => 'cmsgears\core\common\actions\content\mbanner\Clear' ],
 			// Video
 			'assign-video' => [ 'class' => 'cmsgears\core\common\actions\content\video\Assign' ],
 			'clear-video' => [ 'class' => 'cmsgears\core\common\actions\content\video\Clear' ],

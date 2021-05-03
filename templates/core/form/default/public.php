@@ -7,7 +7,7 @@ $data			= json_decode( $model->data );
 $settings		= isset( $data->settings ) ? $data->settings : [];
 $templateClass	= isset( $model->template ) ? "page-default page-form page-form-regular page-{$model->template->slug}" : 'page-default page-form page-form-regular';
 
-// Sidebars -----------------------
+// Includes -----------------------
 
 $defaultIncludes	= Yii::getAlias( '@breeze' ) . '/templates/cms/page/default/includes';
 $elementIncludes	= Yii::getAlias( '@templates' ) . '/core/form/default/includes';

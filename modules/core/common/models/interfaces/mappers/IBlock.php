@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 namespace modules\core\common\models\interfaces\mappers;
 
 interface IBlock {
@@ -38,5 +30,12 @@ interface IBlock {
 	 * @return \cmsgears\cms\common\models\entities\ModelBlock[]
 	 */
 	public function getActiveBlocks();
+
+	/**
+	 * Return all the active blocks associated with the parent.
+	 *
+	 * @return \cmsgears\cms\common\models\entities\ModelBlock[]
+	 */
+	public function getDisplayBlocks();
 
 }

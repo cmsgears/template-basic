@@ -38,6 +38,7 @@
 		"cmsgears/plugin-google-api": "dev-1.0.0-alpha",
 		"cmsgears/plugin-google-maps": "dev-1.0.0-alpha",
 		"cmsgears/plugin-google-analytics": "dev-1.0.0-alpha",
+		"cmsgears/plugin-piwik-analytics": "dev-1.0.0-alpha",
 		"cmsgears/plugin-breeze-templates": "dev-1.0.0-alpha",
 		"cmsgears/plugin-seo": "dev-1.0.0-alpha",
 		"cmsgears/widget-cleditor": "dev-1.0.0-alpha",

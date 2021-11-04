@@ -12,16 +12,18 @@ use cmsgears\files\widgets\VideoUploader;
 use cmsgears\icons\widgets\IconChooser;
 use cmsgears\icons\widgets\TextureChooser;
 
+// Basic Imports
 use widgets\element\ElementSuggest;
 
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Update Block | ' . $coreProperties->getSiteTitle();
 $returnUrl		= $this->context->returnUrl;
 $apixBase		= $this->context->apixBase;
+$parentName		= isset( $model->parent ) ? $model->parent->name : null;
 
 Editor::widget();
 ?>
-<div class="box-crud-wrap row">
+<div class="box-crud-wrap row max-cols-100">
 	<div class="box-crud-wrap-main colf colf3x2">
 		<?php $form = ActiveForm::begin( [ 'id' => 'frm-element', 'options' => [ 'class' => 'form' ] ] ); ?>
 		<div class="box box-crud">
@@ -30,7 +32,7 @@ Editor::widget();
 			</div>
 			<div class="box-content-wrap frm-split-40-60">
 				<div class="box-content">
-					<div class="row">
+					<div class="row max-cols-100">
 						<div class="col col3">
 							<?= $form->field( $model, 'name' ) ?>
 						</div>
@@ -41,7 +43,7 @@ Editor::widget();
 							<?= $form->field( $model, 'title' ) ?>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row max-cols-100">
 						<div class="col col2">
 							<?= $form->field( $model, 'templateId' )->dropDownList( $templatesMap, [ 'class' => 'cmt-select' ] ) ?>
 						</div>
@@ -49,7 +51,7 @@ Editor::widget();
 							<?= $form->field( $model, 'order' ) ?>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row max-cols-100">
 						<div class="col col2">
 							<?= $form->field( $model, 'status' )->dropDownList( $statusMap, [ 'class' => 'cmt-select' ] ) ?>
 						</div>
@@ -57,15 +59,18 @@ Editor::widget();
 							<?= $form->field( $model, 'visibility' )->dropDownList( $visibilityMap, [ 'class' => 'cmt-select' ] ) ?>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col col2">
-							<?= Yii::$app->formDesigner->getIconCheckbox( $form, $model, 'pinned', null, 'cmti cmti-checkbox' ) ?>
+					<div class="row max-cols-100">
+						<div class="col col3">
+							<?= Yii::$app->formDesigner->getIconCheckbox( $form, $model, 'pinned' ) ?>
 						</div>
-						<div class="col col2">
-							<?= Yii::$app->formDesigner->getIconCheckbox( $form, $model, 'featured', null, 'cmti cmti-checkbox' ) ?>
+						<div class="col col3">
+							<?= Yii::$app->formDesigner->getIconCheckbox( $form, $model, 'featured' ) ?>
+						</div>
+						<div class="col col3">
+							<?= Yii::$app->formDesigner->getIconCheckbox( $form, $model, 'popular' ) ?>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row max-cols-100">
 						<div class="col col2">
 							<?= IconChooser::widget( [ 'model' => $model, 'options' => [ 'class' => 'icon-picker-wrap' ] ] ) ?>
 						</div>
@@ -73,12 +78,25 @@ Editor::widget();
 							<?= TextureChooser::widget( [ 'model' => $model, 'options' => [ 'class' => 'icon-picker-wrap' ] ] ) ?>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row max-cols-100">
 						<div class="col col2">
 							<?= $form->field( $model, 'description' )->textarea() ?>
 						</div>
 						<div class="col col2">
 							<?= $form->field( $model, 'htmlOptions' )->textarea() ?>
+						</div>
+					</div>
+					<div class="row max-cols-100">
+						<div class="col col2">
+							<?= $form->field( $model, 'classPath' ) ?>
+						</div>
+						<div class="col col2">
+							<?= $form->field( $model, 'viewPath' ) ?>
+						</div>
+					</div>
+					<div class="row max-cols-100">
+						<div class="col col2">
+							<?= Yii::$app->formDesigner->getAutoSuggest( $form, $model, 'parentId', [ 'placeholder' => 'Parent', 'icon' => 'cmti cmti-search', 'type' => $model->type, 'value' => $parentName, 'url' => "core/object-data/auto-search" ] ) ?>
 						</div>
 					</div>
 				</div>
@@ -92,21 +110,28 @@ Editor::widget();
 			<div class="box-content">
 				<div class="box-content">
 					<div class="row padding padding-small-v">
-						<div class="col col12x4">
+						<div class="col col12x3">
 							<label>Avatar</label>
 							<?= AvatarUploader::widget([
 								'model' => $avatar, 'clearAction' => true,
 								'clearActionUrl' => "$apixBase/clear-avatar?slug=$model->slug&type=$model->type"
 							])?>
 						</div>
-						<div class="col col12x4">
+						<div class="col col12x3">
 							<label>Banner</label>
 							<?= ImageUploader::widget([
 								'model' => $banner, 'clearAction' => true,
 								'clearActionUrl' => "$apixBase/clear-banner?slug=$model->slug&type=$model->type"
 							])?>
 						</div>
-						<div class="col col12x4">
+						<div class="col col12x3">
+							<label>Mobile Banner</label>
+							<?= ImageUploader::widget([
+								'model' => $mbanner, 'modelClass' => 'MobileBanner', 'clearAction' => true,
+								'clearActionUrl' => "$apixBase/clear-mbanner?slug=$model->slug&type=$model->type"
+							])?>
+						</div>
+						<div class="col col12x3">
 							<label>Video</label>
 							<?= VideoUploader::widget([
 								'model' => $video, 'clearAction' => true,
@@ -158,9 +183,7 @@ Editor::widget();
 						'deleteActionUrl' => "$apixBase/remove-element?slug=$model->slug&type=$model->type"
 					])?>
 				</div>
-			</div
-			<div class="colf colf15"></div>
-			<div class="box box-crud colf colf15x7"></div>
+			</div>
 		</div>
 		<div class="filler-height filler-height-medium"></div>
 	</div>

@@ -72,8 +72,8 @@ class m200428_022751_multi extends \cmsgears\core\common\base\Migration {
 
 		$columns = [ 'localeId', 'status', 'email', 'username', 'type', 'passwordHash', 'firstName', 'lastName', 'name', 'registeredAt', 'lastLoginAt', 'authKey' ];
 
-		$users	= [
-			//[ $this->locale->id, User::STATUS_ACTIVE, "testuser1@example.com", 'testuser1', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', 'Test', 'User 1', 'Test User 1', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
+		$users = [
+			//[ $this->locale->id, User::STATUS_ACTIVE, "test@example.com", 'test', CoreGlobal::TYPE_DEFAULT, '$2y$13$Ut5b2RskRpGA9Q0nKSO6Xe65eaBHdx/q8InO8Ln6Lt3HzOK4ECz8W', 'Test', 'User', 'Test User', DateUtil::getDateTime(), DateUtil::getDateTime(), 'SQ1LLCWEPva4IKuQklILLGDpmUTGzq8E' ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_user', $columns, $users );
@@ -81,16 +81,16 @@ class m200428_022751_multi extends \cmsgears\core\common\base\Migration {
 
 	private function insertSiteMembers() {
 
-		$siteId = $this->site->id < 10 ? '0' . $this->site->id : $this->site->id;
+		$siteId = $this->site->id;
 
 		$adminRole = Role::findBySlugType( 'admin', CoreGlobal::TYPE_SYSTEM );
 
-		//$test1	= User::findByUsername( 'testuser1' );
+		$test = User::findByUsername( 'test' );
 
 		$columns = [ 'id', 'siteId', 'userId', 'roleId', 'createdAt', 'modifiedAt' ];
 
 		$members = [
-			//[ intval( '1' . $siteId . '01' ), $this->site->id, $test1->id, $adminRole->id, DateUtil::getDateTime(), DateUtil::getDateTime() ]
+			//[ intval( $siteId . '01' ), $this->site->id, $test->id, $adminRole->id, DateUtil::getDateTime(), DateUtil::getDateTime() ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_site_member', $columns, $members );

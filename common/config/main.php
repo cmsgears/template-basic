@@ -1,7 +1,4 @@
 <?php
-// CMS Imports
-use cmsgears\core\common\config\CoreGlobal;
-
 return [
 	'aliases' => [
 		'@bower' => '@vendor/bower-asset',

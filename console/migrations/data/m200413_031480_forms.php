@@ -48,12 +48,14 @@ class m200413_031480_forms extends \cmsgears\core\common\base\Migration {
 
 		$this->insertFiles();
 
-		$this->insertFormTemplates();
+		$this->insertTemplates();
 
 		$this->insertForms();
 		$this->insertFormFields();
 
 		$this->updateForms();
+		$this->updateFormFields();
+		$this->updateFormTemplates();
 	}
 
 	private function insertFiles() {
@@ -70,7 +72,7 @@ class m200413_031480_forms extends \cmsgears\core\common\base\Migration {
 		$this->batchInsert( $this->cmgPrefix . 'core_file', $columns, $files );
 	}
 
-	private function insertFormTemplates() {
+	private function insertTemplates() {
 
 		$master	= $this->master;
 
@@ -142,13 +144,22 @@ class m200413_031480_forms extends \cmsgears\core\common\base\Migration {
 		];
 
 		// Contact Form
-		$form = Form::findBySlugType( 'contact-us', 'form' );
+		$contactForm = Form::findBySlugType( 'contact-us', 'form' );
 
 		// Update Form
-		$this->update( $this->cmgPrefix . 'core_form', [ 'texture' => 'texture texture-black', 'title' => 'Contact Us', 'description' => $desc[ 0 ], 'data' => $data[ 0 ], 'htmlOptions' => $options[ 0 ] ], [ 'id' => $form->id ] );
+		$this->update( $this->cmgPrefix . 'core_form', [ 'texture' => 'texture texture-black', 'title' => 'Contact Us', 'description' => $desc[ 0 ], 'data' => $data[ 0 ], 'htmlOptions' => $options[ 0 ] ], [ 'id' => $contactForm->id ] );
+	}
+
+	private function updateFormFields() {
+
+		// Contact Form
+		$contactForm = Form::findBySlugType( 'contact-us', 'form' );
 
 		// Update Form Fields
 		//$this->update( $this->cmgPrefix . 'core_form_field', [ ], [ 'formId' => $form->id, 'name' => 'name' ] );
+	}
+
+	private function updateFormTemplates() {
 
 		// Update Template View
 		//$this->update( $this->cmgPrefix . 'core_template', [ 'viewPath' => 'views/templates/form/contact' ], [ 'slug' => 'contact', 'type' => 'form' ] );

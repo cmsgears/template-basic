@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 namespace modules\core\admin\controllers\apix;
 
 // Yii Imports
@@ -24,6 +16,8 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 
 	// Public -----------------
 
+	public $metaService;
+
 	// Protected --------------
 
 	// Private ----------------
@@ -39,6 +33,8 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 
 		// Services
 		$this->modelService = Yii::$app->factory->get( 'elementService' );
+
+		$this->metaService = Yii::$app->factory->get( 'objectMetaService' );
 	}
 
 	// Instance methods --------------------------------------------
@@ -63,6 +59,9 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 					// Banner
 					'assign-banner' => [ 'permission' => $this->crudPermission ],
 					'clear-banner' => [ 'permission' => $this->crudPermission ],
+					// Mobile Banner
+					'assign-mbanner' => [ 'permission' => $this->crudPermission ],
+					'clear-mbanner' => [ 'permission' => $this->crudPermission ],
 					// Video
 					'assign-video' => [ 'permission' => $this->crudPermission ],
 					'clear-video' => [ 'permission' => $this->crudPermission ],
@@ -97,6 +96,9 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 					// Banner
 					'assign-banner' => [ 'post' ],
 					'clear-banner' => [ 'post' ],
+					// Mobile Banner
+					'assign-mbanner' => [ 'post' ],
+					'clear-mbanner' => [ 'post' ],
 					// Video
 					'assign-video' => [ 'post' ],
 					'clear-video' => [ 'post' ],
@@ -129,13 +131,16 @@ class ElementController extends \cmsgears\core\admin\controllers\apix\base\Contr
 
 		return [
 			// Searching
-			'auto-search' => [ 'class' => 'cmsgears\core\common\actions\content\AutoSearch' ],
+			'auto-search' => [ 'class' => 'cmsgears\core\common\actions\content\ObjectSearch', 'backend' => true ],
 			// Avatar
 			'assign-avatar' => [ 'class' => 'cmsgears\core\common\actions\content\avatar\Assign' ],
 			'clear-avatar' => [ 'class' => 'cmsgears\core\common\actions\content\avatar\Clear' ],
 			// Banner
 			'assign-banner' => [ 'class' => 'cmsgears\core\common\actions\content\banner\Assign' ],
 			'clear-banner' => [ 'class' => 'cmsgears\core\common\actions\content\banner\Clear' ],
+			// Mobile Banner
+			'assign-mbanner' => [ 'class' => 'cmsgears\core\common\actions\content\mbanner\Assign' ],
+			'clear-mbanner' => [ 'class' => 'cmsgears\core\common\actions\content\mbanner\Clear' ],
 			// Video
 			'assign-video' => [ 'class' => 'cmsgears\core\common\actions\content\video\Assign' ],
 			'clear-video' => [ 'class' => 'cmsgears\core\common\actions\content\video\Clear' ],
